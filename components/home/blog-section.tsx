@@ -1,6 +1,5 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
 import Link from "next/link"
 import { ArrowRight, Clock, BookOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -8,49 +7,67 @@ import { blogPosts } from "@/lib/blog-data"
 import { motion } from "framer-motion"
 
 export function BlogSection() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false)
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (video) {
-      video.play().catch(() => {
-        // Autoplay blocked, that's okay
-      })
-    }
-  }, [])
-
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Video Background */}
+      {/* Animated Gradient Background */}
       <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          onLoadedData={() => setIsVideoLoaded(true)}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-            isVideoLoaded ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <source
-            src="https://pub-7824dae2ffd24193b52760c54972be1d.r2.dev/beehiveyellowofficialbanner.mp4"
-            type="video/mp4"
-          />
-        </video>
-        {/* Fallback gradient while video loads */}
-        <div
-          className={`absolute inset-0 bg-gradient-to-br from-yellow-900/90 via-black to-black transition-opacity duration-1000 ${
-            isVideoLoaded ? "opacity-0" : "opacity-100"
-          }`}
+        {/* Base gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black" />
+
+        {/* Animated glowing orbs */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-yellow-500/10 blur-[120px]"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+            x: [0, 50, 0],
+            y: [0, -30, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         />
-        {/* Subtle overlay for readability - reduced opacity to show video */}
-        <div className="absolute inset-0 bg-black/35" />
-        {/* Gradient overlay for smooth blending */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/80" />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-amber-600/10 blur-[100px]"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.2, 0.4, 0.2],
+            x: [0, -40, 0],
+            y: [0, 40, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 right-1/3 w-64 h-64 rounded-full bg-yellow-400/8 blur-[80px]"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.15, 0.3, 0.15],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+        />
+
+        {/* Subtle grid pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(234, 179, 8, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(234, 179, 8, 0.3) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px',
+          }}
+        />
+
+        {/* Gradient overlay for smooth blending with page */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-transparent to-background/90" />
       </div>
 
       {/* Content */}
@@ -64,13 +81,13 @@ export function BlogSection() {
           className="text-center mb-12"
         >
           <span className="text-primary font-semibold text-sm tracking-wider uppercase">
-            Blog / Resources
+            Resources
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">
-            Expert Tips & Equipment Guides
+            Equipment Guides & Advice
           </h2>
           <p className="text-white/70 mt-3 max-w-2xl mx-auto">
-            30 years of equipment rental knowledge, shared with you. From beginner guides to detailed specs.
+            Practical knowledge from 30 years in the rental business. No fluff—just what actually works.
           </p>
         </motion.div>
 

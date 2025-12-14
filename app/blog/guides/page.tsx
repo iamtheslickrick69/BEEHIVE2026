@@ -3,11 +3,10 @@
 import { useState, useEffect, Suspense } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import Link from "next/link"
-import { ArrowLeft, Clock, Calendar } from "lucide-react"
+import { ArrowLeft, Clock, Calendar, AlertTriangle, Lightbulb, CheckCircle2, Info } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { blogPosts } from "@/lib/blog-data"
 import { blogContent } from "@/lib/blog-content"
-import { ArticleSidebar } from "@/components/blog/article-sidebar"
 import { motion, AnimatePresence } from "framer-motion"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
@@ -19,23 +18,89 @@ const articles = [
   { id: "complete-equipment-catalog", label: "Equipment Catalog" },
 ]
 
-const relatedEquipment = [
-  {
-    name: "Bobcat S450 Skid Steer",
-    image: "/bobcat-skid-steer-loader-yellow-construction.jpg",
-    href: "/inventory?category=skid-steers",
-  },
-  {
-    name: "Bobcat E35 Excavator",
-    image: "/mini-excavator-compact-construction-equipment.jpg",
-    href: "/inventory?category=mini-excavators",
-  },
-  {
-    name: "Concrete Equipment",
-    image: "/concrete-mixer-buggy-power-trowel-construction.jpg",
-    href: "/inventory?category=concrete",
-  },
-]
+// Custom callout component
+function Callout({ type, children }: { type: string; children: React.ReactNode }) {
+  const styles = {
+    tip: {
+      bg: "bg-yellow-500/10",
+      border: "border-yellow-500/30",
+      icon: <Lightbulb className="w-5 h-5 text-yellow-500" />,
+      title: "Pro Tip"
+    },
+    warning: {
+      bg: "bg-red-500/10",
+      border: "border-red-500/30",
+      icon: <AlertTriangle className="w-5 h-5 text-red-500" />,
+      title: "Watch Out"
+    },
+    info: {
+      bg: "bg-blue-500/10",
+      border: "border-blue-500/30",
+      icon: <Info className="w-5 h-5 text-blue-500" />,
+      title: "Good to Know"
+    },
+    success: {
+      bg: "bg-green-500/10",
+      border: "border-green-500/30",
+      icon: <CheckCircle2 className="w-5 h-5 text-green-500" />,
+      title: "Key Point"
+    }
+  }
+
+  const style = styles[type as keyof typeof styles] || styles.info
+
+  return (
+    <div className={`${style.bg} ${style.border} border rounded-xl p-5 my-8`}>
+      <div className="flex items-center gap-2 mb-2">
+        {style.icon}
+        <span className="font-semibold text-foreground text-sm uppercase tracking-wide">{style.title}</span>
+      </div>
+      <div className="text-muted-foreground leading-relaxed">{children}</div>
+    </div>
+  )
+}
+
+// Custom testimonial component
+function Testimonial({ quote, author, company }: { quote: string; author: string; company?: string }) {
+  return (
+    <div className="relative my-12 py-8 px-8 bg-gradient-to-br from-primary/5 via-primary/10 to-transparent rounded-2xl border border-primary/20">
+      <div className="absolute -top-4 left-8 text-6xl text-primary/30 font-serif">"</div>
+      <p className="text-lg md:text-xl text-foreground leading-relaxed italic mb-4 relative z-10">
+        {quote}
+      </p>
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+          <span className="text-primary font-bold">{author.charAt(0)}</span>
+        </div>
+        <div>
+          <p className="font-semibold text-foreground">{author}</p>
+          {company && <p className="text-sm text-muted-foreground">{company}</p>}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// Equipment card for catalog
+function EquipmentCard({ name, specs, bestFor }: { name: string; specs: Record<string, string>; bestFor: string }) {
+  return (
+    <div className="bg-card border border-border rounded-xl p-6 my-4 hover:border-primary/50 transition-colors">
+      <h4 className="text-lg font-bold text-foreground mb-4">{name}</h4>
+      <div className="grid grid-cols-2 gap-3 mb-4">
+        {Object.entries(specs).map(([key, value]) => (
+          <div key={key} className="flex flex-col">
+            <span className="text-xs text-muted-foreground uppercase tracking-wide">{key}</span>
+            <span className="text-sm text-foreground font-medium">{value}</span>
+          </div>
+        ))}
+      </div>
+      <div className="pt-4 border-t border-border">
+        <span className="text-xs text-primary uppercase tracking-wide font-semibold">Best For</span>
+        <p className="text-sm text-muted-foreground mt-1">{bestFor}</p>
+      </div>
+    </div>
+  )
+}
 
 function GuidesPageContent() {
   const searchParams = useSearchParams()
@@ -93,7 +158,7 @@ function GuidesPageContent() {
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 py-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeArticle}
@@ -103,15 +168,15 @@ function GuidesPageContent() {
             transition={{ duration: 0.3 }}
           >
             {/* Article Header */}
-            <div className="mb-8">
-              <span className="inline-block bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded mb-4">
+            <div className="max-w-3xl mx-auto mb-12">
+              <span className="inline-block bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded mb-6">
                 {currentPost.category}
               </span>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
                 {currentPost.title}
               </h1>
-              <p className="text-lg text-muted-foreground mb-4">{currentPost.excerpt}</p>
-              <div className="flex items-center gap-6 text-sm text-muted-foreground">
+              <p className="text-xl text-muted-foreground mb-6 leading-relaxed">{currentPost.excerpt}</p>
+              <div className="flex items-center gap-6 text-sm text-muted-foreground pb-8 border-b border-border">
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4" />
                   {currentPost.readTime}
@@ -127,31 +192,29 @@ function GuidesPageContent() {
               </div>
             </div>
 
-            {/* Article Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8">
-              {/* Main Article */}
+            {/* Article Content */}
+            <div className="max-w-3xl mx-auto">
               <article
                 className="prose prose-invert prose-yellow max-w-none
+                  [&>*]:mb-6
                   prose-headings:scroll-mt-24
-                  prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-4 prose-h2:text-foreground prose-h2:border-l-4 prose-h2:border-primary prose-h2:pl-4
-                  prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-foreground
-                  prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:my-4
+                  prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-16 prose-h2:mb-6 prose-h2:text-foreground prose-h2:border-l-4 prose-h2:border-primary prose-h2:pl-5 prose-h2:py-2
+                  prose-h3:text-lg prose-h3:font-semibold prose-h3:mt-10 prose-h3:mb-4 prose-h3:text-foreground prose-h3:text-primary
+                  prose-p:text-muted-foreground prose-p:leading-[1.8] prose-p:text-base prose-p:my-5
                   prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:font-medium
                   prose-strong:text-foreground prose-strong:font-semibold
-                  prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:my-6
-                  prose-blockquote:text-foreground
-                  prose-code:text-primary prose-code:bg-primary/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono
-                  prose-pre:bg-muted prose-pre:border prose-pre:border-border
-                  prose-ul:my-6 prose-ul:text-muted-foreground
-                  prose-ol:my-6 prose-ol:text-muted-foreground
-                  prose-li:my-2 prose-li:text-muted-foreground
-                  prose-table:w-full prose-table:my-8 prose-table:border-collapse
-                  prose-thead:bg-muted
-                  prose-th:text-left prose-th:font-semibold prose-th:text-foreground prose-th:p-4 prose-th:border prose-th:border-border
-                  prose-td:p-4 prose-td:border prose-td:border-border prose-td:text-muted-foreground
+                  prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-gradient-to-r prose-blockquote:from-primary/10 prose-blockquote:to-transparent prose-blockquote:py-6 prose-blockquote:px-8 prose-blockquote:rounded-r-xl prose-blockquote:not-italic prose-blockquote:my-10 prose-blockquote:text-foreground prose-blockquote:text-lg
+                  prose-code:text-primary prose-code:bg-primary/10 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:font-mono
+                  prose-pre:bg-muted prose-pre:border prose-pre:border-border prose-pre:rounded-xl
+                  prose-ul:my-6 prose-ul:text-muted-foreground prose-ul:space-y-3
+                  prose-ol:my-6 prose-ol:text-muted-foreground prose-ol:space-y-3
+                  prose-li:text-muted-foreground prose-li:leading-relaxed
+                  prose-table:w-full prose-table:my-10 prose-table:border-collapse prose-table:rounded-xl prose-table:overflow-hidden
+                  prose-thead:bg-primary/10
+                  prose-th:text-left prose-th:font-semibold prose-th:text-foreground prose-th:p-4 prose-th:border-b prose-th:border-border
+                  prose-td:p-4 prose-td:border-b prose-td:border-border/50 prose-td:text-muted-foreground
                   prose-tr:transition-colors hover:prose-tr:bg-primary/5
-                  prose-hr:border-border prose-hr:my-12
-                  prose-img:rounded-lg prose-img:shadow-lg"
+                  prose-hr:border-border prose-hr:my-16"
               >
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
@@ -174,33 +237,77 @@ function GuidesPageContent() {
                         </h3>
                       )
                     },
+                    // Custom blockquote styling for testimonials
+                    blockquote: ({ children }) => {
+                      return (
+                        <blockquote className="relative my-12 py-8 px-8 bg-gradient-to-br from-primary/5 via-primary/10 to-transparent rounded-2xl border border-primary/20 not-italic">
+                          <div className="absolute -top-4 left-8 text-6xl text-primary/30 font-serif">"</div>
+                          <div className="relative z-10 text-lg text-foreground leading-relaxed">
+                            {children}
+                          </div>
+                        </blockquote>
+                      )
+                    },
+                    // Better table styling
+                    table: ({ children }) => (
+                      <div className="my-10 rounded-xl border border-border overflow-hidden">
+                        <table className="w-full">{children}</table>
+                      </div>
+                    ),
+                    thead: ({ children }) => (
+                      <thead className="bg-primary/10">{children}</thead>
+                    ),
+                    th: ({ children }) => (
+                      <th className="text-left font-semibold text-foreground p-4 border-b border-border">{children}</th>
+                    ),
+                    td: ({ children }) => (
+                      <td className="p-4 border-b border-border/50 text-muted-foreground">{children}</td>
+                    ),
+                    tr: ({ children }) => (
+                      <tr className="transition-colors hover:bg-primary/5">{children}</tr>
+                    ),
+                    // Style horizontal rules as section breaks
+                    hr: () => (
+                      <div className="my-16 flex items-center justify-center gap-4">
+                        <div className="h-px bg-border flex-1" />
+                        <div className="w-2 h-2 rounded-full bg-primary/50" />
+                        <div className="h-px bg-border flex-1" />
+                      </div>
+                    ),
+                    // Make lists look better
+                    ul: ({ children }) => (
+                      <ul className="my-6 space-y-3 list-none pl-0">
+                        {children}
+                      </ul>
+                    ),
+                    li: ({ children }) => (
+                      <li className="flex gap-3 text-muted-foreground leading-relaxed">
+                        <span className="text-primary mt-1.5">•</span>
+                        <span>{children}</span>
+                      </li>
+                    ),
                   }}
                 >
                   {currentContent}
                 </ReactMarkdown>
               </article>
-
-              {/* Sidebar */}
-              <aside className="hidden lg:block">
-                <ArticleSidebar content={currentContent} relatedEquipment={relatedEquipment} />
-              </aside>
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
 
       {/* CTA */}
-      <div className="bg-primary/10 border-t border-primary/20 py-12 mt-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-foreground mb-3">Ready to Start Your Project?</h2>
-          <p className="text-muted-foreground mb-6">
+      <div className="bg-gradient-to-b from-primary/10 to-primary/5 border-t border-primary/20 py-16 mt-16">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to Start Your Project?</h2>
+          <p className="text-muted-foreground mb-8 text-lg">
             BeeHive Rental has the equipment you need. Stop by or give us a call.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="text-base px-8">
               <Link href="/inventory">Browse Equipment</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="text-base px-8">
               <a href="tel:+14356286663">Call 435-628-6663</a>
             </Button>
           </div>

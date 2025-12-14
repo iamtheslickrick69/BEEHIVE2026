@@ -1,898 +1,406 @@
 export const blogContent: Record<string, string> = {
   "equipment-rentals-southern-utah-guide": `
+When Mike Torres started his landscaping business in St. George three years ago, he made a rookie mistake. He bought a skid steer.
 
-## Why Southern Utah Contractors and Homeowners Choose BeeHive
+"I financed $45,000 for a machine I use maybe 200 hours a year," he told us recently. "Do the math on that. I'm paying for a machine that sits in my yard eleven months out of twelve."
 
-When you need equipment in St. George, Washington, Hurricane, or anywhere in Southern Utah, you have options. But BeeHive Rental & Sales has been the go-to choice since 1994 for a reason.
+That's the thing about equipment ownership that nobody tells you upfront—the true cost isn't the sticker price. It's the maintenance, the storage, the insurance, the depreciation, and the opportunity cost of tying up capital in steel instead of growing your business.
 
-> *"Best customer service and only place in town that has all equipment available. Always has everything we ask for. We rent and we buy from beehive. I'd give 100 stars if Google would let me."*
->
-> — **Abel Alvallar, Gardesign Landscaping**
-
----
-
-## What Sets BeeHive Apart
-
-### Local Ownership, Local Knowledge
-
-BeeHive isn't a national chain reading from a script. The team knows Southern Utah—the rocky terrain, the heat, the specific challenges contractors face here.
-
-When you describe your project, they'll recommend equipment that actually works for local conditions.
-
-### The Largest Selection in the Region
-
-From Bobcat skid steers to Husqvarna concrete saws, from dump trailers to air compressors—if you need it, BeeHive probably has it.
-
-That means **one stop, one relationship, one phone number to call.**
-
-### On-Site Mechanics
-
-Equipment breaks. It happens. BeeHive has mechanics on-site who service what they rent.
-
-No waiting for a tech to drive in from Las Vegas or Salt Lake. This translates to **less downtime for you.**
+This guide isn't a sales pitch. It's 30 years of watching contractors and homeowners in Southern Utah figure out what works—and what doesn't.
 
 ---
 
-## Equipment Categories: What's Available
+## The Real Math on Owning vs. Renting
 
-BeeHive's inventory covers virtually every construction, landscaping, and home improvement need. Here's a breakdown of major categories:
+Let's be honest about the numbers.
 
-### Earthmoving & Excavation
+A new Bobcat S450 skid steer runs around $45,000. Add $2,000 per year in maintenance, $1,500 per year in insurance, and you're looking at roughly $12,000 per year in total ownership costs when you factor in depreciation. If you're using that machine 80 hours per year, that's about $150 per hour of actual use.
 
-| Equipment Type | Models Available | Best For |
-|----------------|------------------|----------|
-| **Skid Steers** | Bobcat S450, S250, S62, S64 | Material handling, grading, demolition |
-| **Track Loaders** | Bobcat T450, T550, T62, T64 | Soft ground, slopes, landscaping |
-| **Mini Skid Steers** | Ditch Witch SK800/SK900, Toro TX1000 | Tight spaces, backyards, utilities |
-| **Mini Excavators** | Bobcat E10, E20, E26, E35, E42, E50, E88, Cat 308 | Trenching, digging, demolition |
+Renting the same machine costs $250-300 per day. Need it 20 days this year? You're spending $5,000-6,000 total—half the ownership cost—with zero maintenance headaches and no machine depreciating in your yard.
 
-### Concrete Equipment
-
-| Equipment Type | Models Available | Best For |
-|----------------|------------------|----------|
-| **Mixers** | Multiquip MC94S, Whiteman WM90PLF | On-site mixing |
-| **Buggies** | Whiteman WBH-16F, Ultra Buggy 2500-TS | Material transport |
-| **Power Trowels** | 36" and 48" Multiquip | Finishing slabs |
-| **Concrete Saws** | Husqvarna K 770, K 4000, Soff-Cut 150 | Cutting joints, openings |
-| **Grinders** | EDCO Dual-Disc, Single-Disc | Surface prep, coating removal |
-
-### Additional Equipment
-
-**Compaction:** Jumping Jacks (MultiQuip MTX60HD, MTX70HD), Trench Compactor (Rammax RX1575), Vibratory Roller (AR14H)
-
-**Air Tools:** Tow-Behind Compressors (AIRMAN 185, Sullair 375), Portable Compressors, Jack Hammers (60 lb and 90 lb), Nail Guns
-
-**Generators & Welders:** Portable Generators (2.5 kW to 9.7 kW), Towable Generator (25 kW, 3-phase), Welders (Miller 250 Amp and 400 Amp)
-
-**Landscaping:** Tillers (Front-tine and rear-tine), Lawn Care (Aerators, dethatchers, sod cutters), Cleanup (Leaf blowers, trimmers)
-
-**Floor & Carpet:** Sanders, Tile Equipment, Floor Buffers, Carpet Tools
-
-**Trailers:** Dump Trailers (7K, 10K, 14K), Flatbeds, Specialty Trailers
+The breakeven point sits somewhere around 100-150 days of use per year. Below that threshold, renting almost always makes more financial sense.
 
 ---
 
-## How Rental Pricing Works
+## The Three Traps That Catch First-Time Renters
 
-Understanding BeeHive's pricing structure helps you budget accurately and avoid surprises.
+**The Meter vs. Clock Trap.** When you rent a machine, you're charged for two things: clock time (how long the equipment is out) and meter time (actual operating hours). A day rental typically includes 8 meter hours. Pick up an excavator Monday morning, return it Tuesday morning—that's one day of clock time. But if you ran it for 10 hours, you exceeded the meter limit and you'll pay overage. Always ask about meter limits upfront and track your hours.
 
-### Rental Periods
+**The Fuel Trap.** Return the machine with a full tank. Always. No exceptions. We charge $7 per gallon to refuel equipment that comes back empty. That's not a profit center—it's intentionally high to encourage full returns. A couple gallons might seem like no big deal until you see the receipt.
 
-| Period | Duration | Meter Limit |
-|--------|----------|-------------|
-| **Half-Day** | 4 hours | Varies by equipment |
-| **Full-Day** | 24 hours | 8 hours of use |
-| **Weekend** | Saturday pickup, Monday return before 8 AM | 8 hours |
-| **Weekly** | 7 days | 40 hours |
-| **Monthly** | 28 days | 160 hours |
-
-### The Meter vs. Clock Distinction
-
-**This trips up first-timers:** you're charged for both clock time AND meter time.
-
-- **Clock time** = how long the equipment is out (from pickup to return)
-- **Meter time** = actual operating hours
-
-If you rent for 24 hours (clock) but run the equipment for 10 hours (meter), you'll pay for additional meter time beyond the 8-hour daily limit.
-
-### Fuel Policy
-
-Return equipment with a **full tank of fuel**. If you don't, BeeHive charges **$7 per gallon** to refuel.
-
-This is higher than pump prices—it's meant to encourage full returns, not to profit from fuel.
-
-### Deposit Options
-
-| Method | How It Works |
-|--------|--------------|
-| **Open Check** | Left as security; only cashed if there's damage or non-return |
-| **Credit Card Hold** | Temporary authorization; released upon return |
-| **Cash** | 2.5x the rental amount; refunded on return |
+**The Cleaning Trap.** "Reasonably clean" doesn't mean spotless. It means no caked-on mud or debris. A quick hose-down takes ten minutes and saves you a cleaning fee that nobody wants to pay.
 
 ---
 
-## Delivery and Service Area
+## Matching Equipment to Your Project
 
-BeeHive delivers across Southern Utah:
+After three decades of "I think I need a..." conversations, we've learned that most people overthink this.
 
-**St. George • Washington • Hurricane • Ivins • Santa Clara • Surrounding areas**
+**Moving dirt, gravel, or mulch?** You probably need a skid steer. The S450 handles 90% of residential and light commercial work. Moving material across soft ground or slopes? Consider a track loader instead—the flotation makes a real difference on Southern Utah terrain.
 
-Delivery rates vary by distance and equipment size. Call for a quote: **435-628-6663**
+**Digging trenches or holes?** Mini excavators answer 95% of these questions. The E35 is our most popular because it balances size, power, and maneuverability perfectly. Zero tail swing means you can rotate fully without hitting fences or buildings—essential for residential work.
 
----
+**Concrete work?** This is where specifics matter. Mixing on-site, transporting across a jobsite, finishing a slab, cutting joints—each phase has specific equipment. Call us and describe exactly what you're doing. We'll match you to the right tools.
 
-## Pro Tips from BeeHive's Team
-
-After 30 years, BeeHive's staff has seen every mistake and learned what works. Here's their advice:
-
-### Before You Rent
-
-**1. Measure your access points.** Gates, doorways, driveways—know the dimensions before you reserve equipment.
-
-**2. Describe your project in detail.** "I need a skid steer" is less helpful than "I need to move 20 yards of gravel in a backyard with a 36-inch gate."
-
-**3. Ask about attachments.** The base machine is only part of the equation. Buckets, forks, augers—these can make or break your productivity.
-
-### During Your Rental
-
-**1. Check fluids on multi-day rentals.** Oil, hydraulic fluid, coolant—a quick check prevents major problems.
-
-**2. Don't push beyond your skill level.** If you're new to an excavator, work slowly. Damage from inexperience is still damage.
-
-**3. Call if something seems wrong.** Strange noises, warning lights, performance issues—call BeeHive immediately. Early calls prevent bigger problems.
-
-### At Return
-
-**1. Refuel first.** Every time. No exceptions.
-
-**2. Clean off excessive dirt.** You don't need to detail it, but caked-on mud creates cleaning charges.
-
-**3. Return on time.** The rental period runs until an employee checks the equipment back in—not when you drop it off.
+**Landscaping prep?** Tillers, aerators, dethatchers—these are straightforward. The main question is usually front-tine vs. rear-tine (rear-tine for hard, compacted soil) and how big an area you're covering.
 
 ---
 
-## Frequently Asked Questions
+## What Southern Utah Does to Equipment
 
-### What if I need equipment after hours or on Sunday?
+Equipment that works great in mild climates can struggle here. Our soil is rocky and compact. Summer temperatures hit 110°. The terrain ranges from sandy washes to red rock.
 
-BeeHive is closed Sundays, but you can pick up Saturday and return Monday (weekend rate). For after-hours needs, call ahead to arrange.
+Track loaders consistently outperform wheeled skid steers on our terrain—the flotation on loose soil and gravel makes a measurable difference in productivity.
 
-### Can I extend my rental if the job runs long?
+Dust protection matters more than people realize. Check air filters on multi-day rentals. Our fine red dust infiltrates everything.
 
-Yes—call before your rental period ends. Extending is simple; just keeping equipment without calling creates billing complications.
-
-### What happens if something breaks?
-
-If it's a defect or mechanical failure (not caused by misuse), call BeeHive immediately. They have on-site mechanics and can often resolve issues quickly.
-
-If damage is due to misuse, you're responsible—that's what the deposit covers.
-
-### Do I need insurance?
-
-Your homeowner's or contractor's insurance may cover rental equipment. Check with your provider. BeeHive can discuss coverage options.
-
-### Can I rent if I've never used this equipment before?
-
-Absolutely. Many of BeeHive's customers are first-timers. Staff will walk you through operation before you leave.
+Hydraulic systems run hot in our summers. Don't push equipment hard during mid-afternoon in July and August. Give machines periodic breaks, especially when working hard.
 
 ---
 
-## Contact BeeHive Rental & Sales
+## When to Call vs. When to Just Show Up
 
-**Address:** 1175 Highland Drive, St. George, UT 84770
+**Call ahead if** you need something specific and want to confirm availability, you're unsure what equipment fits your project, you need delivery, or you're a first-time renter with questions.
 
-**Phone:** 435-628-6663
+**Just show up if** you know exactly what you need, you're picking up something common like a trailer, generator, or hand tools, or you're returning equipment.
 
-**Email:** beehiverental@infowest.com
-
-**Hours:**
-- Monday–Friday: 7:00 AM – 5:00 PM
-- Saturday: 8:00 AM – 12:00 PM
-- Sunday: Closed
-
-> *"Beehive is your one stop shop for all things equipment rentals. The staff is friendly and they have the most up to date equipment with the best prices in town!"*
->
-> — **Taylor Frazier, Turf It Landscaping**
+We're at 1175 Highland Drive in St. George. Open Monday through Friday 7 AM to 5 PM, Saturday 8 AM to noon.
 
 ---
 
-*BeeHive Rental & Sales LLC — Southern Utah's equipment rental source since 1994.*
+## The Bottom Line
+
+Equipment rental isn't complicated. The confusion comes from not knowing what questions to ask.
+
+Here's our promise: call us, describe your project, and we'll tell you exactly what you need—not the most expensive option, not the newest model, but the right tool for what you're actually trying to accomplish.
+
+> We've been doing this since 1994. That's 30 years of helping Southern Utah get the job done.
+
+**BeeHive Rental & Sales**
+1175 Highland Drive, St. George, UT 84770
+435-628-6663
+beehiverental@infowest.com
   `,
 
   "what-equipment-do-you-need": `
+Last month, a homeowner came in asking for "the biggest excavator you have" to dig a trench for a sprinkler line.
 
-## Stop Guessing. Rent the Right Equipment the First Time.
+We rented him a mini excavator instead. One-third the cost, fit through his backyard gate, finished the job in two hours.
 
-Every project has an ideal equipment match. Rent too small and you waste time. Rent too big and you waste money.
+That conversation happens almost daily. People assume bigger is better, or they've seen a YouTube video featuring a specific machine, or they just don't know what options exist.
 
-At BeeHive Rental & Sales, we've spent 30 years helping Southern Utah contractors and homeowners choose exactly what they need.
-
-This guide breaks down common projects and tells you precisely which equipment to rent—including model names, specs, and why each machine fits the job.
-
-> *"They are wonderful people to work with, and they have about everything to rent. We always go with them."*
->
-> — **Rudy Ventura, RG Quality Concrete**
+This guide matches projects to equipment. No fluff, no upselling—just practical answers to "what do I actually need?"
 
 ---
 
-## Landscaping & Lawn Renovation Projects
+## Landscaping and Lawn Projects
 
-Southern Utah's dry, compacted soil makes lawn work harder than it looks. Here's what you need:
+**Aeration and dethatching** require walk-behind equipment that's simple and effective. An aerator punches holes so air, water, and nutrients reach roots. A power rake removes thatch buildup. Both can be done in an afternoon. Best timing in Southern Utah is early spring or fall when the soil isn't baked solid.
 
-### Lawn Aeration & Dethatching
+**Soil prep for new sod or seeding** depends on what you're starting with. Rear-tine rototiller for hard-packed soil, front-tine for beds that are already reasonably loose. If you're removing existing grass first, grab a sod cutter—trying to till through established turf is miserable work.
 
-| Equipment | What It Does |
-|-----------|--------------|
-| **Aerator** | Punches holes into soil so air, water, and nutrients reach roots |
-| **Dethatcher / Power Rake** | Removes dead grass and debris buildup (thatch) |
-| **Sod Roller** | Flattens and compacts soil after seeding or new sod |
-
-**💡 Pro Tip:** In Southern Utah, aerate in early spring or fall when soil isn't rock-hard from summer heat.
-
-### Soil Preparation & Tilling
-
-| Equipment | Best For |
-|-----------|----------|
-| **Front-Tine Rototiller** | Small gardens, already-loosened soil |
-| **Rear-Tine Rototiller** | Breaking new ground, hard-packed desert soil |
-| **Sod Cutter** | Removing existing grass before new landscaping |
-
-### Material Moving & Cleanup
-
-| Equipment | Capacity/Feature | Best For |
-|-----------|------------------|----------|
-| **Bobcat S450 Skid Steer** | 1,370 lb lift, 49 hp | Moving soil, mulch, gravel in tight spaces |
-| **Bobcat T550 Track Loader** | 56" width | Grading, sod removal, tree planting |
-| **7K Dump Trailer** | 7,000 lb GVWR | Hauling debris, soil, rock |
+**Moving materials** is where skid steers earn their reputation. But here's an honest assessment most rental yards won't give you: for jobs under 5 yards of material, a wheelbarrow might actually be faster by the time you factor in pickup, operation learning curve, and return. For 5-20 yards, the Bobcat S450 is the workhorse of residential landscaping. Tight access through a 36-inch gate? Mini skid steer. Soft ground or slopes where you don't want wheel marks? Track loader.
 
 ---
 
-## Trenching & Utility Projects
+## Trenching and Utility Work
 
-Installing irrigation, electrical, or plumbing lines? Here's your equipment lineup:
+**Shallow trenches under 24 inches** for irrigation or low-voltage electrical—a walk-behind trencher handles these efficiently. Faster than you'd expect and dramatically easier than digging by hand.
 
-### Mini Excavators for Trenching
+**Medium depth trenches from 2-4 feet** put you in mini excavator territory. The Bobcat E20 or E26 hits the sweet spot—enough reach for utility work without being overkill. Critical detail: zero tail swing models let you rotate fully without swinging into fences or buildings. Essential for residential work near property lines.
 
-| Model | Dig Depth | Key Feature | Best For |
-|-------|-----------|-------------|----------|
-| **Bobcat E10** | Compact | Retractable undercarriage | Backyards, ultra-tight spaces |
-| **Bobcat E20** | 8.5 ft | Zero tail swing | Residential irrigation, near fences |
-| **Bobcat E26** | R-Series | Blade float function | Utilities, backfilling, grading |
-| **Bobcat E35** | Best-seller | Zero tail swing, low-effort joysticks | All-purpose trenching |
+**Deeper than 4 feet** and you're getting into larger equipment and probably permit territory. Call us to discuss specifics before you commit to anything.
 
-**⭐ Key Takeaway:** Zero tail swing excavators (E20, E26, E35) let you rotate fully without hitting buildings or fences. Essential for residential work.
-
-### Trenching Support Equipment
-
-| Equipment | Purpose |
-|-----------|---------|
-| **Trencher** | Cuts narrow trenches for pipes and cables |
-| **MultiQuip MTX60HD Jumping Jack** | Compacts backfill in confined trenches (3,060 lb force) |
-| **MultiQuip MTX70HD Jumping Jack** | Heavier compaction for deeper trenches (3,350 lb force) |
-| **Rammax RX1575 Trench Compactor** | Articulating roller with remote—ideal for long utility runs |
+**After trenching**, don't skip compaction. A jumping jack compacts backfill in confined trenches. Skip this step and you'll have settling issues that show up months later as sunken lines in your yard or driveway.
 
 ---
 
 ## Concrete Projects
 
-From pouring a patio to cutting expansion joints, BeeHive has every phase covered:
+**Mixing on-site** works for small pours. The Multiquip mixer handles up to 9 cubic feet per batch—fine for a small patio, slow for anything substantial.
 
-### Mixing & Pouring
+**Moving concrete across a jobsite** requires a concrete buggy. The Whiteman carries 16 cubic feet and navigates rough terrain without spilling your pour.
 
-| Equipment | Specs | Best For |
-|-----------|-------|----------|
-| **Multiquip MC94S Mixer** | 9 cu. ft., gas or electric | Mixing concrete on-site |
-| **Multiquip Whiteman WM90PLF** | 9 cu. ft., polyethylene drum | Mortar mixing, easy cleanup |
-| **Whiteman WBH-16F Buggy** | 16 cu. ft., Honda GX390 | Hauling concrete across job sites |
-| **Ultra Buggy 2500-TS** | 2,500 lb, tracked, 180° swivel dump | Rough terrain, precision placement |
+**Finishing** depends on scale. Power trowel at 36 inches for patios and residential slabs, 48-inch for larger commercial pours. Don't forget a concrete vibrator for removing air pockets—it's the difference between strong concrete and concrete that cracks.
 
-### Finishing
-
-| Equipment | Specs | Best For |
-|-----------|-------|----------|
-| **Multiquip 36" Power Trowel** | 4.8 hp Honda, QuickPitch handle | Mid-sized slabs, patios |
-| **Multiquip 48" Power Trowel** | 13 hp Honda, variable speed | Large pours, commercial floors |
-| **Concrete Vibrator** | — | Removing air pockets for stronger concrete |
-| **Bull Floats, Fresnos, Trowels** | Hand tools | Edge work, detail finishing |
-
-### Cutting & Sawing
-
-| Equipment | Cut Depth | Best For |
-|-----------|-----------|----------|
-| **Husqvarna K 770** | 5" depth, 14" blade | Road work, masonry cutting |
-| **Husqvarna K 4000** | 16" from one side | Flush cuts, openings, indoor work |
-| **CX-3 Walk-Behind Saw** | 14" blade | Small to mid-size jobs, wet or dry |
-| **Husqvarna Soff-Cut 150** | 6" blade | Early entry control joints |
+**Cutting control joints** requires precision timing. The Husqvarna Soff-Cut handles early-entry cuts. Cut too early and you tear the concrete; too late and you get random cracking instead of controlled joints.
 
 ---
 
-## Flooring & Tile Projects
+## Demolition and Debris
 
-### Floor Sanding & Refinishing
+**Breaking concrete** scales with thickness. Sidewalks and small slabs take a 60-pound air jack hammer—manageable size, gets the job done. Driveways, foundations, and thick slabs require the 90-pound hammer. More impact force, more vibration, more tiring. Plan for breaks.
 
-| Equipment | Specs | Best For |
-|-----------|-------|----------|
-| **American Sanders OBS-18DC Orbital Sander** | 12" x 18", dust control, 3,600 OPM | Removing scratches, refinishing wood floors |
-| **DEWALT Corded Hand Sander** | 5", 12,000 OPM | Detail sanding, edges, corners |
+For tile and flooring removal indoors, the Makinex jackhammer trolley is a game-changer. Takes a 35-pound hammer and puts it on wheels at an ergonomic height. Your back will thank you.
 
-**Sanding Paper Available:** 20 grit (heavy removal) through 150 grit (fine finishing)
-
-### Tile Removal & Installation
-
-| Equipment | Specs | Best For |
-|-----------|-------|----------|
-| **Makinex Jackhammer Trolley** | 35 lb hammer on adjustable cart | Fast tile, vinyl, cork removal |
-| **Bosch 20 lb Roto Hammer** | 6.1 ft-lb impact, SDS-Max | Heavy-duty demolition, tile beds |
-| **MK-101 Pro24 Tile Saw** | 10" blade, 24" rip capacity | Large-format tiles |
-| **MK-212-4 Tile & Stone Saw** | 2 hp, miter system | Jobsite cutting, angled cuts |
-
-### Floor Buffing & Stripping
-
-**Clarke CFP Pro Floor Buffer (20" Head):** 1.5 hp motor, multiple pad options
-
-**Buffer Pads:** White (polish), Red (buff), Green (scrub), Black (strip)
+**Hauling debris** requires matching trailer capacity to volume. 7K dump trailer for residential debris and yard waste. 10K for larger renovation projects. 14K for commercial demo and heavy materials. Note that 10K and larger require at least a 3/4-ton truck.
 
 ---
 
-## Demolition & Debris Removal
+## Flooring Work
 
-### Breaking & Demolition
+**Hardwood refinishing** starts with an orbital sander for the main floor area—the American Sanders model has dust control that keeps your workspace breathable. You'll also need a hand sander for edges and corners; orbitals don't reach walls. Grit progression matters: start at 36-40 for heavy removal, work through 60, 80, 100, finishing around 120-150.
 
-| Equipment | Best For |
-|-----------|----------|
-| **90 lb Air Jack Hammer** | Concrete slabs, foundations |
-| **60 lb Air Jack Hammer** | Sidewalks, smaller pours |
-| **20 lb Chipping Hammer** | Detail demolition, overhead work |
+**Tile removal** at scale uses the Makinex trolley with a chisel attachment. Smaller areas or detail work use a Bosch roto hammer—more control but slower going.
 
-### Hauling & Cleanup
-
-| Equipment | Capacity | Best For |
-|-----------|----------|----------|
-| **7K Dump Trailer** | 7,000 lb GVWR | Residential debris removal |
-| **10K Dump Trailer** | 10,000 lb GVWR | Contractor-level hauling |
-| **14K Dump Trailer** | 14,000 lb GVWR | Heavy commercial debris |
-| **Bobcat S250 Skid Steer** | 2,500 lb lift, 75 hp | Loading debris into trailers |
+**Tile installation cuts** on the MK-101 Pro24 saw handle up to 24-inch rip cuts, covering most large-format tiles.
 
 ---
 
-## Not Sure What You Need?
+## Still Not Sure?
 
-BeeHive's staff has helped thousands of Southern Utah projects succeed since 1994. Stop by the yard or call—we'll match your project to the right equipment.
+Call us. Describe what you're trying to accomplish, mention your space constraints and timeline, tell us your experience level. We'll recommend the right equipment—which sometimes means telling you the smaller, cheaper option is actually better for your situation.
 
-> *"Best customer service and only place in town that has all equipment available. Always has everything we ask for."*
->
-> — **Abel Alvallar, Gardesign Landscaping**
+> "They are wonderful people to work with, and they have about everything to rent. We always go with them."
+> — Rudy Ventura, RG Quality Concrete
 
-**Address:** 1175 Highland Drive, St. George, UT 84770
-
-**Phone:** 435-628-6663
-
-**Email:** beehiverental@infowest.com
-
-**Hours:**
-- Monday–Friday: 7:00 AM – 5:00 PM
-- Saturday: 8:00 AM – 12:00 PM
-- Sunday: Closed
-
----
-
-*BeeHive Rental & Sales LLC — Matching Southern Utah projects with the right equipment since 1994.*
+**BeeHive Rental & Sales**
+435-628-6663
+1175 Highland Drive, St. George, UT 84770
   `,
 
   "first-time-rental-guide": `
+Your neighbor just rented a mini excavator and dug a pool in his backyard over a weekend. Now you're thinking: "I could do that for my project."
 
-## New to Equipment Rental? You're in the Right Place.
+You probably can. Equipment rental isn't as intimidating as it looks.
 
-Renting professional equipment for the first time can feel intimidating. Big machines, unfamiliar terms, deposits, contracts—it's a lot if you've never done it before.
+But there are things nobody tells first-time renters—the fine print that turns a $200 rental into a $350 bill, the mistakes that waste half your rental period, the questions you should ask but don't know to ask.
 
-Here's the truth: **it's easier than you think.**
-
-At BeeHive Rental & Sales, we've been helping first-time renters in Southern Utah since 1994.
-
-Homeowners tackling their first landscaping project. DIYers pouring their first concrete slab. Property owners clearing land for the first time.
-
-This guide walks you through everything—what to expect, how rentals work, and how to choose the right equipment for your project.
-
-> *"Beehive is your one stop shop for all things equipment rentals. The staff is friendly and they have the most up to date equipment with the best prices in town! I highly recommend them for your next project!"*
->
-> — **Taylor Frazier, Turf It Landscaping**
+This guide fills those gaps.
 
 ---
 
-## How Equipment Rental Works (Step by Step)
+## Before You Show Up
 
-### Step 1: Know Your Project
+**Know your project in detail.** "Digging a trench" is less helpful than "digging a 50-foot trench, 18 inches deep, for irrigation lines." The more specific you are, the better we can match you to equipment.
 
-Before you call or visit, have a clear idea of what you're trying to accomplish:
+**Measure your access points.** Gate widths, ceiling heights for indoor work, ground conditions. A machine that won't fit through your gate is useless regardless of how perfect it is for the job.
 
-- **What are you doing?** (Digging a trench, tilling a garden, breaking concrete, etc.)
-- **How big is the area?** (Square footage, depth, length)
-- **What's the terrain like?** (Flat yard, rocky soil, tight space near a fence)
-- **How long will it take?** (A few hours, a full day, a weekend)
+**Be honest about time.** If you've never operated equipment before, double your initial estimate. Everything takes longer the first time. That's not a knock on you—it's just reality.
 
-Don't worry if you're unsure about the equipment—that's what BeeHive's staff is for. But knowing your project helps them recommend the right machine.
-
-### Step 2: Get a Recommendation
-
-Call BeeHive at **435-628-6663** or stop by **1175 Highland Drive in St. George**.
-
-Tell them what you're working on. They'll recommend:
-
-- The right equipment for the job
-- The size/model that fits your space and skill level
-- Any accessories or attachments you might need
-- Estimated rental duration
-
-**💡 Pro Tip:** If you're unsure, ask if you can see the equipment before committing. BeeHive's staff will walk you through how it works.
-
-### Step 3: Provide a Deposit
-
-A deposit is required before any equipment leaves the yard. You have three options:
-
-| Deposit Option | How It Works |
-|----------------|--------------|
-| **Open Check** | Leave a check that's only cashed if there's damage or non-return |
-| **Credit Card Hold** | Authorize a temporary hold on your card |
-| **Cash Deposit** | Pay 2.5x the rental amount upfront (refunded on return) |
-
-This protects both you and BeeHive. It's standard practice at any reputable rental yard.
-
-### Step 4: Sign the Rental Contract
-
-Before loading equipment, you'll sign a rental agreement covering:
-
-- Equipment condition at pickup
-- Rental duration and charges
-- Your responsibilities (fuel, cleaning, safe operation)
-- Return expectations
-
-Read it. It's straightforward, and the staff will answer any questions.
-
-### Step 5: Get a Quick Tutorial
-
-First time using a skid steer? Never operated a power trowel? **Ask for a walkthrough.**
-
-BeeHive's team will show you:
-
-- How to start and stop the machine
-- Basic controls and safety features
-- What to watch out for
-- How to load/unload from a trailer (if applicable)
-
-Don't be shy—this is normal. Even experienced contractors ask questions about unfamiliar equipment.
-
-### Step 6: Use the Equipment
-
-Take it to your job site and get to work. A few things to keep in mind:
-
-- **Track your time.** Rental charges are based on when equipment leaves and returns—not just when you're using it.
-- **Don't push beyond your skill level.** If something feels wrong, stop and call BeeHive.
-- **Check fluid levels** on longer rentals (oil, hydraulic fluid, coolant).
-
-### Step 7: Return It Clean and Fueled
-
-When you're done:
-
-- **Return with a full tank of fuel** (or pay $7/gallon)
-- **Clean off excessive dirt and mud** (or pay a cleaning fee)
-- **Return on time** to avoid additional charges
-
-The rental contract stays open until an employee confirms the return and checks the equipment. Make sure you close out properly.
+**Ask for recommendations.** Don't guess. Call us and describe your project. We have this conversation dozens of times daily. You'll get a specific recommendation, often with alternatives at different price points.
 
 ---
 
-## Understanding Rental Periods and Charges
+## How the Rental Process Works
 
-This is where first-timers often get confused. Here's how it actually works:
+**Getting the right equipment** happens one of two ways: you know exactly what you need, or we recommend it based on your project description. Either works.
 
-### Half-Day Rental
+**The deposit** is required before any equipment leaves. Three options: an open check left as security (only cashed if there's damage or non-return), a credit card hold (temporary authorization released on return), or cash at 2.5x the rental amount (refunded on return). This protects everyone. It's standard practice at any reputable rental yard.
 
-- **Duration:** 4 hours from when equipment leaves the yard
-- **Meter limit:** Varies by equipment
-- **If you go over:** Additional charges apply
+**The rental agreement** covers equipment condition, rental period, charges, and your responsibilities. Read it. Ask questions if anything's unclear. This isn't the moment to rush.
 
-### Full-Day Rental
-
-- **Duration:** 24 hours
-- **Meter limit:** 8 hours of actual use
-- **If you exceed 8 hours on the meter:** Additional charges apply
-
-### Weekend Rental
-
-- **Pick up:** Saturday
-- **Return:** Monday before 8:00 AM
-- **Charge:** 1 day (if 8 hours or less on meter)
-
-### Key Point: Time vs. Use
-
-**Rental time** = clock time (when it leaves to when it returns)
-
-**Meter time** = actual operating hours
-
-You're charged for both. A machine sitting overnight still counts toward your 24-hour rental period, even if the meter doesn't move.
-
-**Example:** You rent a mini excavator Saturday morning at 8 AM. You dig for 3 hours, then stop for the day. Sunday you dig for another 4 hours. You return it Monday at 7:30 AM.
-
-- Clock time: Saturday 8 AM to Monday 7:30 AM (weekend rate = 1 day)
-- Meter time: 7 hours (under the 8-hour limit)
-- **You pay for 1 day.** ✓
+**The walkthrough is critical for first-timers.** Ask for a demonstration before you leave. We'll show you how to start and stop the machine, basic controls, safety features, what warning signs to watch for, and loading procedures if applicable. A 10-minute walkthrough prevents hours of fumbling on-site.
 
 ---
 
-## What Equipment Can Beginners Actually Use?
+## Understanding Rental Periods
 
-Some equipment is beginner-friendly. Some requires experience. Here's an honest breakdown:
+This trips up first-timers more than anything else.
 
-### Beginner-Friendly (Little to No Experience Needed)
+**Day rental** means 24 hours of clock time from pickup, with 8 hours of meter time (actual operation). Both count. If the machine is out for 24 hours but you ran it for 10 hours, you exceeded meter time and pay overage.
 
-| Equipment | Difficulty | Notes |
-|-----------|------------|-------|
-| **Aerator** | Easy | Walk-behind, intuitive operation |
-| **Dethatcher / Power Rake** | Easy | Similar to a lawn mower |
-| **Rototiller (front-tine)** | Easy | Good for small garden beds |
-| **Pressure Washer** | Easy | Point and spray |
-| **Generator** | Easy | Start it, plug in, done |
-| **Floor Sander (orbital)** | Easy-Medium | Takes practice for even results |
-| **Tile Saw** | Easy-Medium | Slow and steady wins |
+**Half-day rental** gives you 4 hours of clock time. Good for small jobs you can knock out in a morning.
 
-### Intermediate (Some Practice or Instruction Recommended)
+**Weekend rental** lets you pick up Saturday and return Monday before 8 AM, charged as one day if you stay under 8 meter hours. This is the best deal if your project can happen on a weekend.
 
-| Equipment | Difficulty | Notes |
-|-----------|------------|-------|
-| **Rototiller (rear-tine)** | Medium | More powerful, can pull you forward |
-| **Concrete Mixer** | Medium | Loading/unloading takes technique |
-| **Power Trowel** | Medium | Finishing concrete is a skill |
-| **Mini Excavator (E10, E20)** | Medium | Controls are learnable; start slow |
-| **Skid Steer (small)** | Medium-Hard | Dual joystick control takes practice |
-
-### Advanced (Prior Experience Strongly Recommended)
-
-| Equipment | Difficulty | Notes |
-|-----------|------------|-------|
-| **Large Excavator (E50, E88, Cat 308)** | Hard | Significant machine, real consequences |
-| **Skid Steer (large, S250)** | Hard | 2,500 lb lift capacity—know what you're doing |
-| **Concrete Saw (walk-behind)** | Hard | Blade control and depth matter |
-| **Jack Hammer (90 lb)** | Hard | Physically demanding, vibration exposure |
-
-**⭐ BeeHive's Advice:** If you're unsure, start with the smaller version. A Bobcat E10 teaches you excavator controls without the stakes of an E50. You can always upgrade next time.
+**Extended rentals** at weekly or monthly rates have higher meter limits and lower effective daily rates. Ask about pricing if your project spans multiple days.
 
 ---
 
-## Common First-Timer Mistakes (And How to Avoid Them)
+## What Beginners Can Actually Operate
 
-### Mistake #1: Renting Too Big
+An honest assessment based on watching thousands of first-time renters:
 
-**The Problem:** You rent a full-size skid steer for a backyard job and can't maneuver it through the gate.
+**Easy, no experience needed:** Aerators, dethatchers, front-tine tillers, pressure washers, generators, tile saws, floor buffers. Walk-behind equipment with intuitive controls.
 
-**The Fix:** Measure your access points. Tell BeeHive your space constraints. They'll recommend equipment that fits.
+**Moderate, instruction helps:** Rear-tine tillers (more powerful, can pull you forward), concrete mixers (loading technique matters), mini excavators on the smaller end like the E10 or E20 (controls are learnable if you start slow), power trowels (finishing concrete is a skill).
 
-### Mistake #2: Underestimating Time
+**Advanced, prior experience recommended:** Large skid steers, larger excavators like the E50 or E88, 90-pound jackhammers (physically demanding with significant vibration exposure), walk-behind trenchers on hard ground.
 
-**The Problem:** You rent for a half-day, but the job takes 6 hours. Now you're paying for a full day anyway.
-
-**The Fix:** Add buffer time. If you think it'll take 3 hours, rent for 4. If you think a full day, consider overnight.
-
-### Mistake #3: Returning It Dirty
-
-**The Problem:** You return a mud-caked excavator and get charged a $75 cleaning fee.
-
-**The Fix:** Hose it down before returning. "Reasonably clean" means no caked-on dirt or debris.
-
-### Mistake #4: Forgetting to Refuel
-
-**The Problem:** You return the generator with a quarter tank and get charged $7/gallon to fill it.
-
-**The Fix:** Fill up on the way back. It takes 5 minutes and saves real money.
-
-### Mistake #5: Not Asking Questions
-
-**The Problem:** You're embarrassed to ask how the controls work, so you figure it out on-site and waste 2 hours.
-
-**The Fix:** Ask at pickup. BeeHive's staff does walkthroughs all day. It's literally their job.
+Our recommendation: start with smaller equipment. The Bobcat E10 teaches excavator controls at lower stakes than the E50. You can always step up next time.
 
 ---
 
-## Your First Rental Checklist
+## The Four Mistakes First-Timers Make
 
-Use this before you head to BeeHive:
+**Renting too big.** The bigger machine isn't always better. A full-size skid steer won't help if it can't fit through your gate or tears up your lawn getting to the work area. Measure access points. Tell us your constraints.
 
-- ☐ I know what project I'm doing
-- ☐ I have measurements (area size, access width, depth if digging)
-- ☐ I've estimated how long the job will take
-- ☐ I have a valid ID
-- ☐ I have a deposit method ready (check, card, or cash)
-- ☐ I have transportation OR I'll request delivery
-- ☐ I've set aside time to get a quick equipment tutorial
+**Underestimating time.** Everything takes longer than you think, especially the first time. If you estimate 3 hours, rent for a half-day. If you think a day, consider the weekend rate.
+
+**Returning dirty or empty.** A muddy machine and empty fuel tank can add $50-100 to your bill. Spend 15 minutes cleaning and fueling before return.
+
+**Not asking questions.** Pride kills efficiency. You're not supposed to magically know how controls work. Ask for the walkthrough. Ask questions during the walkthrough. Call us if you hit problems on-site.
 
 ---
 
-## Visit BeeHive Rental & Sales
+## Your Checklist Before Coming In
 
-**Address:** 1175 Highland Drive, St. George, UT 84770
+Make sure you can answer yes to these:
 
-**Phone:** 435-628-6663
-
-**Email:** beehiverental@infowest.com
-
-**Hours:**
-- Monday–Friday: 7:00 AM – 5:00 PM
-- Saturday: 8:00 AM – 12:00 PM
-- Sunday: Closed
+I know specifically what project I'm doing. I have measurements—area size, access widths, depth if digging. I've estimated time realistically and added buffer. I have valid ID. I have a deposit method ready. I have transportation or I'll request delivery. I've set aside time for the walkthrough, not rushing out the door.
 
 ---
 
-## Frequently Asked Questions
+## The Honest Truth
 
-### Do I need experience to rent equipment?
+Equipment rental isn't scary. Thousands of first-time renters come through our doors every year, and most have a smooth experience.
 
-No. Many of BeeHive's customers are first-time renters. Staff will recommend beginner-friendly equipment and show you how to operate it before you leave.
+The ones who struggle? Usually they rushed the process, skipped the walkthrough, or didn't ask questions upfront.
 
-### What happens if I damage the equipment?
+Take your time. Ask questions. And if the job seems bigger than expected once you're on-site, call us—we'd rather help you troubleshoot than have you struggle in silence.
 
-You're responsible for damage beyond normal wear. That's what the deposit covers. If something breaks due to a defect (not your fault), contact BeeHive immediately.
+> "Beehive is your one stop shop for all things equipment rentals. The staff is friendly and they have the most up to date equipment with the best prices in town!"
+> — Taylor Frazier, Turf It Landscaping
 
-### Can I extend my rental if the job takes longer?
-
-Yes. Call BeeHive before your rental period ends to extend. If you just keep the equipment without calling, charges continue to accrue.
-
-### Do you deliver equipment?
-
-Yes. BeeHive delivers across Southern Utah—St. George, Washington, Hurricane, Ivins, Santa Clara, and surrounding areas. Ask about delivery fees when you book.
-
-### What if I don't know what equipment I need?
-
-That's the most common question. Call 435-628-6663 or stop by. Describe your project, and BeeHive's staff will recommend the right equipment.
-
----
-
-*BeeHive Rental & Sales LLC — Helping Southern Utah beginners get the job done since 1994.*
+**BeeHive Rental & Sales**
+1175 Highland Drive, St. George, UT 84770
+435-628-6663
+Monday–Friday 7:00–5:00, Saturday 8:00–12:00
   `,
 
   "complete-equipment-catalog": `
+This is our complete equipment inventory—every machine, full specifications, and what each one does best.
 
-## Southern Utah's Most Complete Equipment Rental Inventory
-
-Since 1994, BeeHive Rental & Sales has built the largest equipment rental selection in Southern Utah.
-
-This catalog contains every machine in our fleet—with full specifications, capacities, and recommended applications.
-
-Whether you're a contractor bidding a job, a homeowner planning a project, or a landscaper expanding services, this guide helps you find exactly what you need.
-
-> *"Best customer service and only place in town that has all equipment available. Always has everything we ask for."*
->
-> — **Abel Alvallar, Gardesign Landscaping**
+Bookmark this page. When you're planning a project and need to know if we have the right equipment, the answers are here.
 
 ---
 
 ## Skid Steers
 
-### Bobcat S450 Skid-Steer Loader
+**Bobcat S450** is our most-rented skid steer. At 49 horsepower with 1,370 pounds of lift capacity and a 54-inch width, it hits the sweet spot between capability and maneuverability. Best for residential landscaping, tight spaces, and material handling where you need power without bulk.
 
-| Specification | Value |
-|---------------|-------|
-| Engine | 49 hp diesel |
-| Lift Capacity | 1,370 lbs |
-| Operating Weight | 5,370 lbs |
-| Lift Height | 9.1 ft |
-| Lift Path | Radius |
+**Bobcat S250** steps up to 75 horsepower with 2,500 pounds of lift capacity and a vertical lift path that reaches 10.5 feet. This is the machine for heavy-duty work requiring maximum lift—commercial construction and larger landscaping projects where the S450 would be working too hard.
 
-**Best For:** Tight spaces, mid-height lifting tasks, construction, landscaping, agriculture. Compact and agile with compatibility for many Bobcat attachments.
+**Bobcat S62 and S64** represent the R-Series at 68 horsepower with radial lift. The key advantage: no diesel particulate filter, which means simpler maintenance and fewer things to go wrong on a rental. Tough jobs where you want modern features without DPF hassles.
 
-### Bobcat S250 Skid-Steer Loader
+---
 
-| Specification | Value |
-|---------------|-------|
-| Engine | 75 hp |
-| Lift Capacity | 2,500 lbs |
-| Operating Weight | 7,674 lbs |
-| Lift Height | 10.5 ft (126.4 in) |
-| Lift Path | Vertical |
+## Track Loaders
 
-**Best For:** Heavy-duty construction, landscaping, and agriculture. Powerful vertical-lift design for maximum reach and capacity.
+**Bobcat T450 and T550** put skid steer capability on tracks. The T450 lifts 1,400 pounds; the T550 reaches 1,800 pounds. Both distribute weight better than wheeled machines, making them ideal for soft ground, slopes, and finished landscapes where wheel marks would be a problem.
 
-### Bobcat S62 & S64 Skid-Steer Loaders
+**Bobcat T62 and T64** bring R-Series benefits to the track loader format—modern design, no DPF, the same advantages as their wheeled counterparts but with track flotation.
 
-**Both models feature:**
-- 68 hp engines
-- Radial lift path
-- R-Series design
-- No DPF (lower maintenance)
-- Strong cast-steel arms
-- Spacious sealed cab
+---
 
-**Best For:** Tough jobs in tight spaces where maintenance simplicity matters.
+## Mini Skid Steers
+
+**Ditch Witch SK800 and SK900** fit through 36-inch gates. Perfect for backyard work where full-size equipment simply can't access the work area. If your project is behind a standard fence gate, these are likely your only power equipment option.
+
+**Toro TX1000** is a tracked mini with excellent traction on slopes. When the terrain is too steep for wheels and too tight for a full track loader.
 
 ---
 
 ## Mini Excavators
 
-### Bobcat E10
+**Bobcat E10** is our smallest excavator with a 10.2-horsepower diesel and retractable undercarriage that narrows to 28 inches. Zero tail swing. Best for ultra-tight spaces—backyards, side yards, indoor work. Fits through standard doorways.
 
-| Specification | Value |
-|---------------|-------|
-| Engine | 10.2 hp diesel |
-| Tail Swing | Zero |
-| Undercarriage | Retractable |
+**Bobcat E20** digs to 8.5 feet with 14 feet of reach. Zero tail swing and retractable undercarriage. The go-to for residential utility work near fences and buildings where full rotation without overhang is essential.
 
-**Best For:** Ultra-tight spaces like backyards, side yards, and indoor work. Exceptional maneuverability and stability.
+**Bobcat E26** adds R-Series features including a blade float function for easier backfilling and grading. Same zero-tail-swing maneuverability with more refined controls.
 
-### Bobcat E20
+**Bobcat E35** is our best-selling excavator. Zero tail swing with an in-track swing frame. Reliable, capable, operator-friendly. The default choice for all-purpose trenching and excavation when you need more than the smaller models but don't need heavy equipment.
 
-| Specification | Value |
-|---------------|-------|
-| Dig Depth | 8.5 ft |
-| Reach | 14 ft |
-| Tail Swing | Zero |
-| Undercarriage | Retractable |
+**Bobcat E42 and E50** are larger machines for bigger jobs. Minimal tail swing with load-sensing hydraulics for better control under varying loads.
 
-**Best For:** Confined residential spaces. Full rotation without overhang—ideal for working near buildings and fences.
+**Bobcat E88** is R2-Series with conventional tail swing and 14% higher lift capacity than the E85 it replaced. For heavy construction requiring maximum digging force and lift capacity.
 
-### Bobcat E35 Compact Excavator
-
-| Specification | Value |
-|---------------|-------|
-| Tail Swing | Zero |
-| Frame | In-track swing |
-| Rollers | Dual-flange system |
-
-**Best For:** Tough jobsites requiring proven, reliable performance with operator-focused features. **Best-selling model.**
-
-### Bobcat E50 & E88
-
-**Larger excavators for heavy-duty work:**
-- E50: R2-Series, minimal tail swing, load-sensing hydraulics
-- E88: R2-Series, conventional tail swing, up to 14% more lift capacity
-
-**Best For:** Construction, utility, and landscaping tasks requiring maximum lifting power and reach.
-
-### Cat 308 CR
-
-| Specification | Value |
-|---------------|-------|
-| Series | Next Generation |
-| Hydraulic Flow | Up to 44.2 gal/min |
-| Controls | Stick Steer travel mode (joystick steering) |
-
-**Best For:** Construction, landscaping, utility work requiring demanding tasks and attachment versatility.
+**Cat 308 CR** represents Next Generation technology with hydraulic flow up to 44.2 gallons per minute and Stick Steer joystick steering. For demanding tasks requiring top-tier hydraulic performance and attachment versatility.
 
 ---
 
 ## Compaction Equipment
 
-### MultiQuip MTX70HD Jumping Jack
+**MultiQuip MTX60HD Jumping Jack** delivers 3,060 pounds of impact force—the lighter option for smaller compaction jobs in confined areas.
 
-| Specification | Value |
-|---------------|-------|
-| Engine | Honda GX100 |
-| Impact Force | 3,350 lbs |
-| Shoe Size | 11.2 inches |
+**MultiQuip MTX70HD Jumping Jack** is our most popular rammer at 3,350 pounds of impact force. Exceptionally well-balanced with the right combination of power and control for most trench compaction work.
 
-**Most popular selling rammer.** Exceptionally well balanced. EPA-compliant fuel tank, integrated tachometer/hour meter.
+**Rammax RX1575 Trench Compactor** is an articulating roller with infrared remote control and a 20-horsepower Yanmar engine. For long utility trenches where jumping jacks would take forever.
 
-**Best For:** Middle-weight compaction in confined areas. Ideal balance of power and control.
-
-### Rammax RX1575 Trench Compactor
-
-| Specification | Value |
-|---------------|-------|
-| Type | Articulating trench roller |
-| Control | Infrared remote |
-| Engine | 20 hp Yanmar |
-
-**Best For:** Trench compaction with simplified operation and reduced downtime.
+**Vibratory Roller AR14H** handles larger area compaction—parking lots, road bases, anywhere you need to cover ground efficiently.
 
 ---
 
 ## Concrete Equipment
 
-### Multiquip 48" Power Trowel
+**Multiquip MC94S Mixer** holds 9 cubic feet, available in gas or electric. **Whiteman WM90PLF** is the same capacity with a polyethylene drum for easier cleanup.
 
-| Specification | Value |
-|---------------|-------|
-| Diameter | 48 inches |
-| Engine | 13 hp Honda GX390 |
-| Speed | Variable, 35-225 RPM |
+**Whiteman WBH-16F Buggy** carries 16 cubic feet with a Honda GX390 engine—the standard concrete buggy for moving material across jobsites. **Ultra Buggy 2500-TS** adds tracks, 2,500-pound capacity, and 180-degree swivel dump for rough terrain and precision placement.
 
-**Best For:** Large concrete surfaces, commercial floors. Wide, efficient coverage with precise finishing control.
+**36-inch Multiquip Power Trowel** runs a 4.8-horsepower Honda with QuickPitch handle—residential and mid-sized slabs. **48-inch Multiquip Power Trowel** steps up to 13 horsepower with variable speed for large pours and commercial floors.
 
-### Husqvarna K 770 Concrete Saw
+**Husqvarna K 770** cuts with a 14-inch blade to 5-inch depth—all-purpose concrete and masonry cutting. **Husqvarna K 4000** handles 16-inch blade cuts from one side, ideal for indoor work and flush cuts. **CX-3 Walk-Behind** manages small to mid-size jobs with wet or dry cutting. **Husqvarna Soff-Cut 150** is specifically for early-entry control joints with a 6-inch blade.
 
-| Specification | Value |
-|---------------|-------|
-| Blade | 14 inches |
-| Cut Depth | 5 inches |
-| Features | SmartTension, low vibration, easy starts |
+**EDCO Dual-Disc Grinder** for surface prep and coating removal. **Single-Disc Grinder** for detail work and edges.
 
-**Best For:** Road work and masonry cutting. High performance in a portable package.
+---
+
+## Air Equipment and Pneumatic Tools
+
+**AIRMAN 185** is a tow-behind compressor at 185 CFM—powers pneumatic tools at the jobsite. **Sullair 375** is the larger option for bigger air demands.
+
+Pneumatic tools include 60-pound and 90-pound air jackhammers, 20-pound chipping hammer for detail work, and various nail guns.
+
+---
+
+## Generators and Welders
+
+Portable generators range from 2.5 kW (lights and small tools) through 4.5 kW (power tools at jobsites), 6 kW (multiple tools simultaneously), to 9.7 kW (larger equipment and backup power).
+
+**25 kW Towable Generator** provides three-phase power for heavy industrial needs at large jobsites with multiple systems running.
+
+**Miller 250 Amp Welder** handles standard jobsite welding. **Miller 400 Amp Welder** for heavy-duty applications.
 
 ---
 
 ## Trailers
 
-### Dump Trailers
+**7K Dump Trailer** at 7,000-pound GVWR with approximately 4,500 pounds of payload. Works with most half-ton trucks for residential debris and hauling.
 
-| Model | GVWR | Payload | Axles |
-|-------|------|---------|-------|
-| **7K Dump Trailer** | 7,000 lbs | ~4,500 lbs | Dual 3,500 lb |
-| **10K Dump Trailer** | 10,000 lbs | ~6,000-6,700 lbs | Dual 5,000 lb |
-| **14K Dump Trailer** | 14,000 lbs | ~9,200-10,000 lbs | Dual 7,000 lb |
+**10K Dump Trailer** at 10,000-pound GVWR with approximately 6,500 pounds payload. Requires at least a 3/4-ton truck. No out-of-state use.
 
-**Note:** 10K+ trailers require ¾-ton truck or larger. No out-of-state use.
+**14K Dump Trailer** at 14,000-pound GVWR with approximately 10,000 pounds payload. Requires at least a 3/4-ton truck. No out-of-state use.
+
+Various flatbed and utility trailers for equipment transport.
 
 ---
 
-## Generators & Welders
+## Landscaping Equipment
 
-### Portable Generators
-
-| Size | Best For |
-|------|----------|
-| **2.5 kW** | Lights, small tools, basic power needs |
-| **4.5 kW** | Power tools, equipment at job sites |
-| **6 kW** | Multiple tools, small job sites |
-| **9.7 kW** | Larger equipment, backup power |
-
-### 25 kW Towable Generator
-
-**Best For:** Heavy-duty industrial power for large job sites with multiple systems and tools.
+Front-tine rototillers for loose soil, rear-tine rototillers for hard-packed soil. Aerators, dethatchers, power rakes, sod cutters, and sod rollers. Commercial leaf blowers and string trimmers.
 
 ---
 
-## Equipment Service & Repair
+## Floor Equipment
 
-BeeHive doesn't just rent equipment—we service it.
+**American Sanders OBS-18DC Orbital Sander** with dust control and 12x18-inch pad. Hand sanders for edges and detail work.
 
-Our on-site mechanics repair all types of equipment for homeowners, general contractors, and landscape contractors.
+**MK-101 Pro24 Tile Saw** with 10-inch blade and 24-inch rip capacity. **MK-212-4** adds a miter system for angled cuts. **Makinex Jackhammer Trolley** for tile removal on wheels.
 
-**Services include:**
-- Lawn mowers, leaf blowers, generators, aerators, rototillers
-- Floor sanders, tile saws, buffers, grinders, vacuums
-- Concrete equipment, air compressors, mixers, buggies
-- Skid steers, excavators, pressure washers, pumps, trenchers
-
-**Call 435-628-6663 for a repair quote.**
+**Clarke CFP Pro 20-inch Floor Buffer** with multiple pad options—white for polish, red for buff, green for scrub, black for strip.
 
 ---
 
-## Visit BeeHive Rental & Sales
+## Service and Repair
 
-**Address:** 1175 Highland Drive, St. George, UT 84770
-
-**Phone:** 435-628-6663
-
-**Email:** beehiverental@infowest.com
-
-**Hours:**
-- Monday–Friday: 7:00 AM – 5:00 PM
-- Saturday: 8:00 AM – 12:00 PM
-- Sunday: Closed
+We don't just rent equipment—we fix it. Our on-site mechanics service small engines, concrete equipment, compressors, skid steers, excavators, and more. Call 435-628-6663 for repair quotes.
 
 ---
 
-## Frequently Asked Questions
+## Contact
 
-### What equipment does BeeHive Rental have in St. George?
+**BeeHive Rental & Sales**
+1175 Highland Drive, St. George, UT 84770
 
-BeeHive has the largest rental inventory in Southern Utah—skid steers, track loaders, mini excavators, concrete equipment, compactors, generators, welders, air compressors, landscaping tools, floor equipment, trailers, scaffolding, and more.
+Phone: 435-628-6663
+Email: beehiverental@infowest.com
 
-### Do you rent Bobcat equipment?
+Hours: Monday–Friday 7:00 AM to 5:00 PM, Saturday 8:00 AM to 12:00 PM, Sunday closed.
 
-Yes. BeeHive carries Bobcat skid steers (S450, S250, S62, S64), track loaders (T450, T550, T62, T64), mini excavators (E10, E20, E26, E35, E42, E50, E88), and the MT100 mini track loader.
+> "Best customer service and only place in town that has all equipment available. Always has everything we ask for. We rent and we buy from beehive."
+> — Abel Alvallar, Gardesign Landscaping
 
-### Do you rent Cat excavators?
-
-Yes. BeeHive has the Cat 308 CR mini excavator from the Next Generation series with stick steer technology and advanced hydraulics.
-
-### What size dump trailers do you have?
-
-BeeHive offers 7K, 10K, and 14K dump trailers. Note: 10K+ trailers require a ¾-ton truck or larger.
-
-### Do you deliver equipment?
-
-Yes. BeeHive delivers across Southern Utah including St. George, Washington, Hurricane, Ivins, and Santa Clara.
-
----
-
-*BeeHive Rental & Sales LLC — Southern Utah's complete equipment source since 1994.*
+*Since 1994, Southern Utah's complete equipment source.*
   `,
 }

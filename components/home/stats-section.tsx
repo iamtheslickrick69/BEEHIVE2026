@@ -46,7 +46,14 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 
 export function StatsSection() {
   return (
-    <section id="stats" className="py-12 md:py-16 bg-primary">
+    <motion.section
+      id="stats"
+      className="py-12 md:py-16 bg-primary"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
@@ -67,6 +74,6 @@ export function StatsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }

@@ -26,13 +26,13 @@ export default function BlogPage() {
           className="mb-12"
         >
           <span className="text-primary font-semibold text-sm tracking-wider uppercase">
-            Blog / Resources
+            Resources
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mt-2">
-            Equipment Rental Guides
+            Equipment Guides
           </h1>
           <p className="text-muted-foreground mt-3 max-w-2xl">
-            30 years of equipment rental expertise, shared with Southern Utah contractors and homeowners.
+            Practical advice from 30 years in the rental business. Real answers to real questions.
           </p>
         </motion.div>
 

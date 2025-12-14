@@ -78,6 +78,7 @@ const mockResponses: Record<string, { content: string; actions?: { label: string
 export function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [hasScrolled, setHasScrolled] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
@@ -139,6 +140,17 @@ export function AIAssistant() {
     }, 2000)
 
     return () => clearTimeout(loadingTimer)
+  }, [])
+
+  // Scroll detection for orb shrink effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      setHasScrolled(scrollY > 50)
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   useEffect(() => {
@@ -260,45 +272,28 @@ export function AIAssistant() {
       <AnimatePresence>
         {!isOpen && (
           <motion.button
-            initial={{ scale: 0.8, opacity: 0 }}
+            initial={{ scale: 0, opacity: 0 }}
             animate={{
-              scale: isLoading ? [0.8, 1, 0.8] : 1,
-              opacity: isLoading ? [0.6, 1, 0.6] : 1
+              scale: hasScrolled ? 0.93 : 1,
+              opacity: 1
             }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{
-              duration: isLoading ? 2 : 0.5,
-              repeat: isLoading ? Infinity : 0,
-              ease: "easeInOut"
+              scale: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
+              opacity: { duration: 0.2 }
             }}
+            whileHover={{ scale: hasScrolled ? 1.0 : 1.07 }}
+            whileTap={{ scale: hasScrolled ? 0.88 : 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 w-40 h-40 rounded-full flex items-center justify-center hover:scale-105 transition-transform z-50 group"
+            className="fixed bottom-6 right-6 w-36 h-36 rounded-full flex items-center justify-center z-50"
             style={{
-              animation: !isLoading ? 'breathe 3s ease-in-out infinite, subtleGlow 2s ease-in-out infinite' : 'none',
-              filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.25)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.15))',
+              filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.1))',
             }}
             aria-label="Open chat assistant"
           >
-            {/* Pulsing gradient border for loading */}
-            {isLoading && (
-              <motion.div
-                className="absolute inset-0 rounded-full"
-                animate={{
-                  opacity: [0.3, 0.8, 0.3]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                style={{
-                  background: 'radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 70%, transparent 100%)',
-                }}
-              />
-            )}
 
-            {/* SVG AI Icon with transparent background */}
-            <div className={`relative flex items-center justify-center ${isLoading ? 'w-[90%] h-[90%]' : 'w-full h-full'}`}>
+            {/* SVG AI Icon */}
+            <div className="relative flex items-center justify-center w-full h-full">
               <svg
                 viewBox="0 0 200 200"
                 className="w-full h-full"
@@ -376,23 +371,6 @@ export function AIAssistant() {
         )}
       </AnimatePresence>
 
-      <style jsx>{`
-        @keyframes breathe {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.05); }
-        }
-
-        @keyframes subtleGlow {
-          0%, 100% {
-            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.25))
-                    drop-shadow(0 0 40px rgba(255, 255, 255, 0.15));
-          }
-          50% {
-            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.35))
-                    drop-shadow(0 0 60px rgba(255, 255, 255, 0.2));
-          }
-        }
-      `}</style>
 
       {/* Chat Window */}
       <AnimatePresence>

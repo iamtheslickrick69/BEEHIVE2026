@@ -3,66 +3,75 @@
 import { motion, useInView } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Phone, Play, ChevronDown, Tractor, Shovel, Zap, Car, Container, Layers } from "lucide-react"
+import { ArrowRight, Phone, ChevronDown, Tractor, Shovel, Zap, Car, Container, Layers, Wind, Hammer } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
-import { VideoModal } from "@/components/ui/video-modal"
 import Image from "next/image"
 
 // Featured equipment categories for the hero
 const featuredCategories = [
   {
     name: "Skid Steers",
+    description: "Bobcat S450, S250, S62, S64 & more",
     icon: Tractor,
     href: "/inventory?category=skid-steers",
-    count: 8,
     image: "/bobcat-skid-steer-loader-yellow-construction.jpg",
     popular: true,
-    available: true,
   },
   {
     name: "Mini Excavators",
+    description: "Bobcat E10-E88, Cat 308 CR",
     icon: Shovel,
     href: "/inventory?category=mini-excavators",
-    count: 9,
     image: "/mini-excavator-compact-construction-equipment.jpg",
     popular: true,
-    available: true,
   },
   {
-    name: "Generators",
+    name: "Concrete & Masonry",
+    description: "Mixers, buggies, trowels, grinders",
+    icon: Container,
+    href: "/inventory?category=concrete",
+    image: "/concrete-mixer-buggy-power-trowel-construction.jpg",
+    popular: false,
+  },
+  {
+    name: "Air Compressors",
+    description: "AIRMAN 185, Sullair 375 & tools",
+    icon: Wind,
+    href: "/inventory?category=air-compressors",
+    image: "/portable-air-compressor-towable-construction.jpg",
+    popular: false,
+  },
+  {
+    name: "Generators & Welders",
+    description: "2.5kW-25kW, 250A-400A welders",
     icon: Zap,
     href: "/inventory?category=generators",
-    count: 7,
     image: "/portable-generator-welder-construction-equipment.jpg",
     popular: false,
-    available: true,
   },
   {
     name: "Dump Trailers",
+    description: "7K, 10K, 14K capacity",
     icon: Car,
     href: "/inventory?category=dump-trailers",
-    count: 6,
     image: "/dump-trailer-heavy-duty-construction-hauling.jpg",
     popular: false,
-    available: true,
-  },
-  {
-    name: "Concrete",
-    icon: Container,
-    href: "/inventory?category=concrete",
-    count: 12,
-    image: "/concrete-mixer-buggy-power-trowel-construction.jpg",
-    popular: false,
-    available: true,
   },
   {
     name: "Landscaping",
+    description: "Tillers, aerators, sod cutters",
     icon: Layers,
     href: "/inventory?category=landscaping",
-    count: 10,
     image: "/landscaping-equipment-rototiller-aerator-sod-cutte.jpg",
     popular: false,
-    available: false,
+  },
+  {
+    name: "Floor & Carpet",
+    description: "Sanders, buffers, tile saws",
+    icon: Hammer,
+    href: "/inventory?category=floor-carpet",
+    image: "/floor-sander-buffer-tile-saw-carpet-equipment.jpg",
+    popular: false,
   },
 ]
 
@@ -91,7 +100,6 @@ function AnimatedCounter({ target, duration = 2 }: { target: number; duration?: 
 }
 
 export function HeroSection() {
-  const [videoOpen, setVideoOpen] = useState(false)
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
 
   const scrollToNext = () => {
@@ -144,7 +152,7 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-base md:text-lg lg:text-xl text-gray-300 mb-8 max-w-xl leading-relaxed"
             >
-              Southern Utah's premier equipment rental. Professional-grade tools. Personal service.
+              Southern Utah's premier equipment rental. Local expertise. Contractor-ready equipment.
             </motion.p>
 
             <motion.div
@@ -176,22 +184,6 @@ export function HeroSection() {
               </Button>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-8 md:mt-10 flex items-center gap-6"
-            >
-              <button
-                onClick={() => setVideoOpen(true)}
-                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
-              >
-                <span className="w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-300">
-                  <Play className="w-4 sm:w-5 h-4 sm:h-5 ml-1 group-hover:text-black" />
-                </span>
-                <span className="text-xs sm:text-sm font-medium uppercase tracking-wide">Watch How It Works</span>
-              </button>
-            </motion.div>
           </div>
 
           {/* Right Side - Equipment Categories Showcase */}
@@ -207,7 +199,7 @@ export function HeroSection() {
                 <div>
                   <h3 className="text-white font-semibold text-lg">Equipment Categories</h3>
                   <p className="text-white/60 text-sm">
-                    <AnimatedCounter target={12} /> categories • <AnimatedCounter target={100} />+ items
+                    8 categories • <AnimatedCounter target={100} />+ items
                   </p>
                 </div>
                 <Link
@@ -219,73 +211,41 @@ export function HeroSection() {
                 </Link>
               </div>
 
-              {/* Category Grid */}
-              <div className="grid grid-cols-2 gap-3">
+              {/* Category Grid - 4x2 for 8 categories */}
+              <div className="grid grid-cols-2 gap-2">
                 {featuredCategories.map((category, index) => (
                   <motion.div
                     key={category.name}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                    transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
                   >
                     <Link
                       href={category.href}
-                      className="group relative block rounded-xl overflow-hidden aspect-[4/3] hover:scale-[1.02] transition-all duration-300"
+                      className="group flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/30 transition-all duration-300"
                       onMouseEnter={() => setHoveredCard(category.name)}
                       onMouseLeave={() => setHoveredCard(null)}
                     >
-                      {/* Background Image */}
-                      <Image
-                        src={category.image}
-                        alt={category.name}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-
-                      {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-
-                      {/* Popular Badge */}
-                      {category.popular && (
-                        <div className="absolute top-2 left-2 px-2 py-1 bg-primary text-black text-xs font-bold rounded-md shadow-lg">
-                          POPULAR
-                        </div>
-                      )}
-
-                      {/* Availability Indicator */}
-                      <div className={`absolute top-2 right-2 flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-medium ${
-                        category.available
-                          ? "bg-green-500/20 text-green-400 border border-green-500/30"
-                          : "bg-red-500/20 text-red-400 border border-red-500/30"
-                      }`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${category.available ? "bg-green-400 animate-pulse" : "bg-red-400"}`} />
-                        {category.available ? "Available" : "Reserved"}
+                      {/* Icon */}
+                      <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300 shrink-0">
+                        <category.icon className="w-5 h-5 text-white/70 group-hover:text-primary transition-colors" />
                       </div>
 
                       {/* Content */}
-                      <div className="absolute bottom-0 left-0 right-0 p-3">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
-                              <category.icon className="w-4 h-4" />
-                            </div>
-                            <div>
-                              <span className="text-white font-semibold text-sm block">{category.name}</span>
-                              <span className="text-white/60 text-xs">
-                                <AnimatedCounter target={category.count} duration={1.5} />+ items
-                              </span>
-                            </div>
-                          </div>
-                          <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2">
+                          <span className="text-white font-semibold text-sm">{category.name}</span>
+                          {category.popular && (
+                            <span className="px-1.5 py-0.5 bg-primary text-black text-[10px] font-bold rounded">
+                              POPULAR
+                            </span>
+                          )}
                         </div>
+                        <span className="text-white/50 text-xs block truncate">{category.description}</span>
                       </div>
 
-                      {/* Hover Glow Effect */}
-                      <div className={`absolute inset-0 rounded-xl transition-opacity duration-300 pointer-events-none ${
-                        hoveredCard === category.name ? "opacity-100" : "opacity-0"
-                      }`} style={{
-                        boxShadow: "inset 0 0 30px rgba(234, 179, 8, 0.2)"
-                      }} />
+                      {/* Arrow */}
+                      <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300 shrink-0" />
                     </Link>
                   </motion.div>
                 ))}
@@ -335,7 +295,7 @@ export function HeroSection() {
                 ))}
               </div>
               <div>
-                <span className="text-white font-medium text-sm">12 Categories Available</span>
+                <span className="text-white font-medium text-sm">8 Categories Available</span>
                 <span className="text-white/60 text-xs block">100+ equipment items</span>
               </div>
             </div>
@@ -358,7 +318,6 @@ export function HeroSection() {
         </motion.div>
       </motion.button>
 
-      <VideoModal isOpen={videoOpen} onClose={() => setVideoOpen(false)} title="How BeeHive Rental Works" />
     </section>
   )
 }
