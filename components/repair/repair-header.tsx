@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Wrench, CheckCircle, Clock, Shield } from "lucide-react"
+import Image from "next/image"
 
 const highlights = [
   { icon: CheckCircle, label: "Factory-Trained Techs" },
@@ -13,17 +14,68 @@ const highlights = [
 export function RepairHeader() {
   return (
     <section className="bg-secondary py-20 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="gear-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-              <circle cx="40" cy="40" r="20" fill="none" stroke="white" strokeWidth="2" />
-              <circle cx="40" cy="40" r="8" fill="white" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#gear-pattern)" />
-        </svg>
-      </div>
+      {/* Main Hexagon Background - Large, top-right */}
+      <motion.div
+        className="absolute top-0 right-0 w-[600px] md:w-[800px] lg:w-[1000px] h-[600px] md:h-[800px] lg:h-[1000px] opacity-[0.05] pointer-events-none"
+        animate={{
+          rotate: [0, 360],
+        }}
+        transition={{
+          duration: 120,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      >
+        <Image
+          src="/utah.png"
+          alt=""
+          fill
+          className="object-contain"
+          priority
+        />
+      </motion.div>
+
+      {/* Secondary Hexagon - Medium, left side */}
+      <motion.div
+        className="absolute top-1/4 -left-32 w-[300px] md:w-[400px] h-[300px] md:h-[400px] opacity-[0.03] pointer-events-none"
+        animate={{
+          rotate: [360, 0],
+        }}
+        transition={{
+          duration: 150,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      >
+        <Image
+          src="/utah.png"
+          alt=""
+          fill
+          className="object-contain"
+        />
+      </motion.div>
+
+      {/* Tertiary Hexagon - Small, bottom center */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[200px] md:w-[300px] h-[200px] md:h-[300px] opacity-[0.04] pointer-events-none"
+        animate={{
+          rotate: [0, 360],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 100,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <Image
+          src="/utah.png"
+          alt=""
+          fill
+          className="object-contain"
+        />
+      </motion.div>
+
       <div className="absolute bottom-0 left-0 right-0 h-2 hazard-stripe" />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">

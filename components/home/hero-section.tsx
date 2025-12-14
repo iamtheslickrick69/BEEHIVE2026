@@ -3,41 +3,41 @@
 import { motion, useInView } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Phone, ChevronDown, Tractor, Shovel, Zap, Car, Container, Layers, Wind, Hammer } from "lucide-react"
+import { ArrowRight, Phone, ChevronDown, Tractor, Shovel, Zap, Car, Container, Layers, Wind, Hammer, Truck, Calendar } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 
 // Featured equipment categories for the hero
 const featuredCategories = [
   {
-    name: "Skid Steers",
-    description: "Bobcat S450, S250, S62, S64 & more",
+    name: "Heavy Equipment",
+    description: "Skid steers, excavators & more",
     icon: Tractor,
-    href: "/inventory?category=skid-steers",
+    href: "/inventory#heavy-equipment",
     image: "/bobcat-skid-steer-loader-yellow-construction.jpg",
     popular: true,
   },
   {
-    name: "Mini Excavators",
-    description: "Bobcat E10-E88, Cat 308 CR",
+    name: "Heavy Equipment",
+    description: "Mini excavators, compact loaders",
     icon: Shovel,
-    href: "/inventory?category=mini-excavators",
+    href: "/inventory#heavy-equipment",
     image: "/mini-excavator-compact-construction-equipment.jpg",
     popular: true,
   },
   {
-    name: "Concrete & Masonry",
+    name: "Concrete & Compaction",
     description: "Mixers, buggies, trowels, grinders",
     icon: Container,
-    href: "/inventory?category=concrete",
+    href: "/inventory#concrete-compaction",
     image: "/concrete-mixer-buggy-power-trowel-construction.jpg",
     popular: false,
   },
   {
-    name: "Air Compressors",
-    description: "AIRMAN 185, Sullair 375 & tools",
+    name: "Power Tools",
+    description: "Compressors, drills & tools",
     icon: Wind,
-    href: "/inventory?category=air-compressors",
+    href: "/inventory#power-tools",
     image: "/portable-air-compressor-towable-construction.jpg",
     popular: false,
   },
@@ -45,31 +45,31 @@ const featuredCategories = [
     name: "Generators & Welders",
     description: "2.5kW-25kW, 250A-400A welders",
     icon: Zap,
-    href: "/inventory?category=generators",
+    href: "/inventory#generators-welders",
     image: "/portable-generator-welder-construction-equipment.jpg",
     popular: false,
   },
   {
-    name: "Dump Trailers",
-    description: "7K, 10K, 14K capacity",
+    name: "Trailers & Transport",
+    description: "Dump trailers, 7K-14K capacity",
     icon: Car,
-    href: "/inventory?category=dump-trailers",
+    href: "/inventory#trailers-transport",
     image: "/dump-trailer-heavy-duty-construction-hauling.jpg",
     popular: false,
   },
   {
-    name: "Landscaping",
+    name: "Landscaping & Garden",
     description: "Tillers, aerators, sod cutters",
     icon: Layers,
-    href: "/inventory?category=landscaping",
+    href: "/inventory#landscaping-garden",
     image: "/landscaping-equipment-rototiller-aerator-sod-cutte.jpg",
     popular: false,
   },
   {
-    name: "Floor & Carpet",
+    name: "Carpet & Floor Tools",
     description: "Sanders, buffers, tile saws",
     icon: Hammer,
-    href: "/inventory?category=floor-carpet",
+    href: "/inventory#carpet-floor-tools",
     image: "/floor-sander-buffer-tile-saw-carpet-equipment.jpg",
     popular: false,
   },
@@ -119,9 +119,9 @@ export function HeroSection() {
             backgroundImage: `url('/heavy-equipment-rental-yard-with-excavators-and-lo.jpg')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50" />
         {/* Subtle animated gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 md:py-24 w-full">
@@ -140,10 +140,13 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[0.95] mb-6 uppercase tracking-tight"
-              style={{ fontFamily: "var(--font-inter-tight)" }}
+              style={{
+                fontFamily: "var(--font-inter-tight)",
+                textShadow: "0 2px 10px rgba(255, 255, 255, 0.3)"
+              }}
             >
               Professional Equipment
-              <span className="block text-primary">For Every Project</span>
+              <span className="block text-white">For Every Project</span>
             </motion.h1>
 
             <motion.p
@@ -164,7 +167,7 @@ export function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base font-semibold px-6 sm:px-8 h-12 sm:h-14 rounded-xl uppercase tracking-wide shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 hover:scale-105 transition-all duration-300"
+                className="bg-white text-black hover:bg-white/90 text-sm sm:text-base font-semibold px-6 sm:px-8 h-12 sm:h-14 rounded-xl uppercase tracking-wide shadow-lg shadow-white/20 hover:shadow-white/40 hover:scale-105 transition-all duration-300"
               >
                 <Link href="/inventory">
                   Browse Equipment
@@ -177,10 +180,10 @@ export function HeroSection() {
                 variant="outline"
                 className="border-white/30 text-white hover:bg-white/10 text-sm sm:text-base font-semibold px-6 sm:px-8 h-12 sm:h-14 bg-white/5 rounded-xl uppercase tracking-wide hover:scale-105 transition-all duration-300"
               >
-                <a href="tel:+14356286663">
-                  <Phone className="mr-2 w-4 sm:w-5 h-4 sm:h-5" />
-                  (435) 628-6663
-                </a>
+                <Link href="/repair">
+                  Get Repairs
+                  <ArrowRight className="ml-2 w-4 sm:w-5 h-4 sm:h-5" />
+                </Link>
               </Button>
             </motion.div>
 
@@ -204,7 +207,7 @@ export function HeroSection() {
                 </div>
                 <Link
                   href="/inventory"
-                  className="text-primary text-sm font-medium hover:text-primary/80 transition-colors flex items-center gap-1 group"
+                  className="text-white text-sm font-medium hover:text-white/80 transition-colors flex items-center gap-1 group"
                 >
                   View All
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -222,13 +225,13 @@ export function HeroSection() {
                   >
                     <Link
                       href={category.href}
-                      className="group flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/30 transition-all duration-300"
+                      className="group flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 transition-all duration-300"
                       onMouseEnter={() => setHoveredCard(category.name)}
                       onMouseLeave={() => setHoveredCard(null)}
                     >
                       {/* Icon */}
-                      <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300 shrink-0">
-                        <category.icon className="w-5 h-5 text-white/70 group-hover:text-primary transition-colors" />
+                      <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-all duration-300 shrink-0">
+                        <category.icon className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
                       </div>
 
                       {/* Content */}
@@ -236,7 +239,7 @@ export function HeroSection() {
                         <div className="flex items-center gap-2">
                           <span className="text-white font-semibold text-sm">{category.name}</span>
                           {category.popular && (
-                            <span className="px-1.5 py-0.5 bg-primary text-black text-[10px] font-bold rounded">
+                            <span className="px-1.5 py-0.5 bg-white text-black text-[10px] font-bold rounded">
                               POPULAR
                             </span>
                           )}
@@ -245,31 +248,37 @@ export function HeroSection() {
                       </div>
 
                       {/* Arrow */}
-                      <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300 shrink-0" />
+                      <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-white group-hover:translate-x-1 transition-all duration-300 shrink-0" />
                     </Link>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Quick Stats */}
-              <div className="mt-5 pt-4 border-t border-white/10 grid grid-cols-3 gap-4">
-                <div className="text-center">
-                  <div className="text-white font-bold text-xl">
-                    <AnimatedCounter target={30} />+
+              {/* Who We Serve */}
+              <div className="mt-5 pt-4 border-t border-white/10">
+                <h4 className="text-white font-semibold text-sm mb-3">Who We Serve</h4>
+                <div className="grid grid-cols-2 gap-3">
+                  {/* Contractors */}
+                  <div className="bg-white/5 rounded-xl p-4 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+                    <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors">
+                      <Truck className="w-6 h-6 text-white" />
+                    </div>
+                    <h5 className="text-white font-semibold text-sm mb-1">Contractors</h5>
+                    <p className="text-white/60 text-xs leading-relaxed">
+                      Keep your fleet running with priority service and fleet maintenance programs. We understand downtime costs money.
+                    </p>
                   </div>
-                  <div className="text-white/50 text-xs">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-white font-bold text-xl">
-                    <AnimatedCounter target={100} />+
+
+                  {/* Homeowners */}
+                  <div className="bg-white/5 rounded-xl p-4 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+                    <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors">
+                      <Calendar className="w-6 h-6 text-white" />
+                    </div>
+                    <h5 className="text-white font-semibold text-sm mb-1">Homeowners</h5>
+                    <p className="text-white/60 text-xs leading-relaxed">
+                      Get your personal equipment back in working order. From lawn mowers to pressure washers, we fix it all.
+                    </p>
                   </div>
-                  <div className="text-white/50 text-xs">Equipment Units</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-white font-bold text-xl">
-                    <AnimatedCounter target={5000} />+
-                  </div>
-                  <div className="text-white/50 text-xs">Happy Customers</div>
                 </div>
               </div>
             </div>
@@ -299,7 +308,7 @@ export function HeroSection() {
                 <span className="text-white/60 text-xs block">100+ equipment items</span>
               </div>
             </div>
-            <ArrowRight className="w-5 h-5 text-primary" />
+            <ArrowRight className="w-5 h-5 text-white" />
           </div>
         </Link>
       </motion.div>

@@ -3,7 +3,6 @@ import { StatsSection } from "@/components/home/stats-section"
 import { AboutSection } from "@/components/home/about-section"
 import { CategoriesSection } from "@/components/home/categories-section"
 import { ServicesBento } from "@/components/home/services-bento"
-import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { BlogSection } from "@/components/home/blog-section"
 import { ContactSection } from "@/components/home/contact-section"
 
@@ -15,7 +14,6 @@ export default function HomePage() {
       <AboutSection />
       <CategoriesSection />
       <ServicesBento />
-      <TestimonialsSection />
       <BlogSection />
       <ContactSection />
     </>

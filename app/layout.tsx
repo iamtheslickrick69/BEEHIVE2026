@@ -7,7 +7,6 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { AIAssistant } from "@/components/ai-assistant"
 import { ToastProvider } from "@/components/ui/toast-provider"
-import { BackToTop } from "@/components/ui/back-to-top"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const interTight = Inter_Tight({
@@ -44,7 +43,6 @@ export default function RootLayout({
           <main className="min-h-screen pt-20">{children}</main>
           <Footer />
           <AIAssistant />
-          <BackToTop />
           <Analytics />
         </ToastProvider>
       </body>

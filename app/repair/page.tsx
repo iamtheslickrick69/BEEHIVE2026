@@ -14,9 +14,9 @@ export default function RepairPage() {
   return (
     <div className="min-h-screen bg-background">
       <RepairHeader />
+      <RepairBrands />
       <RepairServices />
       <RepairProcess />
-      <RepairBrands />
       <RepairCTA />
     </div>
   )

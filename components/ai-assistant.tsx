@@ -285,7 +285,7 @@ export function AIAssistant() {
             whileHover={{ scale: hasScrolled ? 1.0 : 1.07 }}
             whileTap={{ scale: hasScrolled ? 0.88 : 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 w-36 h-36 rounded-full flex items-center justify-center z-50"
+            className="group fixed bottom-10 right-6 w-36 h-36 flex items-center justify-center z-50 bg-transparent"
             style={{
               filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.1))',
             }}
@@ -383,7 +383,7 @@ export function AIAssistant() {
             transition={{ duration: 0.2 }}
             style={{ width: size.width, height: size.height }}
             className={cn(
-              "fixed bottom-6 right-6 z-50 bg-[#0a0a0a] rounded-2xl shadow-2xl border border-white/10 flex flex-col overflow-hidden",
+              "fixed bottom-10 right-6 z-50 bg-[#0a0a0a] rounded-2xl shadow-2xl border border-white/10 flex flex-col overflow-hidden",
               isResizing && "select-none",
             )}
           >

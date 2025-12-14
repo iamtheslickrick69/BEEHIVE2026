@@ -13,8 +13,8 @@
   --popover: oklch(0.11 0 0);
   --popover-foreground: oklch(0.95 0 0);
 
-  /* Primary - Construction Yellow (keep for accents) */
-  --primary: oklch(0.879 0.169 91.605); /* #F7B500 */
+  /* Primary - Light Yellow (unified color) */
+  --primary: oklch(0.927 0.115 99.574); /* #FCD34D - Tailwind yellow-300 */
   --primary-foreground: oklch(0.09 0 0); /* Black text on yellow */
 
   /* Secondary - Charcoal */
@@ -132,8 +132,8 @@
 .hazard-stripe {
   background: repeating-linear-gradient(
     -45deg,
-    oklch(0.879 0.169 91.605),
-    oklch(0.879 0.169 91.605) 10px,
+    oklch(0.927 0.115 99.574),
+    oklch(0.927 0.115 99.574) 10px,
     oklch(0.09 0 0) 10px,
     oklch(0.09 0 0) 20px
   );
@@ -143,4 +143,13 @@
 .starlink-pattern {
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q 25 25, 50 50 T 100 50' stroke='%23222' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
   background-size: 200px 200px;
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

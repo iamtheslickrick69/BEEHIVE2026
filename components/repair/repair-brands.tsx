@@ -22,92 +22,73 @@ const brands = [
 ]
 
 export function RepairBrands() {
+  // Duplicate brands array for seamless infinite scroll
+  const duplicatedBrands = [...brands, ...brands, ...brands]
+
   return (
-    <section className="py-20 bg-[#0a0a0a] border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-10 bg-gradient-to-b from-[#0a0a0a] to-[#0f0f0f] border-b border-white/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 mb-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-            Brands We Service
-          </h2>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Factory-trained on all major equipment brands
-          </p>
-        </motion.div>
-
-        {/* Logo Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-          {brands.map((brand, index) => (
-            <motion.div
-              key={brand.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              viewport={{ once: true }}
-              className="group relative"
-            >
-              {/* Card */}
-              <div className="relative bg-[#111] border border-white/10 rounded-xl p-6 h-32 flex items-center justify-center overflow-hidden hover:border-primary/50 hover:bg-[#151515] transition-all duration-300">
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/10 group-hover:to-primary/5 transition-all duration-500" />
-
-                {/* Logo */}
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <Image
-                    src={brand.logo}
-                    alt={brand.name}
-                    width={200}
-                    height={100}
-                    className="max-w-full max-h-full object-contain grayscale brightness-0 invert opacity-60 group-hover:grayscale-0 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 transition-all duration-500"
-                    style={{
-                      filter: "drop-shadow(0 0 20px rgba(255, 255, 255, 0))",
-                    }}
-                  />
-                </div>
-
-                {/* Subtle scan line effect */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none animate-scan" />
-              </div>
-
-              {/* Brand name tooltip */}
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-black/90 border border-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
-                <span className="text-xs text-white font-medium">{brand.name}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Bottom text */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <p className="text-sm text-white/40">
-            And many more professional equipment brands
-          </p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Brands We Service</h2>
+          <p className="text-sm text-white/60">Factory-trained on all major equipment brands</p>
         </motion.div>
       </div>
 
+      {/* Clean Floating Logos */}
+      <div className="relative">
+        {/* Soft Edge Fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-48 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-48 bg-gradient-to-l from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent z-10 pointer-events-none" />
+
+        {/* Scrolling Logos */}
+        <div className="flex items-center animate-scroll-slow gap-12">
+          {duplicatedBrands.map((brand, index) => (
+            <div
+              key={`${brand.name}-${index}`}
+              className="flex-shrink-0 group transition-all duration-500 hover:scale-110"
+              style={{ width: "224px" }}
+            >
+              {/* Just the Logo - Clean & Simple */}
+              <div className="relative flex items-center justify-center h-32">
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={224}
+                  height={126}
+                  className="max-w-full max-h-full object-contain brightness-125 opacity-90 group-hover:brightness-150 group-hover:opacity-100 transition-all duration-500 rounded-2xl"
+                  style={{
+                    filter: "drop-shadow(0 6px 18px rgba(255, 255, 255, 0.2))",
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <style jsx global>{`
-        @keyframes scan {
+        @keyframes scroll-slow {
           0% {
-            transform: translateY(-100%);
+            transform: translateX(0);
           }
           100% {
-            transform: translateY(100%);
+            transform: translateX(calc(-224px * 15 - 3rem * 15));
           }
         }
-        .animate-scan {
-          animation: scan 3s ease-in-out infinite;
+
+        .animate-scroll-slow {
+          animation: scroll-slow 150s linear infinite;
+        }
+
+        .animate-scroll-slow:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </section>

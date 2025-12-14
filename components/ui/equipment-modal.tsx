@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Phone, MessageCircle, FileText, ChevronLeft, ChevronRight, Heart, Truck, Check } from "lucide-react"
+import { X, Phone, MessageCircle, FileText, ChevronLeft, ChevronRight, Truck, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { equipmentData, type Equipment } from "@/lib/equipment-data"
@@ -17,7 +17,6 @@ interface EquipmentModalProps {
 
 export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEquipment }: EquipmentModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [isFavorite, setIsFavorite] = useState(false)
 
   const relatedEquipment = useMemo(() => {
     if (!equipment) return []
@@ -101,18 +100,6 @@ export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEq
               </div>
               <div className="flex items-center gap-2">
                 <button
-                  onClick={() => setIsFavorite(!isFavorite)}
-                  className={cn(
-                    "p-2.5 rounded-full transition-all",
-                    isFavorite
-                      ? "bg-red-500/20 text-red-400"
-                      : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white",
-                  )}
-                  aria-label="Add to favorites"
-                >
-                  <Heart className={cn("w-5 h-5", isFavorite && "fill-current")} />
-                </button>
-                <button
                   onClick={onClose}
                   className="p-2.5 bg-white/5 hover:bg-white/10 rounded-full transition-colors text-white/60 hover:text-white"
                   aria-label="Close"
@@ -133,7 +120,7 @@ export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEq
                       src={images[currentImageIndex] || "/placeholder.svg"}
                       alt={equipment.name}
                       className="max-w-full max-h-[60vh] object-contain"
-                      style={{ imageRendering: 'high-quality' }}
+                      style={{ imageRendering: 'auto' as const }}
                     />
 
                     {/* Image Navigation - only if multiple images */}

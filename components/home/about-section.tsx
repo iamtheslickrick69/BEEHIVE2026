@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Check, ArrowRight } from "lucide-react"
+import { Check, ArrowRight, Phone } from "lucide-react"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
+import { Button } from "@/components/ui/button"
 
 const highlights = [
   "Largest equipment selection in Southern Utah",
@@ -14,76 +15,82 @@ const highlights = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-16 md:py-24 bg-background">
+    <section id="about" className="py-12 md:py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4">
         {/* About Content */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Image */}
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+          {/* Logo */}
           <ScrollAnimation direction="left">
             <div className="relative">
-              <div className="rounded-xl overflow-hidden border border-border">
-                <img
-                  src="/equipment-rental-yard-southern-utah.jpg"
-                  alt="BeeHive Equipment Yard"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              {/* Floating stat card - hidden on mobile */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                viewport={{ once: true }}
-                className="absolute -bottom-6 -right-6 bg-white text-black p-4 md:p-6 rounded-xl shadow-xl hidden md:block"
-              >
-                <div className="text-3xl md:text-4xl font-bold">30+</div>
-                <div className="text-xs md:text-sm text-gray-600">Years Serving Southern Utah</div>
-              </motion.div>
+              <img
+                src="/whitelogo.png"
+                alt="BeeHive Rental & Sales"
+                className="w-full h-auto object-contain rounded-3xl"
+              />
             </div>
           </ScrollAnimation>
 
           {/* Content */}
           <ScrollAnimation direction="right">
             <div>
-              <span className="text-primary font-semibold text-sm tracking-widest uppercase">About Us</span>
+              <span className="text-yellow-300 font-semibold text-sm tracking-widest uppercase">About Us</span>
               <h2
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4 md:mb-6 leading-[1.1] uppercase tracking-tight"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-3 md:mb-4 leading-[1.1] uppercase tracking-tight"
                 style={{ fontFamily: "var(--font-inter-tight)" }}
               >
                 Your local equipment partner since 1994
               </h2>
-              <p className="text-gray-400 text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
+              <p className="text-gray-400 text-sm md:text-base mb-5 md:mb-6 leading-relaxed">
                 Located at 1175 East Highland Dr., St. George, we&apos;re your local hometown rental yard with the
                 largest selection of equipment in town. We offer equipment rentals, delivery and pickup, and repair and
                 maintenance for both small and large equipment.
               </p>
 
               {/* Highlights */}
-              <div className="grid sm:grid-cols-2 gap-3 mb-6 md:mb-8">
+              <div className="grid sm:grid-cols-2 gap-2.5 mb-5 md:mb-6">
                 {highlights.map((item, index) => (
                   <motion.div
                     key={item}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
                     viewport={{ once: true }}
-                    className="flex items-center gap-3"
+                    className="flex items-center gap-2.5"
                   >
-                    <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-primary" />
-                    </div>
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ delay: index * 0.1 + 0.2, type: "spring", bounce: 0.5 }}
+                      viewport={{ once: true }}
+                      className="w-5 h-5 rounded-full bg-yellow-300/20 flex items-center justify-center shrink-0"
+                    >
+                      <Check className="w-3 h-3 text-yellow-300 stroke-[3]" />
+                    </motion.div>
                     <span className="text-gray-300 text-sm">{item}</span>
                   </motion.div>
                 ))}
               </div>
 
-              <Link
-                href="/info?tab=team"
-                className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-semibold uppercase tracking-wide text-sm"
-              >
-                Meet our team
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Button
+                  asChild
+                  className="bg-yellow-300 hover:bg-yellow-400 text-black font-bold h-12 px-6 rounded-xl shadow-lg hover:shadow-xl hover:shadow-yellow-300/20 transition-all hover:scale-105"
+                >
+                  <Link href="/info?tab=team" className="inline-flex items-center gap-2 uppercase tracking-wide text-sm">
+                    Meet our team
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold h-12 px-6 rounded-xl border border-white/20 shadow-lg transition-all hover:scale-105"
+                >
+                  <a href="tel:435-628-6663" className="inline-flex items-center gap-2 uppercase tracking-wide text-sm">
+                    <Phone className="w-4 h-4" />
+                    (435) 628-6663
+                  </a>
+                </Button>
+              </div>
             </div>
           </ScrollAnimation>
         </div>
