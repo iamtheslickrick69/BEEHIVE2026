@@ -167,22 +167,22 @@ export function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-black hover:bg-white/90 text-sm sm:text-base font-semibold px-6 sm:px-8 h-12 sm:h-14 rounded-xl uppercase tracking-wide shadow-lg shadow-white/20 hover:shadow-white/40 hover:scale-105 transition-all duration-300"
+                className="bg-white text-black hover:bg-white/90 text-base font-semibold px-6 sm:px-8 h-14 rounded-xl uppercase tracking-wide shadow-lg shadow-white/20 hover:shadow-white/40 hover:scale-105 transition-all duration-300"
               >
                 <Link href="/inventory">
                   Browse Equipment
-                  <ArrowRight className="ml-2 w-4 sm:w-5 h-4 sm:h-5" />
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 text-sm sm:text-base font-semibold px-6 sm:px-8 h-12 sm:h-14 bg-white/5 rounded-xl uppercase tracking-wide hover:scale-105 transition-all duration-300"
+                className="border-white/30 text-white hover:bg-white/10 text-base font-semibold px-6 sm:px-8 h-14 bg-white/5 rounded-xl uppercase tracking-wide hover:scale-105 transition-all duration-300"
               >
                 <Link href="/repair">
                   Get Repairs
-                  <ArrowRight className="ml-2 w-4 sm:w-5 h-4 sm:h-5" />
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
             </motion.div>
@@ -238,11 +238,6 @@ export function HeroSection() {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
                           <span className="text-white font-semibold text-sm">{category.name}</span>
-                          {category.popular && (
-                            <span className="px-1.5 py-0.5 bg-white text-black text-[10px] font-bold rounded">
-                              POPULAR
-                            </span>
-                          )}
                         </div>
                         <span className="text-white/50 text-xs block truncate">{category.description}</span>
                       </div>

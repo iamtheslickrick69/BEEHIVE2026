@@ -1842,13 +1842,13 @@ export const equipmentData: Equipment[] = [
     featured: false,
   },
 
-  // ==================== SCAFFOLDING & LADDERS ====================
+  // ==================== SCAFFOLDING & LADDERS (NOW IN GENERAL TOOLS) ====================
 
   // Scaffolding Systems
   {
     id: "baker-scaffolding",
     name: "Baker Scaffolding w/ Wheels (72\"H x 60\"L x 24\"W)",
-    category: "Scaffolding & Ladders",
+    category: "General Tools",
     description: "Compact, mobile scaffold for indoor tasks and tight spaces. Rolling scaffold with locking casters for safety.",
     dailyRate: 0,
     weeklyRate: 0,
@@ -1868,7 +1868,7 @@ export const equipmentData: Equipment[] = [
   {
     id: "scaffold-set-5x5x7",
     name: "5' x 5' x 7' Scaffold Sets",
-    category: "Scaffolding & Ladders",
+    category: "General Tools",
     description: "Standard modular sets for exterior or multi-level work. Heavy-duty steel construction for commercial applications.",
     dailyRate: 0,
     weeklyRate: 0,
@@ -1887,7 +1887,7 @@ export const equipmentData: Equipment[] = [
   {
     id: "outdoor-scaffolding",
     name: "Outdoor Scaffolding",
-    category: "Scaffolding & Ladders",
+    category: "General Tools",
     description: "Heavy-duty scaffold for exterior construction or repairs. Weather-resistant and built for demanding outdoor work.",
     dailyRate: 0,
     weeklyRate: 0,
@@ -1906,7 +1906,7 @@ export const equipmentData: Equipment[] = [
   {
     id: "scaffold-platforms",
     name: "Scaffolding Platforms",
-    category: "Scaffolding & Ladders",
+    category: "General Tools",
     description: "Walk surfaces for scaffolding systems. Aluminum or wood plank options available for various applications.",
     dailyRate: 0,
     weeklyRate: 0,
@@ -1927,7 +1927,7 @@ export const equipmentData: Equipment[] = [
   {
     id: "extension-ladders",
     name: "Extension Ladders",
-    category: "Scaffolding & Ladders",
+    category: "General Tools",
     description: "Adjustable height ladders for roof access or tall structures. Available in various heights for different applications.",
     dailyRate: 0,
     weeklyRate: 0,
@@ -1946,7 +1946,7 @@ export const equipmentData: Equipment[] = [
   {
     id: "a-frame-ladders",
     name: "A-Frame Ladders",
-    category: "Scaffolding & Ladders",
+    category: "General Tools",
     description: "Free-standing ladders for interior or short-height access. Stable platform for various tasks.",
     dailyRate: 0,
     weeklyRate: 0,
@@ -1967,7 +1967,7 @@ export const equipmentData: Equipment[] = [
   {
     id: "scissor-lifts",
     name: "Scissor Lifts",
-    category: "Scaffolding & Ladders",
+    category: "General Tools",
     description: "Mechanized lift platforms for safe vertical access. Electric or gas-powered options for indoor and outdoor use.",
     dailyRate: 0,
     weeklyRate: 0,
@@ -1986,7 +1986,7 @@ export const equipmentData: Equipment[] = [
   {
     id: "rolling-towers",
     name: "Rolling Towers",
-    category: "Scaffolding & Ladders",
+    category: "General Tools",
     description: "Movable scaffold towers for flexible height access. Mobile aluminum towers with locking casters.",
     dailyRate: 0,
     weeklyRate: 0,
@@ -2007,7 +2007,7 @@ export const equipmentData: Equipment[] = [
   {
     id: "temporary-fencing",
     name: "Temporary Fencing (6' x 10')",
-    category: "Scaffolding & Ladders",
+    category: "General Tools",
     description: "For crowd control, safety zones, or site security. Chain-link panels with stands for easy installation.",
     dailyRate: 0,
     weeklyRate: 0,

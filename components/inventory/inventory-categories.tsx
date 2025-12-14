@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { CategoryPreview } from "@/components/inventory/category-preview"
 import { InventoryFilterBar } from "@/components/inventory/inventory-filter-bar"
+import { InventoryCategorySelector } from "@/components/inventory/inventory-category-selector"
 import { equipmentData } from "@/lib/equipment-data"
 import { EquipmentCard } from "@/components/inventory/equipment-card"
 import { cn } from "@/lib/utils"
@@ -33,7 +34,6 @@ const categoryOrder = [
   "Automotive",
   "General Tools",
   "Generators & Welders",
-  "Scaffolding & Ladders",
   "Landscaping & Garden",
 ]
 
@@ -47,7 +47,6 @@ const categoryIdMap: Record<string, string> = {
   "automotive": "Automotive",
   "general-tools": "General Tools",
   "generators-welders": "Generators & Welders",
-  "scaffolding-ladders": "Scaffolding & Ladders",
   "landscaping-garden": "Landscaping & Garden",
 }
 
@@ -59,9 +58,8 @@ const categories = [
   { id: "power-tools", label: "Power Tools", count: 15 },
   { id: "carpet-floor-tools", label: "Carpet & Floor", count: 12 },
   { id: "automotive", label: "Automotive", count: 4 },
-  { id: "general-tools", label: "General Tools", count: 9 },
+  { id: "general-tools", label: "General Tools", count: 18 },
   { id: "generators-welders", label: "Generators & Welders", count: 8 },
-  { id: "scaffolding-ladders", label: "Scaffolding & Ladders", count: 9 },
   { id: "landscaping-garden", label: "Landscaping & Garden", count: 16 },
 ]
 
@@ -169,7 +167,7 @@ export function InventoryCategories() {
                     Search: "{searchQuery}"
                     <button
                       onClick={() => setSearchQuery("")}
-                      className="ml-1 hover:text-white/60 transition-colors"
+                      className="ml-1 p-1 hover:text-white/60 transition-colors rounded-full hover:bg-white/10"
                     >
                       <X className="w-3 h-3" />
                     </button>
@@ -180,7 +178,7 @@ export function InventoryCategories() {
                     {categoryIdMap[selectedCategory]}
                     <button
                       onClick={() => setSelectedCategory("all")}
-                      className="ml-1 hover:text-white/60 transition-colors"
+                      className="ml-1 p-1 hover:text-white/60 transition-colors rounded-full hover:bg-white/10"
                     >
                       <X className="w-3 h-3" />
                     </button>
@@ -196,7 +194,7 @@ export function InventoryCategories() {
                     Delivery Available
                     <button
                       onClick={() => setFilters({ ...filters, delivery: false })}
-                      className="ml-1 hover:text-white/60 transition-colors"
+                      className="ml-1 p-1 hover:text-white/60 transition-colors rounded-full hover:bg-white/10"
                     >
                       <X className="w-3 h-3" />
                     </button>
@@ -264,6 +262,14 @@ export function InventoryCategories() {
               </section>
             ) : (
               <>
+                {/* Category Selector - Above Featured Equipment */}
+                <InventoryCategorySelector
+                  selectedCategory={selectedCategory}
+                  onCategoryChange={setSelectedCategory}
+                  searchQuery={searchQuery}
+                  onSearchChange={setSearchQuery}
+                />
+
                 {/* Featured Section */}
                 <section className="mb-8 bg-white/[0.02] border border-white/20 rounded-2xl p-6">
                   <div className="flex items-center gap-3 mb-6">

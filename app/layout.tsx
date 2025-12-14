@@ -17,6 +17,7 @@ const interTight = Inter_Tight({
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.beehiverentalandsales.com'),
   title: "BeeHive Rental & Sales LLC | Equipment Rental St. George Utah",
   description:
     "Southern Utah's premier equipment rental company. Professional-grade construction, landscaping, and event equipment. Serving St. George, Washington, Hurricane, and surrounding areas since 1994.",

@@ -128,7 +128,7 @@ export function StatsSection() {
                     <div className="text-lg md:text-xl lg:text-2xl font-bold leading-none mb-0.5">
                       <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                     </div>
-                    <div className="text-[9px] md:text-[10px] font-medium opacity-80 leading-none whitespace-nowrap">
+                    <div className="text-[11px] md:text-xs font-medium opacity-80 leading-none whitespace-nowrap">
                       {stat.label}
                     </div>
                   </div>

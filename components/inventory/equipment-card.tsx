@@ -23,7 +23,7 @@ export function EquipmentCard({ equipment, viewMode = "grid" }: EquipmentCardPro
         <motion.div
           whileHover={{ y: -4 }}
           onClick={() => setIsModalOpen(true)}
-          className="bg-card rounded-xl border border-white/10 overflow-hidden hover:border-white/20 hover:shadow-lg hover:shadow-black/20 transition-all cursor-pointer"
+          className="bg-white/[0.02] backdrop-blur-md rounded-xl border border-white/10 overflow-hidden hover:border-white/25 hover:shadow-lg hover:shadow-white/5 transition-all cursor-pointer"
         >
           <div className="flex flex-col md:flex-row">
             <div className="relative w-full md:w-72 h-48 md:h-auto shrink-0 overflow-hidden md:rounded-l-2xl rounded-t-2xl md:rounded-t-xl">
@@ -93,19 +93,12 @@ export function EquipmentCard({ equipment, viewMode = "grid" }: EquipmentCardPro
         whileHover={{ y: -4 }}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
         className={cn(
-          "bg-card rounded-xl overflow-hidden hover:shadow-xl hover:shadow-black/20 transition-all duration-300 group relative",
+          "rounded-xl overflow-hidden transition-all duration-300 group relative backdrop-blur-md",
           equipment.featured
-            ? "border-2 border-[#E8C24A] shadow-lg shadow-[#E8C24A]/10"
-            : "border border-white/10 hover:border-white/20",
+            ? "bg-white/[0.03] border-2 border-white/30 shadow-lg shadow-white/5 hover:shadow-xl hover:shadow-white/10 hover:border-white/50"
+            : "bg-white/[0.02] border border-white/10 hover:border-white/25 hover:shadow-lg hover:shadow-white/5",
         )}
       >
-        {/* Featured Badge */}
-        {equipment.featured && (
-          <div className="absolute top-3 right-3 z-10 px-3 py-1 bg-[#E8C24A] text-black text-xs font-bold uppercase tracking-wide rounded-full shadow-lg">
-            Popular
-          </div>
-        )}
-
         {/* Image - clean with subtle zoom on hover */}
         <div className="relative h-48 overflow-hidden rounded-t-2xl cursor-pointer" onClick={() => setIsModalOpen(true)}>
           <img
@@ -113,10 +106,11 @@ export function EquipmentCard({ equipment, viewMode = "grid" }: EquipmentCardPro
             alt={equipment.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
         {/* Content */}
-        <div className="p-5">
+        <div className="p-5 bg-gradient-to-b from-white/[0.01] to-transparent">
           <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{equipment.category}</span>
           <h3 className="font-semibold text-foreground mt-1 mb-2 line-clamp-1">{equipment.name}</h3>
           <p className="text-muted-foreground text-sm line-clamp-2 mb-4">{equipment.description}</p>
@@ -124,8 +118,8 @@ export function EquipmentCard({ equipment, viewMode = "grid" }: EquipmentCardPro
           {/* Status */}
           <div className="flex items-center gap-2 text-xs mb-4">
             {equipment.available ? (
-              <span className="flex items-center gap-1 text-green-500">
-                <span className="w-2 h-2 bg-green-500 rounded-full" />
+              <span className="flex items-center gap-1 text-green-400">
+                <span className="w-2 h-2 bg-green-400 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.5)]" />
                 In Stock
               </span>
             ) : (
@@ -148,7 +142,7 @@ export function EquipmentCard({ equipment, viewMode = "grid" }: EquipmentCardPro
               e.stopPropagation()
               setIsModalOpen(true)
             }}
-            className="w-full py-2.5 bg-white text-black hover:bg-white/90 rounded-lg font-semibold text-sm transition-all hover:scale-105 active:scale-95"
+            className="w-full py-3 bg-white/95 backdrop-blur-sm text-black hover:bg-white rounded-lg font-semibold text-sm transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl hover:shadow-white/10"
           >
             Get Quote
           </button>

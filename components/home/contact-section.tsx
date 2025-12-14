@@ -97,7 +97,7 @@ export function ContactSection() {
                         id="name"
                         placeholder="Your name"
                         required
-                        className="bg-input border-border rounded-lg h-11"
+                        className="bg-input border-border rounded-lg h-12 text-base"
                       />
                     </div>
                     <div className="space-y-2">
@@ -108,7 +108,7 @@ export function ContactSection() {
                         id="phone"
                         type="tel"
                         placeholder="(435) 555-1234"
-                        className="bg-input border-border rounded-lg h-11"
+                        className="bg-input border-border rounded-lg h-12 text-base"
                       />
                     </div>
                   </div>
@@ -121,7 +121,7 @@ export function ContactSection() {
                       type="email"
                       placeholder="you@example.com"
                       required
-                      className="bg-input border-border rounded-lg h-11"
+                      className="bg-input border-border rounded-lg h-12 text-base"
                     />
                   </div>
                   <div className="space-y-2">
@@ -131,14 +131,14 @@ export function ContactSection() {
                     <Textarea
                       id="message"
                       placeholder="Tell us about your project or rental needs..."
-                      rows={3}
+                      rows={4}
                       required
-                      className="bg-input border-border rounded-lg"
+                      className="bg-input border-border rounded-lg text-base"
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-white text-black hover:bg-gray-100 h-11 rounded-lg font-semibold uppercase tracking-wide text-sm"
+                    className="w-full bg-white text-black hover:bg-gray-100 h-12 rounded-lg font-semibold uppercase tracking-wide text-sm"
                   >
                     <Send className="w-4 h-4 mr-2" />
                     Send Message
@@ -166,36 +166,36 @@ export function ContactSection() {
               </div>
 
               {/* Contact Cards - 2x2 grid */}
-              <div className="grid grid-cols-2 gap-3 md:gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 <a
                   href="tel:+14356286663"
-                  className="bg-background rounded-xl p-4 md:p-5 border border-border hover:border-primary/50 transition-all group"
+                  className="bg-background rounded-xl p-5 border border-border hover:border-primary/50 transition-all group"
                 >
-                  <Phone className="w-6 h-6 text-primary mb-2 group-hover:scale-110 transition-transform" />
-                  <h4 className="font-semibold text-foreground text-sm md:text-base mb-0.5">Phone</h4>
+                  <Phone className="w-6 h-6 md:w-7 md:h-7 text-primary mb-3 group-hover:scale-110 transition-transform" />
+                  <h4 className="font-semibold text-foreground text-sm md:text-base mb-1">Phone</h4>
                   <span className="text-muted-foreground text-sm md:text-base">(435) 628-6663</span>
                 </a>
                 <a
                   href="mailto:beehiverental@infowest.com"
-                  className="bg-background rounded-xl p-4 md:p-5 border border-border hover:border-primary/50 transition-all group"
+                  className="bg-background rounded-xl p-5 border border-border hover:border-primary/50 transition-all group"
                 >
-                  <Mail className="w-6 h-6 text-primary mb-2 group-hover:scale-110 transition-transform" />
-                  <h4 className="font-semibold text-foreground text-sm md:text-base mb-0.5">Email</h4>
-                  <span className="text-muted-foreground text-xs md:text-sm break-all">beehiverental@infowest.com</span>
+                  <Mail className="w-6 h-6 md:w-7 md:h-7 text-primary mb-3 group-hover:scale-110 transition-transform" />
+                  <h4 className="font-semibold text-foreground text-sm md:text-base mb-1">Email</h4>
+                  <span className="text-muted-foreground text-xs md:text-sm break-all leading-relaxed">beehiverental@infowest.com</span>
                 </a>
-                <div className="bg-background rounded-xl p-4 md:p-5 border border-border">
-                  <MapPin className="w-6 h-6 text-primary mb-2" />
-                  <h4 className="font-semibold text-foreground text-sm md:text-base mb-0.5">Address</h4>
-                  <p className="text-muted-foreground text-sm md:text-base">
+                <div className="bg-background rounded-xl p-5 border border-border">
+                  <MapPin className="w-6 h-6 md:w-7 md:h-7 text-primary mb-3" />
+                  <h4 className="font-semibold text-foreground text-sm md:text-base mb-1">Address</h4>
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
                     1175 Highland Dr
                     <br />
                     St. George, UT
                   </p>
                 </div>
-                <div className="bg-background rounded-xl p-4 md:p-5 border border-border">
-                  <Clock className="w-6 h-6 text-primary mb-2" />
-                  <h4 className="font-semibold text-foreground text-sm md:text-base mb-0.5">Hours</h4>
-                  <p className="text-muted-foreground text-sm md:text-base">
+                <div className="bg-background rounded-xl p-5 border border-border">
+                  <Clock className="w-6 h-6 md:w-7 md:h-7 text-primary mb-3" />
+                  <h4 className="font-semibold text-foreground text-sm md:text-base mb-1">Hours</h4>
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
                     Mon-Fri: 7AM-5PM
                     <br />
                     Sat: 8AM-12PM

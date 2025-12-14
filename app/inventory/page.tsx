@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function InventoryPage() {
   return (
-    <div className="min-h-screen bg-background pt-20">
+    <div className="min-h-screen bg-background">
       <InventoryHero />
       <Suspense fallback={<InventoryLoadingSkeleton />}>
         <InventoryCategories />

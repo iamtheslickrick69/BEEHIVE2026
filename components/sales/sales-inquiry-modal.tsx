@@ -1,46 +1,64 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Phone, Mail, Send, CheckCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { X, Phone, FileText, MessageCircle, CheckCircle, Truck } from "lucide-react"
+import Image from "next/image"
 
 interface SalesInquiryModalProps {
   isOpen: boolean
   onClose: () => void
   equipment: {
+    id: string
     name: string
-    price: number
+    category: string
+    price: number | null
+    condition: string
+    description: string
     image: string
+    type: "new" | "used"
   } | null
 }
 
 export function SalesInquiryModal({ isOpen, onClose, equipment }: SalesInquiryModalProps) {
-  const [submitted, setSubmitted] = useState(false)
+  if (!equipment) return null
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      onClose()
-    }, 2000)
+  const [touchStart, setTouchStart] = useState(0)
+  const [touchEnd, setTouchEnd] = useState(0)
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientY)
   }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientY)
+  }
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd < -150) {
+      // Swipe down to close
+      onClose()
+    }
+  }
+
+  // Mock specs - you can expand this later with real data
+  const specs = [
+    { label: "Condition", value: equipment.condition },
+    { label: "Category", value: equipment.category },
+    { label: "Type", value: equipment.type === "new" ? "Brand New" : "Pre-Owned" },
+    { label: "Availability", value: "In Stock" },
+  ]
 
   return (
     <AnimatePresence>
-      {isOpen && equipment && (
+      {isOpen && (
         <>
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50"
             onClick={onClose}
           />
 
@@ -50,89 +68,95 @@ export function SalesInquiryModal({ isOpen, onClose, equipment }: SalesInquiryMo
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-card rounded-2xl shadow-2xl z-50 overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            className="fixed bg-black shadow-2xl z-50 overflow-hidden border border-white/10 overflow-y-auto
+                       max-md:inset-0 max-md:rounded-none
+                       md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-5xl md:rounded-3xl md:max-h-[90vh]"
           >
-            {/* Header with equipment preview */}
-            <div className="relative h-32 bg-secondary overflow-hidden">
-              <img
-                src={equipment.image || "/placeholder.svg"}
-                alt={equipment.name}
-                className="w-full h-full object-cover opacity-30"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-primary text-sm font-medium">Inquiring About</p>
-                <h3 className="text-white font-bold truncate">{equipment.name}</h3>
-                <p className="text-white/80 font-semibold">${equipment.price.toLocaleString()}</p>
-              </div>
+            {/* Close Button - Sticky on mobile */}
+            <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-md border-b border-white/10 md:bg-transparent md:border-0">
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                className="absolute top-4 right-4 md:top-6 md:right-6 w-12 h-12 md:w-10 md:h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors shadow-lg"
               >
-                <X className="w-4 h-4 text-white" />
+                <X className="w-6 h-6 md:w-5 md:h-5 text-white" />
               </button>
+              {/* Swipe indicator for mobile */}
+              <div className="md:hidden flex justify-center py-3">
+                <div className="w-12 h-1 bg-white/30 rounded-full"></div>
+              </div>
             </div>
 
-            {/* Form */}
-            <div className="p-6">
-              {submitted ? (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-center py-8">
-                  <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle className="w-8 h-8 text-green-600" />
-                  </div>
-                  <h4 className="text-xl font-bold text-foreground mb-2">Inquiry Sent!</h4>
-                  <p className="text-muted-foreground">Our team will contact you within 24 hours.</p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Name</label>
-                      <Input placeholder="Your name" required className="bg-muted/50" />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-1.5 block">Phone</label>
-                      <Input type="tel" placeholder="(435) 555-0000" required className="bg-muted/50" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-1.5 block">Email</label>
-                    <Input type="email" placeholder="you@example.com" required className="bg-muted/50" />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-1.5 block">Message</label>
-                    <Textarea
-                      placeholder="I'm interested in this equipment. Is it still available? Can I schedule a viewing?"
-                      rows={3}
-                      className="bg-muted/50 resize-none"
-                    />
-                  </div>
+            <div className="grid lg:grid-cols-2 gap-6 md:gap-8 p-6 md:p-8 lg:p-12">
+              {/* Left: Image */}
+              <div className="relative aspect-video md:aspect-square lg:aspect-auto rounded-2xl overflow-hidden bg-white/5">
+                <Image
+                  src={equipment.image}
+                  alt={equipment.name}
+                  fill
+                  className="object-contain md:object-cover"
+                />
+              </div>
 
-                  <div className="flex items-center gap-3 pt-2">
-                    <Button type="submit" className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90">
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Inquiry
-                    </Button>
-                  </div>
+              {/* Right: Details */}
+              <div className="flex flex-col">
+                {/* Title */}
+                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+                  {equipment.name}
+                </h2>
 
-                  <div className="flex items-center justify-center gap-6 pt-2 text-sm text-muted-foreground">
-                    <a
-                      href="tel:+14355551234"
-                      className="flex items-center gap-1.5 hover:text-primary transition-colors"
-                    >
-                      <Phone className="w-4 h-4" />
-                      Call Us
-                    </a>
-                    <a
-                      href="mailto:sales@beehiverental.com"
-                      className="flex items-center gap-1.5 hover:text-primary transition-colors"
-                    >
-                      <Mail className="w-4 h-4" />
-                      Email
-                    </a>
+                {/* Delivery Badge */}
+                <div className="flex items-center gap-2 text-white/70 mb-6">
+                  <Truck className="w-5 h-5" />
+                  <span className="text-sm font-medium">Delivery & Pickup Available</span>
+                </div>
+
+                {/* Description */}
+                <div className="mb-6">
+                  <h3 className="text-sm font-bold text-white uppercase tracking-wide mb-2">Description</h3>
+                  <p className="text-white/70 leading-relaxed">{equipment.description}</p>
+                </div>
+
+                {/* Key Specs */}
+                <div className="mb-8">
+                  <h3 className="text-sm font-bold text-white uppercase tracking-wide mb-4">Key Specs</h3>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {specs.map((spec, index) => (
+                      <div key={index} className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-[#E8C24A] flex-shrink-0 mt-0.5" />
+                        <div>
+                          <span className="text-white/60 text-sm">{spec.label}: </span>
+                          <span className="text-white font-medium text-sm">{spec.value}</span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                </form>
-              )}
+                </div>
+
+                {/* Price */}
+                {equipment.price && (
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold text-white">${equipment.price.toLocaleString()}</span>
+                  </div>
+                )}
+
+                {/* Action Buttons */}
+                <div className="space-y-3 mt-auto">
+                  <a
+                    href="tel:+14356286663"
+                    className="flex items-center justify-center gap-2 px-6 py-4 bg-[#E8C24A] hover:bg-[#F0D060] text-black font-bold rounded-full transition-all w-full"
+                  >
+                    <Phone className="w-5 h-5" />
+                    Call (435) 628-6663
+                  </a>
+                  <button className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-white/5 hover:bg-white/10 text-[#E8C24A] font-medium rounded-full transition-all border border-white/10">
+                    <MessageCircle className="w-5 h-5" />
+                    Ask AI About This Equipment
+                  </button>
+                </div>
+              </div>
             </div>
           </motion.div>
         </>

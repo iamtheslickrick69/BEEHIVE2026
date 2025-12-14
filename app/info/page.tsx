@@ -11,27 +11,24 @@ import {
   Users,
   Building2,
   Award,
-  ChevronDown,
-  ChevronUp,
   FileText,
   DollarSign,
   Timer,
   Droplets,
   Truck,
   CheckCircle2,
-  Download,
   Heart,
   Target,
   Zap,
   Shield,
+  Compass,
 } from "lucide-react"
 import { useState, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import Image from "next/image"
 
 const companyStats = [
-  { label: "Established", value: "1994", icon: Award },
-  { label: "Owner", value: "Campbell Family", icon: Users },
+  { label: "Family Owned", value: "Since 1994", icon: Users },
   { label: "Employees", value: "14+ Team Members", icon: Building2 },
   { label: "Location", value: "St. George, Utah", icon: MapPin },
   { label: "Service Area", value: "Southern Utah", icon: Truck },
@@ -42,6 +39,72 @@ const quickReference = [
   { label: "Full-Day", value: "24 Hours", icon: Clock },
   { label: "Fuel Charge", value: "$7/gallon", icon: Droplets },
   { label: "Cash Deposit", value: "2.5x Rental", icon: DollarSign },
+]
+
+const serviceTerms = [
+  {
+    id: "deposit",
+    title: "Deposit Requirements",
+    icon: DollarSign,
+    description: "A deposit is required before any equipment can be leased. Choose from the following options:",
+    details: [
+      "Leave an open check with our office",
+      "Authorize a hold on a major credit card",
+      "Provide a cash deposit equal to 2.5 times the rental amount",
+    ],
+  },
+  {
+    id: "timing",
+    title: "Rental Timing & Charges",
+    icon: Timer,
+    description: "Understanding rental timing helps you plan and budget effectively:",
+    details: [
+      "Rental time begins when equipment leaves the yard",
+      "Minimum rental times vary: 2 hours to full day depending on equipment",
+      "Half-day rental = 4 hours from pickup time",
+      "Full-day rental = 24 hours with max 8 hours on meter",
+      "Additional meter hours billed at hourly rate",
+      "Overnight rentals minimum half-day charge",
+      "Weekend special: Saturday to Monday 8AM = 1 day (if ≤8 hours use)",
+    ],
+    note: "Time is charged based on rental duration, not actual usage hours",
+  },
+  {
+    id: "contract",
+    title: "Contract Agreement",
+    icon: FileText,
+    description: "Before leaving or loading any equipment, you must sign a rental contract agreeing to our Conditions of Contract. This protects both you and BeeHive Rental & Sales.",
+  },
+  {
+    id: "cleaning",
+    title: "Cleaning & Fuel Policy",
+    icon: Droplets,
+    description: "Proper equipment care ensures availability for all customers:",
+    details: [
+      "Equipment must be returned reasonably clean (free from excessive dirt or mud)",
+      "Cleaning fee will be applied for excessively dirty equipment (varies by size)",
+      "All equipment must be returned with full fuel tank",
+      "$7 per gallon charge for unreturned fuel",
+    ],
+  },
+  {
+    id: "trailer",
+    title: "Trailer Rental Policy",
+    icon: Truck,
+    description: "Special safety and insurance requirements for trailer rentals:",
+    details: [
+      "10,000+ lb trailers require ¾-ton truck minimum",
+      "Valid insurance verification required",
+      "In-state use only (no out-of-state travel)",
+      "Proper hitch and brake controller required",
+    ],
+  },
+  {
+    id: "closure",
+    title: "Contract Closure",
+    icon: CheckCircle2,
+    description: "Rental contracts must be properly closed upon equipment return. Charges continue to accrue until an authorized employee confirms return and closes the contract. Always ensure you receive a receipt.",
+  },
 ]
 
 const departmentColors: Record<string, string> = {
@@ -158,202 +221,45 @@ const values = [
     icon: Heart,
     title: "Customer First",
     description: "Every decision we make starts with our customers in mind. Your success is our success.",
-    color: "bg-red-500",
   },
   {
     icon: Target,
     title: "Excellence",
     description: "We maintain the highest standards in equipment quality, service, and professionalism.",
-    color: "bg-blue-500",
   },
   {
     icon: Users,
     title: "Community",
     description: "We're proud to be part of the Southern Utah community and support local businesses.",
-    color: "bg-green-500",
   },
   {
     icon: Zap,
     title: "Efficiency",
     description: "We value your time. Fast service, quick turnarounds, and streamlined processes.",
-    color: "bg-[#E8C24A]",
   },
   {
     icon: Shield,
     title: "Safety",
     description: "Safety is non-negotiable. We ensure every piece of equipment meets strict safety standards.",
-    color: "bg-purple-500",
   },
   {
     icon: Award,
     title: "Integrity",
     description: "Honest pricing, transparent policies, and always doing the right thing.",
-    color: "bg-white",
-  },
-]
-
-const policies = [
-  {
-    title: "Equipment Rental Policy",
-    icon: FileText,
-    color: "bg-[#E8C24A]",
-    description:
-      "Please review the following terms and conditions that apply when renting equipment from our facility. These policies ensure fair and consistent service for all customers.",
-  },
-  {
-    title: "Deposit Requirements",
-    icon: DollarSign,
-    color: "bg-blue-500",
-    description:
-      "A deposit is required before any equipment can be leased. This protects both parties and ensures equipment is returned in good condition.",
-    details: [
-      "Leave an open check with our office",
-      "Authorize a hold on a major credit card",
-      "Provide a cash deposit equal to 2.5 times the rental amount",
-    ],
-  },
-  {
-    title: "Contract Agreement",
-    icon: FileText,
-    color: "bg-green-500",
-    description:
-      "Before leaving or loading any equipment, you must sign a rental contract agreeing to our Conditions of Contract. This protects both you and BeeHive Rental & Sales.",
-  },
-  {
-    title: "Rental Timing & Charges",
-    icon: Timer,
-    color: "bg-purple-500",
-    description: "Understanding our rental timing structure helps you plan and budget effectively:",
-    details: [
-      "Rental time begins when equipment leaves our yard",
-      "Minimum rental times vary: 2 hours to full day depending on equipment",
-      "Half-day rental = 4 hours from pickup time",
-      "Full-day rental = 24 hours with max 8 hours on meter",
-      "Additional meter hours billed at hourly rate",
-      "Overnight rentals minimum half-day charge",
-      "Weekend special: Saturday to Monday 8AM = 1 day (if ≤8 hours use)",
-    ],
-    note: "Time is charged based on rental duration, not actual usage hours",
-  },
-  {
-    title: "Cleaning & Fuel Policy",
-    icon: Droplets,
-    color: "bg-white",
-    description: "Proper equipment care ensures availability for all customers:",
-    details: [
-      "Equipment must be returned reasonably clean",
-      "Excessive dirt/mud incurs cleaning fee (varies by equipment)",
-      "All equipment must be returned with full fuel tank",
-      "$7 per gallon charge for unreturned fuel",
-    ],
-  },
-  {
-    title: "Trailer Rental Requirements",
-    icon: Truck,
-    color: "bg-red-500",
-    description: "Special safety and insurance requirements for trailer rentals:",
-    details: [
-      "10,000+ lb trailers require ¾-ton truck minimum",
-      "Valid insurance verification required",
-      "In-state use only (no out-of-state travel)",
-      "Proper hitch and brake controller required",
-    ],
-  },
-  {
-    title: "Contract Closure",
-    icon: CheckCircle2,
-    color: "bg-[#E8C24A]",
-    description:
-      "Rental contracts must be properly closed upon equipment return. Charges continue to accrue until an authorized employee confirms return and closes the contract. Always ensure you receive a receipt.",
   },
 ]
 
 const tabs = [
   { id: "team", label: "TEAM", icon: Users },
-  { id: "values", label: "VALUES", icon: Heart },
-  { id: "policies", label: "POLICIES", icon: FileText },
+  { id: "values", label: "VALUES", icon: Compass },
   { id: "contact", label: "CONTACT", icon: Phone },
 ]
-
-function PolicyAccordion() {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
-
-  return (
-    <div className="space-y-3">
-      {policies.map((policy, index) => {
-        const isExpanded = expandedIndex === index
-        const Icon = policy.icon
-
-        return (
-          <motion.div
-            key={policy.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05 }}
-            className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-[#E8C24A]/50 transition-all duration-300"
-          >
-            <button
-              onClick={() => setExpandedIndex(isExpanded ? null : index)}
-              className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
-            >
-              <div className="flex items-center gap-3 flex-1">
-                <div className={`w-10 h-10 rounded-lg ${policy.color} bg-opacity-20 flex items-center justify-center shrink-0`}>
-                  <Icon className={`w-5 h-5 ${policy.color.replace('bg-', 'text-')}`} />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-white text-base mb-1">{policy.title}</h3>
-                  <p className="text-sm text-white/60 leading-relaxed">{policy.description}</p>
-                </div>
-              </div>
-              <div className="shrink-0 ml-4">
-                {isExpanded ? (
-                  <ChevronUp className="w-5 h-5 text-white/60" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-white/60" />
-                )}
-              </div>
-            </button>
-
-            <AnimatePresence>
-              {isExpanded && policy.details && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
-                >
-                  <div className="px-5 pb-4">
-                    <div className="pl-13 space-y-2">
-                      {policy.details.map((detail, i) => (
-                        <div key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-[#E8C24A] shrink-0 mt-0.5" />
-                          <span className="text-white/80 text-sm">{detail}</span>
-                        </div>
-                      ))}
-                      {policy.note && (
-                        <div className="mt-3 p-3 bg-[#E8C24A]/10 border border-[#E8C24A]/30 rounded-lg">
-                          <p className="text-sm text-[#E8C24A]">
-                            <span className="font-bold">Note:</span> {policy.note}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        )
-      })}
-    </div>
-  )
-}
 
 function InfoPageContent() {
   const searchParams = useSearchParams()
   const [activeTab, setActiveTab] = useState("team")
   const [isSticky, setIsSticky] = useState(false)
+  const [expandedPolicy, setExpandedPolicy] = useState<string | null>(null)
 
   useEffect(() => {
     const tab = searchParams.get("tab")
@@ -371,23 +277,23 @@ function InfoPageContent() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="relative min-h-[45vh] flex items-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
+      <section className="relative min-h-[45vh] flex items-center overflow-hidden bg-black pt-20">
         <div className="absolute inset-0 z-0">
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-20"
+            className="absolute inset-0 bg-cover bg-center opacity-50"
             style={{
-              backgroundImage: `url('/equipment-rental-yard-southern-utah.jpg')`,
+              backgroundImage: `url('/company-info-hero.jpg')`,
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/50 to-black/50" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 py-16 w-full">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6 border border-white/20">
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-white text-sm font-medium mb-6 border border-white/30 shadow-lg shadow-[#E8C24A]/20">
                 <Award className="w-4 h-4 text-[#E8C24A]" />
                 SERVING SINCE 1994
               </span>
@@ -412,7 +318,7 @@ function InfoPageContent() {
             </motion.p>
 
             {/* Company Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto">
               {companyStats.map((stat, index) => {
                 const Icon = stat.icon
                 return (
@@ -421,10 +327,13 @@ function InfoPageContent() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 + 0.1 * index }}
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-3 hover:bg-white/10 transition-all duration-300"
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 md:p-3 hover:bg-white/10 hover:border-[#E8C24A]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#E8C24A]/20 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#E8C24A] focus:ring-offset-2 focus:ring-offset-black"
+                    tabIndex={0}
                   >
-                    <Icon className="w-6 h-6 text-[#E8C24A] mx-auto mb-2" />
-                    <div className="text-white font-bold text-sm md:text-base mb-1">{stat.value}</div>
+                    <Icon className="w-7 h-7 md:w-6 md:h-6 text-[#E8C24A] mx-auto mb-2" />
+                    <div className="text-white font-bold text-base md:text-base mb-1">{stat.value}</div>
                     <div className="text-white/60 text-xs uppercase tracking-wider">{stat.label}</div>
                   </motion.div>
                 )
@@ -434,37 +343,168 @@ function InfoPageContent() {
         </div>
       </section>
 
-      {/* Quick Reference Bar - Sticky */}
+      {/* Service Terms & Policies Section */}
+      <section className="py-16 bg-gradient-to-b from-black via-zinc-900 to-black border-b border-white/10 relative">
+        <div className="max-w-7xl mx-auto px-4">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 uppercase tracking-tight">
+              Service Terms & Policies
+            </h2>
+            <p className="text-white/60 text-lg">Click any category below to view full details</p>
+          </motion.div>
+
+          {/* Policy Cards Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+            {serviceTerms.map((policy, index) => {
+              const Icon = policy.icon
+              const isExpanded = expandedPolicy === policy.id
+
+              return (
+                <motion.button
+                  key={policy.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.03, y: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setExpandedPolicy(isExpanded ? null : policy.id)}
+                  className={`bg-white/5 backdrop-blur-sm border rounded-2xl p-6 text-left transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#E8C24A] focus:ring-offset-2 focus:ring-offset-zinc-900 ${
+                    isExpanded
+                      ? "border-[#E8C24A]/50 bg-white/10 shadow-lg shadow-[#E8C24A]/20"
+                      : "border-white/10 hover:border-[#E8C24A]/50 hover:bg-white/10"
+                  }`}
+                >
+                  <div className="flex items-start gap-4">
+                    <motion.div
+                      animate={{ rotate: isExpanded ? 360 : 0 }}
+                      transition={{ duration: 0.5, type: "spring" }}
+                      className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center shrink-0"
+                    >
+                      <Icon className="w-7 h-7 text-white" />
+                    </motion.div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-white text-lg mb-1">{policy.title}</h3>
+                      <p className="text-white/50 text-sm">
+                        {isExpanded ? "Click to collapse" : "Click to expand"}
+                      </p>
+                    </div>
+                  </div>
+                </motion.button>
+              )
+            })}
+          </div>
+
+          {/* Expanded Policy Details */}
+          <AnimatePresence mode="wait">
+            {expandedPolicy && (
+              <motion.div
+                key={expandedPolicy}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-xl">
+                  {serviceTerms
+                    .filter((p) => p.id === expandedPolicy)
+                    .map((policy) => {
+                      const Icon = policy.icon
+                      return (
+                        <div key={policy.id}>
+                          {/* Title */}
+                          <div className="flex items-center gap-4 mb-6">
+                            <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center">
+                              <Icon className="w-8 h-8 text-white" />
+                            </div>
+                            <div>
+                              <h3 className="text-2xl font-bold text-white">{policy.title}</h3>
+                              <p className="text-white/70 mt-1">{policy.description}</p>
+                            </div>
+                          </div>
+
+                          {/* Details List */}
+                          {policy.details && policy.details.length > 0 && (
+                            <div className="space-y-3 mb-6">
+                              {policy.details.map((detail, i) => (
+                                <motion.div
+                                  key={i}
+                                  initial={{ opacity: 0, x: -20 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: i * 0.05 }}
+                                  className="flex items-start gap-3"
+                                >
+                                  <CheckCircle2 className="w-5 h-5 text-white shrink-0 mt-0.5" />
+                                  <span className="text-white/80 text-base">{detail}</span>
+                                </motion.div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* Note */}
+                          {policy.note && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.3 }}
+                              className="p-4 bg-white/5 border border-white/10 rounded-xl"
+                            >
+                              <p className="text-white/90 text-sm">
+                                <span className="font-bold">Important Note:</span> {policy.note}
+                              </p>
+                            </motion.div>
+                          )}
+                        </div>
+                      )
+                    })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* Quick Reference Bar - Sticky on desktop only */}
       <div
-        className={`sticky top-20 z-40 transition-all duration-300 ${
-          isSticky ? "bg-[#0a0a0a]/95 backdrop-blur-xl shadow-2xl border-b border-white/10" : "bg-transparent"
+        className={`md:sticky md:top-20 z-40 transition-all duration-300 ${
+          isSticky ? "bg-black/95 backdrop-blur-xl shadow-2xl border-b border-white/10" : "bg-black"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 py-3">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {quickReference.map((item) => {
               const Icon = item.icon
               return (
-                <div
+                <motion.div
                   key={item.label}
-                  className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-lg px-3 py-2"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center gap-4 bg-white border border-gray-200 rounded-xl px-5 py-4 hover:border-[#E8C24A] hover:shadow-lg hover:shadow-[#E8C24A]/20 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#E8C24A] focus:ring-offset-2 focus:ring-offset-black"
+                  tabIndex={0}
                 >
-                  <Icon className="w-5 h-5 text-[#E8C24A] shrink-0" />
+                  <Icon className="w-7 h-7 text-[#E8C24A] shrink-0" />
                   <div>
-                    <div className="text-white/60 text-xs">{item.label}</div>
-                    <div className="text-white font-semibold text-sm">{item.value}</div>
+                    <div className="text-black/60 text-sm">{item.label}</div>
+                    <div className="text-black font-bold text-base">{item.value}</div>
                   </div>
-                </div>
+                </motion.div>
               )
             })}
           </div>
         </div>
       </div>
 
+
       {/* Tab Navigation */}
-      <div className="sticky top-[calc(5rem+4rem)] z-30 bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/10">
+      <div className="md:sticky md:top-20 z-30 bg-black/95 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex gap-2 overflow-x-auto pb-0 pt-4 scrollbar-hide">
+          <div className="flex gap-2 justify-center overflow-x-auto pb-0 pt-4 scrollbar-hide">
             {tabs.map((tab) => {
               const Icon = tab.icon
               const isActive = activeTab === tab.id
@@ -472,7 +512,7 @@ function InfoPageContent() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-t-xl font-semibold text-sm uppercase tracking-wide transition-all duration-300 whitespace-nowrap ${
+                  className={`flex items-center gap-2 px-6 py-3 rounded-t-xl font-semibold text-sm uppercase tracking-wide transition-all duration-300 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-[#E8C24A] focus:ring-offset-2 focus:ring-offset-black ${
                     isActive
                       ? "bg-[#E8C24A] text-black shadow-lg shadow-[#E8C24A]/20"
                       : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white border border-white/10 border-b-0"
@@ -488,7 +528,7 @@ function InfoPageContent() {
       </div>
 
       {/* Tab Content */}
-      <section className="py-12 bg-[#0a0a0a] min-h-[60vh]">
+      <section className="py-12 bg-black min-h-[60vh]">
         <div className="max-w-7xl mx-auto px-4">
           <AnimatePresence mode="wait">
             {/* TEAM TAB */}
@@ -512,7 +552,9 @@ function InfoPageContent() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.03 }}
-                      className="group bg-white/5 rounded-xl overflow-hidden hover:shadow-xl transition-all"
+                      whileHover={{ scale: 1.03, y: -5 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="group bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-[#E8C24A]/10 hover:border-[#E8C24A]/30 transition-all cursor-pointer"
                     >
                       <div className="relative h-56 overflow-hidden">
                         <Image
@@ -540,7 +582,9 @@ function InfoPageContent() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: teamMembers.length * 0.03 }}
-                    className="group bg-white/5 rounded-xl overflow-hidden hover:shadow-xl transition-all cursor-pointer flex flex-col items-center justify-center h-full min-h-[320px]"
+                    whileHover={{ scale: 1.03, y: -5 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-[#E8C24A]/10 hover:border-[#E8C24A]/30 transition-all cursor-pointer flex flex-col items-center justify-center h-full min-h-[320px]"
                   >
                     <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-[#E8C24A]/20 to-[#E8C24A]/10 flex items-center justify-center">
                       <Users className="w-20 h-20 text-[#E8C24A]/40" />
@@ -578,46 +622,18 @@ function InfoPageContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className="bg-white/5 rounded-xl p-6 border border-white/10 hover:border-[#E8C24A]/50 hover:shadow-xl transition-all text-center group"
+                        whileHover={{ scale: 1.05, y: -5 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 hover:border-[#E8C24A]/50 hover:shadow-xl hover:shadow-[#E8C24A]/20 transition-all text-center group cursor-pointer"
                       >
-                        <div
-                          className={`w-14 h-14 rounded-xl ${value.color} bg-opacity-20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}
-                        >
-                          <Icon className={`w-7 h-7 ${value.color.replace("bg-", "text-")}`} />
+                        <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                          <Icon className="w-7 h-7 text-white" />
                         </div>
                         <h3 className="font-semibold text-white text-lg mb-2">{value.title}</h3>
                         <p className="text-white/60 text-sm leading-relaxed">{value.description}</p>
                       </motion.div>
                     )
                   })}
-                </div>
-              </motion.div>
-            )}
-
-            {/* POLICIES TAB */}
-            {activeTab === "policies" && (
-              <motion.div
-                key="policies"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Policies & Procedures</h2>
-                  <p className="text-white/60 mb-6">
-                    Click on any section below to expand and read the full details
-                  </p>
-                  <Button asChild variant="outline" className="bg-white/5 border-white/20 text-white hover:bg-white/10">
-                    <a href="#" download>
-                      <Download className="w-4 h-4 mr-2" />
-                      Download Rental Contract (PDF)
-                    </a>
-                  </Button>
-                </div>
-
-                <div className="max-w-4xl mx-auto">
-                  <PolicyAccordion />
                 </div>
               </motion.div>
             )}
@@ -630,111 +646,123 @@ function InfoPageContent() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
+                className="max-w-5xl mx-auto"
               >
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Contact Information</h2>
-                  <p className="text-white/60">Get in touch with our team</p>
-                </div>
+                {/* Google Maps Embed */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="mb-8 rounded-2xl overflow-hidden border border-white/10 shadow-xl"
+                >
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3181.8896753745825!2d-113.59363892345689!3d37.11631104450562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80ca447c6b3d0c91%3A0x9f7b5e5e5e5e5e5e!2s1175%20Highland%20Dr%2C%20St.%20George%2C%20UT%2084770!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                    width="100%"
+                    height="300"
+                    className="md:h-[400px]"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="BeeHive Rental & Sales Location"
+                  ></iframe>
+                </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+                {/* Contact Info Cards Grid */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Phone Card */}
                   <motion.a
                     href="tel:+14356286663"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-[#E8C24A]/50 hover:shadow-xl transition-all group text-center"
-                  >
-                    <div className="w-16 h-16 rounded-full bg-[#E8C24A]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E8C24A] transition-all">
-                      <Phone className="w-8 h-8 text-[#E8C24A] group-hover:text-black" />
-                    </div>
-                    <h3 className="font-semibold text-lg mb-2 text-white">Call Us</h3>
-                    <p className="text-2xl font-bold text-[#E8C24A]">435-628-6663</p>
-                  </motion.a>
-
-                  <motion.a
-                    href="https://maps.google.com/?q=1175+Highland+Drive+St+George+UT+84770"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-[#E8C24A]/50 hover:shadow-xl transition-all group text-center"
+                    whileHover={{ scale: 1.03, y: -5 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:border-[#E8C24A]/50 hover:shadow-xl hover:shadow-[#E8C24A]/20 transition-all group focus:outline-none focus:ring-2 focus:ring-[#E8C24A] focus:ring-offset-2 focus:ring-offset-black"
                   >
-                    <div className="w-16 h-16 rounded-full bg-[#E8C24A]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E8C24A] transition-all">
-                      <MapPin className="w-8 h-8 text-[#E8C24A] group-hover:text-black" />
+                    <div className="flex items-start gap-4">
+                      <div className="w-14 h-14 rounded-xl bg-[#E8C24A]/20 flex items-center justify-center shrink-0 group-hover:bg-[#E8C24A] transition-all">
+                        <Phone className="w-7 h-7 text-[#E8C24A] group-hover:text-black" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-white text-lg mb-1">Phone</h3>
+                        <p className="text-[#E8C24A] font-semibold text-xl">(435) 628-6663</p>
+                      </div>
                     </div>
-                    <h3 className="font-semibold text-lg mb-2 text-white">Visit Us</h3>
-                    <p className="text-base font-medium text-white/60">
-                      1175 Highland Drive
-                      <br />
-                      St. George, UT 84770
-                    </p>
                   </motion.a>
 
+                  {/* Email Card */}
                   <motion.a
                     href="mailto:beehiverental@infowest.com"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-[#E8C24A]/50 hover:shadow-xl transition-all group text-center"
+                    whileHover={{ scale: 1.03, y: -5 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:border-[#E8C24A]/50 hover:shadow-xl hover:shadow-[#E8C24A]/20 transition-all group focus:outline-none focus:ring-2 focus:ring-[#E8C24A] focus:ring-offset-2 focus:ring-offset-black"
                   >
-                    <div className="w-16 h-16 rounded-full bg-[#E8C24A]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E8C24A] transition-all">
-                      <Mail className="w-8 h-8 text-[#E8C24A] group-hover:text-black" />
+                    <div className="flex items-start gap-4">
+                      <div className="w-14 h-14 rounded-xl bg-[#E8C24A]/20 flex items-center justify-center shrink-0 group-hover:bg-[#E8C24A] transition-all">
+                        <Mail className="w-7 h-7 text-[#E8C24A] group-hover:text-black" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-white text-lg mb-1">Email</h3>
+                        <p className="text-white/70 font-medium break-all">beehiverental@infowest.com</p>
+                      </div>
                     </div>
-                    <h3 className="font-semibold text-lg mb-2 text-white">Email Us</h3>
-                    <p className="text-sm font-medium text-white/60 break-all">beehiverental@infowest.com</p>
                   </motion.a>
-                </div>
 
-                {/* Business Hours */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="max-w-2xl mx-auto bg-white/5 border border-white/10 rounded-xl p-8 text-center mb-12"
-                >
-                  <Clock className="w-12 h-12 text-[#E8C24A] mx-auto mb-4" />
-                  <h3 className="font-semibold text-xl mb-4 text-white">Business Hours</h3>
-                  <div className="grid grid-cols-2 gap-6 text-left max-w-md mx-auto">
-                    <div>
-                      <p className="text-white/60 text-sm mb-1">Monday - Friday</p>
-                      <p className="font-semibold text-white">7:00 AM - 5:00 PM</p>
+                  {/* Address Card */}
+                  <motion.a
+                    href="https://maps.google.com/?q=1175+Highland+Dr+St+George+UT+84770"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    whileHover={{ scale: 1.03, y: -5 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:border-[#E8C24A]/50 hover:shadow-xl hover:shadow-[#E8C24A]/20 transition-all group focus:outline-none focus:ring-2 focus:ring-[#E8C24A] focus:ring-offset-2 focus:ring-offset-black"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-14 h-14 rounded-xl bg-[#E8C24A]/20 flex items-center justify-center shrink-0 group-hover:bg-[#E8C24A] transition-all">
+                        <MapPin className="w-7 h-7 text-[#E8C24A] group-hover:text-black" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-white text-lg mb-1">Address</h3>
+                        <p className="text-white/70 font-medium">
+                          1175 Highland Dr
+                          <br />
+                          St. George, UT
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-white/60 text-sm mb-1">Saturday</p>
-                      <p className="font-semibold text-white">8:00 AM - 12:00 PM</p>
-                    </div>
-                    <div>
-                      <p className="text-white/60 text-sm mb-1">Sunday</p>
-                      <p className="font-semibold text-white">Closed</p>
-                    </div>
-                  </div>
-                </motion.div>
+                  </motion.a>
 
-                {/* CTA */}
-                <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-[#E8C24A]/10 to-[#E8C24A]/5 border border-[#E8C24A]/20 rounded-xl p-8">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Questions About Our Policies?</h3>
-                  <p className="text-lg text-white/60 mb-6">
-                    Our friendly team is here to help explain any terms or conditions. Don't hesitate to reach out!
-                  </p>
-
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button
-                      asChild
-                      size="lg"
-                      className="bg-[#E8C24A] text-black hover:bg-[#E8C24A]/90 shadow-lg shadow-[#E8C24A]/20"
-                    >
-                      <a href="tel:+14356286663">
-                        <Phone className="w-5 h-5 mr-2" />
-                        Call 435-628-6663
-                      </a>
-                    </Button>
-                    <Button asChild size="lg" variant="outline" className="bg-white/5 border-white/20 text-white hover:bg-white/10">
-                      <a href="mailto:beehiverental@infowest.com">
-                        <Mail className="w-5 h-5 mr-2" />
-                        Send Email
-                      </a>
-                    </Button>
-                  </div>
+                  {/* Hours Card */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-14 h-14 rounded-xl bg-[#E8C24A]/20 flex items-center justify-center shrink-0">
+                        <Clock className="w-7 h-7 text-[#E8C24A]" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-white text-lg mb-3">Hours</h3>
+                        <div className="space-y-2">
+                          <div>
+                            <p className="text-white/70 font-medium">Mon-Fri: 7AM-5PM</p>
+                          </div>
+                          <div>
+                            <p className="text-white/70 font-medium">Sat: 8AM-12PM</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
               </motion.div>
             )}
@@ -747,7 +775,7 @@ function InfoPageContent() {
 
 export default function InfoPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center"><div className="text-white">Loading...</div></div>}>
+    <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center"><div className="text-white">Loading...</div></div>}>
       <InfoPageContent />
     </Suspense>
   )

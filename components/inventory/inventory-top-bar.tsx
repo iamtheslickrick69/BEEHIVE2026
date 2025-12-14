@@ -25,9 +25,8 @@ const categories = [
   { id: "carpet-floor-tools", label: "Carpet & Floor", count: 12 },
   { id: "water-equipment", label: "Water Equipment", count: 3 },
   { id: "automotive", label: "Automotive", count: 4 },
-  { id: "general-tools", label: "General Tools", count: 6 },
+  { id: "general-tools", label: "General Tools", count: 18 },
   { id: "generators-welders", label: "Generators & Welders", count: 8 },
-  { id: "scaffolding-ladders", label: "Scaffolding & Ladders", count: 9 },
   { id: "landscaping-garden", label: "Landscaping & Garden", count: 16 },
 ]
 

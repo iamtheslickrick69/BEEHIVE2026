@@ -75,18 +75,18 @@ const equipmentCategories = [
     description: "Sanders, buffers, tile saws",
   },
   {
-    name: "Scaffolding & Ladders",
-    icon: Building,
-    href: "/inventory#scaffolding-ladders",
-    description: "Safe access equipment",
+    name: "General Tools",
+    icon: Hammer,
+    href: "/inventory#general-tools",
+    description: "Scaffolding, ladders & more",
   },
 ]
 
 const mainNavItems = [
   { name: "HOME", href: "/", hasDropdown: false, sectionId: null },
   { name: "INVENTORY", href: "/inventory", hasMegaMenu: true, sectionId: "equipment" },
-  { name: "REPAIR", href: "/repair", icon: Wrench, sectionId: "repair" },
   { name: "SALES", href: "/sales", icon: ShoppingBag, sectionId: "sales" },
+  { name: "REPAIR", href: "/repair", icon: Wrench, sectionId: "repair" },
   { name: "INFO", href: "/info", icon: Building, sectionId: null },
 ]
 
@@ -237,7 +237,7 @@ export function Navigation() {
                   >
                     {item.name}
                     {item.hasMegaMenu && (
-                      <ChevronDown className={cn("w-3 h-3 transition-transform", isActive(item) ? "text-black" : "text-white/60")} />
+                      <ChevronDown className={cn("w-4 h-4 transition-transform", isActive(item) ? "text-black" : "text-white/60")} />
                     )}
                   </Link>
 
@@ -331,17 +331,17 @@ export function Navigation() {
                           </div>
                           <div>
                             <span className="text-xs text-white/50 block">Call Us</span>
-                            <span className="text-sm font-medium">(435) 555-1234</span>
+                            <span className="text-sm font-medium">(435) 628-6663</span>
                           </div>
                         </a>
 
-                        <a href="mailto:info@beehiverental.com" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
+                        <a href="mailto:beehiverental@infowest.com" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
                           <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
                             <Mail className="w-4 h-4" />
                           </div>
                           <div>
                             <span className="text-xs text-white/50 block">Email</span>
-                            <span className="text-sm font-medium">info@beehiverental.com</span>
+                            <span className="text-sm font-medium">beehiverental@infowest.com</span>
                           </div>
                         </a>
 
@@ -562,13 +562,13 @@ export function Navigation() {
                   </div>
                 </a>
 
-                <a href="mailto:info@beehiverental.com" className="flex items-center gap-3 px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
+                <a href="mailto:beehiverental@infowest.com" className="flex items-center gap-3 px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
                   <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
                     <span className="text-xs text-white/50 block">Email</span>
-                    <span className="text-sm font-medium">info@beehiverental.com</span>
+                    <span className="text-sm font-medium">beehiverental@infowest.com</span>
                   </div>
                 </a>
 

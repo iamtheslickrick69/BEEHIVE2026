@@ -1,7 +1,8 @@
 import { RepairHeader } from "@/components/repair/repair-header"
 import { RepairServices } from "@/components/repair/repair-services"
-import { RepairProcess } from "@/components/repair/repair-process"
+import { RepairWhyChoose } from "@/components/repair/repair-why-choose"
 import { RepairBrands } from "@/components/repair/repair-brands"
+import { RepairTestimonials } from "@/components/repair/repair-testimonials"
 import { RepairCTA } from "@/components/repair/repair-cta"
 
 export const metadata = {
@@ -12,11 +13,12 @@ export const metadata = {
 
 export default function RepairPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black">
       <RepairHeader />
-      <RepairBrands />
+      <RepairWhyChoose />
       <RepairServices />
-      <RepairProcess />
+      <RepairBrands />
+      <RepairTestimonials />
       <RepairCTA />
     </div>
   )
