@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Wrench, GraduationCap, ShoppingBag, ArrowRight, Play, Phone } from "lucide-react"
+import { Wrench, ShoppingBag, ArrowRight, Phone, BookOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
 
@@ -20,42 +20,44 @@ export function ServicesBento() {
               More Than Just Rentals
             </h2>
             <p className="text-gray-500 mt-3 max-w-2xl mx-auto text-sm md:text-base">
-              Training, repairs, and equipment sales - everything you need under one roof.
+              Expert guides, repairs, and equipment sales - everything you need under one roof.
             </p>
           </div>
         </ScrollAnimation>
 
         {/* Bento Grid - responsive layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {/* Training Card - Large */}
+          {/* Blog & Resources Card */}
           <ScrollAnimation delay={0}>
-            <Link href="/training" className="group block h-full">
+            <Link href="/blog/guides" className="group block h-full">
               <motion.div
                 whileHover={{ y: -4 }}
                 className="relative h-full min-h-[280px] md:min-h-[320px] rounded-xl overflow-hidden border border-border bg-card"
               >
                 <div className="absolute inset-0">
                   <img
-                    src="/equipment-training-video-tutorial.jpg"
-                    alt="Training"
+                    src="/bobcat-skid-steer-loader-yellow-construction.jpg"
+                    alt="Equipment Guides"
                     className="w-full h-full object-cover opacity-40 group-hover:opacity-50 group-hover:scale-105 transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
                 </div>
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Play className="w-5 h-5 text-primary-foreground ml-0.5" />
-                  </div>
                   <div className="flex items-center gap-2 mb-2">
-                    <GraduationCap className="w-4 h-4 text-primary" />
-                    <span className="text-primary text-xs font-semibold uppercase tracking-wider">Training Center</span>
+                    <BookOpen className="w-4 h-4 text-primary" />
+                    <span className="text-primary text-xs font-semibold uppercase tracking-wider">Blog & Resources</span>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Learn Before You Rent</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Expert Equipment Guides</h3>
                   <p className="text-gray-400 text-sm mb-4">
-                    Free equipment operation videos to help you work safely and efficiently.
+                    30 years of rental knowledge. Complete guides for every project.
                   </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded">Beginner Tips</span>
+                    <span className="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded">Project Guides</span>
+                    <span className="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded">Equipment Specs</span>
+                  </div>
                   <span className="inline-flex items-center gap-2 text-primary text-sm font-semibold group-hover:gap-3 transition-all">
-                    Watch Videos <ArrowRight className="w-4 h-4" />
+                    Read Guides <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
               </motion.div>

@@ -20,7 +20,6 @@ const footerLinks = {
   company: [
     { name: "About Us", href: "/#about" },
     { name: "Meet the Team", href: "/info?tab=team" },
-    { name: "Training Center", href: "/training" },
     { name: "Repair Services", href: "/repair" },
     { name: "Used Equipment", href: "/sales" },
   ],

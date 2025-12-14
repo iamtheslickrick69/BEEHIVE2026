@@ -12,7 +12,6 @@ import {
   ChevronDown,
   Truck,
   Wrench,
-  GraduationCap,
   ShoppingBag,
   Shovel,
   TreeDeciduous,
@@ -86,7 +85,6 @@ const equipmentCategories = [
 const mainNavItems = [
   { name: "HOME", href: "/", hasDropdown: false, sectionId: null },
   { name: "INVENTORY", href: "/inventory", hasMegaMenu: true, sectionId: "equipment" },
-  { name: "TRAINING", href: "/training", icon: GraduationCap, sectionId: "training" },
   { name: "REPAIR", href: "/repair", icon: Wrench, sectionId: "repair" },
   { name: "SALES", href: "/sales", icon: ShoppingBag, sectionId: "sales" },
   { name: "INFO", href: "/info", icon: Building, sectionId: null },

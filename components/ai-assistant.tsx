@@ -67,12 +67,11 @@ const mockResponses: Record<string, { content: string; actions?: { label: string
       "I'd love to help! Tell me more about your project:\n\n• What type of work? (excavation, landscaping, concrete, etc.)\n• How long do you need the equipment?\n• Any specific requirements?\n\nOr call us at (435) 628-6663 and speak with one of our experts!",
     actions: [
       { label: "Call Expert", href: "tel:435-628-6663" },
-      { label: "View Training", href: "/training" },
     ],
   },
   default: {
     content:
-      "Thanks for reaching out! I can help you with:\n\n• Finding the right equipment\n• Rental rates and availability\n• Delivery information\n• Training resources\n• Repair services\n\nWhat would you like to know more about?",
+      "Thanks for reaching out! I can help you with:\n\n• Finding the right equipment\n• Rental rates and availability\n• Delivery information\n• Repair services\n\nWhat would you like to know more about?",
   },
 }
 
