@@ -69,7 +69,7 @@ export default async function ClaudePromptPage() {
               <div className="text-xs text-gray-400 uppercase">Characters</div>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
-              <Sparkles className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
+              <Sparkles className="w-8 h-8 text-[#E8C24A] mx-auto mb-2" />
               <div className="text-2xl font-bold text-white">Next.js 16</div>
               <div className="text-xs text-gray-400 uppercase">Framework</div>
             </div>
@@ -112,7 +112,7 @@ export default async function ClaudePromptPage() {
                   },
                   pre: ({ children }) => <pre className="mb-4">{children}</pre>,
                   blockquote: ({ children }) => (
-                    <blockquote className="border-l-4 border-yellow-500 pl-4 italic text-gray-400 my-4">
+                    <blockquote className="border-l-4 border-[#E8C24A] pl-4 italic text-gray-400 my-4">
                       {children}
                     </blockquote>
                   ),

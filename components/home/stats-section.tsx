@@ -90,22 +90,12 @@ export function StatsSection() {
   return (
     <motion.section
       id="stats"
-      className="py-8 md:py-12 bg-gradient-to-b from-yellow-100 via-yellow-200 to-yellow-100 relative overflow-hidden"
+      className="py-8 md:py-12 bg-[#E8C24A] relative overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5 }}
     >
-      {/* Subtle geometric pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40z' fill-opacity='0.05'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")"
-      }} />
-
-      {/* Top gradient fade */}
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background to-transparent pointer-events-none" />
-
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Pill-Shaped Stat Badges */}
@@ -122,7 +112,7 @@ export function StatsSection() {
             >
               <div className="relative">
                 {/* Pill Background */}
-                <div className="bg-black/90 backdrop-blur-sm text-yellow-300 rounded-2xl px-3 md:px-4 py-2 md:py-2.5 flex items-center gap-2 shadow-md hover:shadow-lg hover:shadow-black/20 transition-all duration-300 border border-black/10">
+                <div className="bg-black/90 backdrop-blur-sm text-[#E8C24A] rounded-2xl px-3 md:px-4 py-2 md:py-2.5 flex items-center gap-2 shadow-md hover:shadow-lg hover:shadow-black/20 transition-all duration-300 border border-black/10">
                   {/* Icon */}
                   <motion.div
                     initial={{ scale: 0 }}
@@ -145,7 +135,7 @@ export function StatsSection() {
                 </div>
 
                 {/* Hover glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-yellow-300/0 group-hover:bg-yellow-300/10 blur-lg transition-all duration-300 -z-10" />
+                <div className="absolute inset-0 rounded-2xl bg-[#E8C24A]/0 group-hover:bg-[#E8C24A]/10 blur-lg transition-all duration-300 -z-10" />
               </div>
             </motion.div>
           ))}
@@ -161,11 +151,7 @@ export function StatsSection() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-6 md:p-8 lg:p-10 border-2 border-white/40 shadow-2xl shadow-black/5 relative overflow-hidden">
-            {/* Decorative quote mark */}
-            <div className="absolute top-4 right-4 md:top-6 md:right-6 opacity-[0.08]">
-              <Quote className="w-20 h-20 md:w-28 md:h-28 text-black" />
-            </div>
+          <div className="bg-white rounded-xl p-6 md:p-8 lg:p-10 border border-gray-200 shadow-md relative overflow-hidden">
 
             {/* Animated Testimonial Content */}
             <div className="relative z-10">
@@ -212,7 +198,7 @@ export function StatsSection() {
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ delay: 0.4 + i * 0.1, type: "spring", bounce: 0.5 }}
                         >
-                          <Star className="w-4 h-4 md:w-5 md:h-5 fill-yellow-400 text-yellow-400" />
+                          <Star className="w-4 h-4 md:w-5 md:h-5 fill-[#E8C24A] text-[#E8C24A]" />
                         </motion.div>
                       ))}
                     </motion.div>

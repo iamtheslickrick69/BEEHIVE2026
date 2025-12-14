@@ -285,7 +285,7 @@ export function AIAssistant() {
             whileHover={{ scale: hasScrolled ? 1.0 : 1.07 }}
             whileTap={{ scale: hasScrolled ? 0.88 : 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="group fixed bottom-10 right-6 w-36 h-36 flex items-center justify-center z-50 bg-transparent"
+            className="group fixed bottom-6 right-4 sm:bottom-10 sm:right-6 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 flex items-center justify-center z-50 bg-transparent"
             style={{
               filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.1))',
             }}
@@ -381,51 +381,56 @@ export function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            style={{ width: size.width, height: size.height }}
+            style={{
+              width: typeof window !== 'undefined' && window.innerWidth < 768 ? '100vw' : size.width,
+              height: typeof window !== 'undefined' && window.innerWidth < 768 ? '100vh' : size.height
+            }}
             className={cn(
-              "fixed bottom-10 right-6 z-50 bg-[#0a0a0a] rounded-2xl shadow-2xl border border-white/10 flex flex-col overflow-hidden",
+              "fixed z-50 bg-[#0a0a0a] shadow-2xl border border-white/10 flex flex-col overflow-hidden",
+              "md:bottom-10 md:right-6 md:rounded-2xl",
+              "bottom-0 right-0 left-0 top-0 rounded-none",
               isResizing && "select-none",
             )}
           >
-            {/* Corners */}
+            {/* Corners - hidden on mobile */}
             <div
               onMouseDown={(e) => handleResizeStart(e, "nw")}
-              className="absolute top-0 left-0 w-4 h-4 cursor-nw-resize z-10 hover:bg-yellow-500/20 rounded-tl-2xl"
+              className="hidden md:block absolute top-0 left-0 w-4 h-4 cursor-nw-resize z-10 hover:bg-[#E8C24A]/20 rounded-tl-2xl"
             />
             <div
               onMouseDown={(e) => handleResizeStart(e, "ne")}
-              className="absolute top-0 right-0 w-4 h-4 cursor-ne-resize z-10 hover:bg-yellow-500/20 rounded-tr-2xl"
+              className="hidden md:block absolute top-0 right-0 w-4 h-4 cursor-ne-resize z-10 hover:bg-[#E8C24A]/20 rounded-tr-2xl"
             />
             <div
               onMouseDown={(e) => handleResizeStart(e, "sw")}
-              className="absolute bottom-0 left-0 w-4 h-4 cursor-sw-resize z-10 hover:bg-yellow-500/20 rounded-bl-2xl"
+              className="hidden md:block absolute bottom-0 left-0 w-4 h-4 cursor-sw-resize z-10 hover:bg-[#E8C24A]/20 rounded-bl-2xl"
             />
             <div
               onMouseDown={(e) => handleResizeStart(e, "se")}
-              className="absolute bottom-0 right-0 w-4 h-4 cursor-se-resize z-10 hover:bg-yellow-500/20 rounded-br-2xl"
+              className="hidden md:block absolute bottom-0 right-0 w-4 h-4 cursor-se-resize z-10 hover:bg-[#E8C24A]/20 rounded-br-2xl"
             />
-            {/* Edges */}
+            {/* Edges - hidden on mobile */}
             <div
               onMouseDown={(e) => handleResizeStart(e, "n")}
-              className="absolute top-0 left-4 right-4 h-2 cursor-n-resize z-10 hover:bg-yellow-500/10"
+              className="hidden md:block absolute top-0 left-4 right-4 h-2 cursor-n-resize z-10 hover:bg-[#E8C24A]/10"
             />
             <div
               onMouseDown={(e) => handleResizeStart(e, "s")}
-              className="absolute bottom-0 left-4 right-4 h-2 cursor-s-resize z-10 hover:bg-yellow-500/10"
+              className="hidden md:block absolute bottom-0 left-4 right-4 h-2 cursor-s-resize z-10 hover:bg-[#E8C24A]/10"
             />
             <div
               onMouseDown={(e) => handleResizeStart(e, "w")}
-              className="absolute left-0 top-4 bottom-4 w-2 cursor-w-resize z-10 hover:bg-yellow-500/10"
+              className="hidden md:block absolute left-0 top-4 bottom-4 w-2 cursor-w-resize z-10 hover:bg-[#E8C24A]/10"
             />
             <div
               onMouseDown={(e) => handleResizeStart(e, "e")}
-              className="absolute right-0 top-4 bottom-4 w-2 cursor-e-resize z-10 hover:bg-yellow-500/10"
+              className="hidden md:block absolute right-0 top-4 bottom-4 w-2 cursor-e-resize z-10 hover:bg-[#E8C24A]/10"
             />
 
             {/* Header */}
             <div className="bg-[#111] text-white px-4 py-3 flex items-center justify-between shrink-0 border-b border-white/10 relative">
-              {/* Drag indicator - top left */}
-              <div className="absolute top-2 left-2 opacity-30 pointer-events-none">
+              {/* Drag indicator - top left (hidden on mobile) */}
+              <div className="hidden md:block absolute top-2 left-2 opacity-30 pointer-events-none">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <line x1="3" y1="3" x2="8" y2="3" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
                   <line x1="3" y1="6" x2="8" y2="6" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
@@ -478,7 +483,8 @@ export function AIAssistant() {
                 </div>
               </div>
               <div className="flex items-center gap-1">
-                <div className="p-2 opacity-50">
+                {/* Drag handle - hidden on mobile */}
+                <div className="hidden md:block p-2 opacity-50">
                   <GripVertical className="w-4 h-4" />
                 </div>
                 <button
@@ -550,7 +556,7 @@ export function AIAssistant() {
                       className={cn(
                         "px-4 py-3 rounded-2xl",
                         message.role === "user"
-                          ? "bg-yellow-500 text-black rounded-br-md"
+                          ? "bg-[#E8C24A] text-black rounded-br-md"
                           : "bg-white/10 text-white rounded-bl-md",
                       )}
                     >
@@ -565,7 +571,7 @@ export function AIAssistant() {
                           <a
                             key={action.label}
                             href={action.href}
-                            className="inline-flex items-center gap-1 px-3 py-1.5 bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-500 text-xs font-medium rounded-full transition-colors"
+                            className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#E8C24A]/20 hover:bg-[#E8C24A]/30 text-[#E8C24A] text-xs font-medium rounded-full transition-colors"
                           >
                             {action.label.includes("Call") && <Phone className="w-3 h-3" />}
                             {action.label.includes("Browse") && <Calendar className="w-3 h-3" />}
@@ -650,7 +656,7 @@ export function AIAssistant() {
                     <button
                       key={reply}
                       onClick={() => handleSend(reply)}
-                      className="px-3 py-1.5 bg-white/5 text-white text-xs rounded-full hover:bg-yellow-500 hover:text-black transition-colors border border-white/10"
+                      className="px-3 py-1.5 bg-white/5 text-white text-xs rounded-full hover:bg-[#E8C24A] hover:text-black transition-colors border border-white/10"
                     >
                       {reply}
                     </button>
@@ -660,7 +666,7 @@ export function AIAssistant() {
             )}
 
             {/* Input */}
-            <div className="p-4 border-t border-white/10 shrink-0">
+            <div className="p-4 pb-6 md:pb-4 border-t border-white/10 shrink-0">
               <form
                 onSubmit={(e) => {
                   e.preventDefault()
@@ -679,7 +685,7 @@ export function AIAssistant() {
                 <Button
                   type="submit"
                   size="icon"
-                  className="rounded-full bg-yellow-500 text-black hover:bg-yellow-400 w-10 h-10"
+                  className="rounded-full bg-[#E8C24A] text-black hover:bg-[#E8C24A] w-10 h-10"
                   disabled={!input.trim()}
                 >
                   <Send className="w-4 h-4" />
@@ -687,7 +693,7 @@ export function AIAssistant() {
               </form>
               <p className="text-[10px] text-white/40 text-center mt-2">
                 Or call us at{" "}
-                <a href="tel:435-628-6663" className="text-yellow-500 hover:underline">
+                <a href="tel:435-628-6663" className="text-[#E8C24A] hover:underline">
                   (435) 628-6663
                 </a>
               </p>

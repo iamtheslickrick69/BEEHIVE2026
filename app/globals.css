@@ -13,8 +13,8 @@
   --popover: oklch(0.11 0 0);
   --popover-foreground: oklch(0.95 0 0);
 
-  /* Primary - Light Yellow (unified color) */
-  --primary: oklch(0.927 0.115 99.574); /* #FCD34D - Tailwind yellow-300 */
+  /* Primary - BeeHive Yellow */
+  --primary: #E8C24A; /* Custom BeeHive yellow */
   --primary-foreground: oklch(0.09 0 0); /* Black text on yellow */
 
   /* Secondary - Charcoal */
@@ -24,9 +24,9 @@
   --muted: oklch(0.18 0.005 106.423); /* Dark muted */
   --muted-foreground: oklch(0.55 0 0); /* Lighter muted text */
 
-  /* Accent - Safety Orange */
-  --accent: oklch(0.705 0.191 41.292); /* #E85D04 */
-  --accent-foreground: oklch(1 0 0);
+  /* Accent - White */
+  --accent: oklch(0.95 0 0); /* White */
+  --accent-foreground: oklch(0.09 0 0); /* Black text on white */
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
@@ -132,8 +132,8 @@
 .hazard-stripe {
   background: repeating-linear-gradient(
     -45deg,
-    oklch(0.927 0.115 99.574),
-    oklch(0.927 0.115 99.574) 10px,
+    #E8C24A,
+    #E8C24A 10px,
     oklch(0.09 0 0) 10px,
     oklch(0.09 0 0) 20px
   );

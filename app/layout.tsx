@@ -21,13 +21,46 @@ export const metadata: Metadata = {
   description:
     "Southern Utah's premier equipment rental company. Professional-grade construction, landscaping, and event equipment. Serving St. George, Washington, Hurricane, and surrounding areas since 1994.",
   keywords:
-    "equipment rental, St. George Utah, construction equipment, tool rental, excavator rental, skid steer, BeeHive Rental, heavy equipment, party rental",
+    "equipment rental, St. George Utah, construction equipment, tool rental, excavator rental, skid steer, BeeHive Rental, heavy equipment, party rental, Southern Utah equipment",
+  authors: [{ name: "BeeHive Rental & Sales LLC" }],
+  robots: "index, follow",
+
+  // Favicons
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+
+  // Open Graph
   openGraph: {
-    title: "BeeHive Rental & Sales LLC",
-    description: "Southern Utah's premier equipment rental company since 1994",
+    title: "BeeHive Rental & Sales - Southern Utah's Premier Equipment Rental",
+    description: "Professional equipment rental, sales & repair since 1994. Heavy equipment, tools, concrete equipment & more. Serving contractors and homeowners in St. George & Southern Utah.",
+    url: "https://www.beehiverentalandsales.com",
+    siteName: "BeeHive Rental & Sales",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "BeeHive Rental & Sales - Aerial view of equipment yard in St. George, Utah",
+      },
+    ],
+    locale: "en_US",
     type: "website",
   },
-    generator: 'v0.app'
+
+  // Twitter Card
+  twitter: {
+    card: "summary_large_image",
+    title: "BeeHive Rental & Sales - Equipment Rental Experts",
+    description: "Southern Utah's premier equipment rental since 1994. Heavy equipment, tools & more.",
+    images: ["/og-image.jpg"],
+  },
+
+  generator: "v0.app",
 }
 
 export default function RootLayout({

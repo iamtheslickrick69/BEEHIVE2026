@@ -822,7 +822,7 @@ export const equipmentData: Equipment[] = [
   {
     id: "600-gal-water-trailer",
     name: "600 Gallon Water Trailer",
-    category: "Water Equipment",
+    category: "General Tools",
     description: "Large capacity water trailer for dust control, concrete curing, and job site water supply. Features towable design with spray bar.",
     dailyRate: 95,
     weeklyRate: 380,
@@ -842,7 +842,7 @@ export const equipmentData: Equipment[] = [
   {
     id: "trash-pump",
     name: "3\" Trash Pump",
-    category: "Water Equipment",
+    category: "General Tools",
     description: "Heavy-duty 3-inch trash pump for dewatering applications. Handles solids up to 1 inch, perfect for construction sites and flooding.",
     dailyRate: 85,
     weeklyRate: 340,
@@ -862,7 +862,7 @@ export const equipmentData: Equipment[] = [
   {
     id: "multiquip-sub-pump",
     name: "MultiQuip Submersible Pump",
-    category: "Water Equipment",
+    category: "General Tools",
     description: "Electric submersible pump for dewatering basements, excavations, and flooded areas. Automatic float switch for unattended operation.",
     dailyRate: 45,
     weeklyRate: 180,

@@ -115,7 +115,7 @@ const conditions = ["All", "Good", "Fair", "Non-Running"]
 
 const conditionColors = {
   Good: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
-  Fair: "bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400",
+  Fair: "bg-white/10 text-white dark:bg-white/10 dark:text-white",
   "Non-Running": "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
 }
 

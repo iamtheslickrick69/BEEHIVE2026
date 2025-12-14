@@ -44,7 +44,7 @@ export function ArticleSidebar({ content, relatedEquipment }: { content: string;
           </div>
           <div className="h-2 bg-muted rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-primary to-yellow-500 transition-all duration-300"
+              className="h-full bg-gradient-to-r from-primary to-[#E8C24A] transition-all duration-300"
               style={{ width: `${readingProgress}%` }}
             />
           </div>

@@ -1,0 +1,38 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5D76E;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E8C24A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4A017;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Hexagon background -->
+  <polygon
+    points="64,10 110,35 110,85 64,110 18,85 18,35"
+    fill="url(#hexGradient)"
+    stroke="#000000"
+    stroke-width="3"
+  />
+
+  <!-- Bee body (simplified) -->
+  <!-- Head -->
+  <circle cx="64" cy="45" r="12" fill="#000000"/>
+
+  <!-- Body with stripes -->
+  <ellipse cx="64" cy="70" rx="18" ry="25" fill="#000000"/>
+
+  <!-- Yellow stripes -->
+  <ellipse cx="64" cy="62" rx="16" ry="6" fill="#E8C24A"/>
+  <ellipse cx="64" cy="75" rx="16" ry="6" fill="#E8C24A"/>
+
+  <!-- Wings -->
+  <ellipse cx="50" cy="60" rx="12" ry="18" fill="#FFFFFF" fill-opacity="0.7" stroke="#000000" stroke-width="1.5"/>
+  <ellipse cx="78" cy="60" rx="12" ry="18" fill="#FFFFFF" fill-opacity="0.7" stroke="#000000" stroke-width="1.5"/>
+
+  <!-- Antennae -->
+  <line x1="58" y1="38" x2="54" y2="30" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="70" y1="38" x2="74" y2="30" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="54" cy="30" r="2.5" fill="#000000"/>
+  <circle cx="74" cy="30" r="2.5" fill="#000000"/>
+</svg>

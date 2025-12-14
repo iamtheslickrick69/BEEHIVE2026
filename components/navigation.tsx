@@ -141,30 +141,30 @@ export function Navigation() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out",
-        isScrolled ? "bg-[#0a0a0a]/95 backdrop-blur-xl" : "bg-[#0a0a0a]/90 backdrop-blur-md",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out border-b",
+        isScrolled
+          ? "bg-black/30 backdrop-blur-[40px] border-white/20 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]"
+          : "bg-black/20 backdrop-blur-[20px] border-white/10",
       )}
+      style={{
+        backdropFilter: isScrolled ? 'blur(40px) saturate(180%)' : 'blur(20px) saturate(150%)',
+        WebkitBackdropFilter: isScrolled ? 'blur(40px) saturate(180%)' : 'blur(20px) saturate(150%)',
+      }}
     >
-      {/* White accent line at top */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-white/60 via-white to-white/60" />
+      {/* Glass shine effect at top */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
 
-      {/* Liquid glass morphism bottom border */}
+      {/* Subtle glass reflection */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/[0.08] via-transparent to-transparent pointer-events-none" />
+
+      {/* Liquid glass morphism bottom glow */}
       <div
         className={cn(
-          "absolute bottom-0 left-0 right-0 transition-all duration-500",
+          "absolute bottom-0 left-0 right-0 h-[1px] transition-all duration-500",
           isScrolled
-            ? "h-[2px] bg-gradient-to-r from-transparent via-white/40 to-transparent shadow-[0_2px_20px_rgba(255,255,255,0.3)]"
-            : "h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
+            ? "bg-gradient-to-r from-transparent via-white/50 to-transparent shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+            : "bg-gradient-to-r from-transparent via-white/20 to-transparent"
         )}
-      />
-      <div
-        className={cn(
-          "absolute bottom-0 left-0 right-0 backdrop-blur-md transition-all duration-500",
-          isScrolled ? "h-1 opacity-100" : "h-0 opacity-0"
-        )}
-        style={{
-          background: isScrolled ? 'linear-gradient(to bottom, rgba(255,255,255,0.05), transparent)' : 'transparent'
-        }}
       />
 
       <div className="max-w-7xl mx-auto px-4">
@@ -193,7 +193,7 @@ export function Navigation() {
                 isScrolled ? "text-lg" : "text-2xl"
               )}>BEEHIVE</span>
               <span className={cn(
-                "text-yellow-500 tracking-widest uppercase transition-all duration-500",
+                "text-[#E8C24A] tracking-widest uppercase transition-all duration-500",
                 isScrolled ? "text-xs" : "text-sm"
               )}>Rental & Sales</span>
             </div>
@@ -201,7 +201,13 @@ export function Navigation() {
 
           {/* Desktop Nav - Unified Container */}
           <nav className="hidden lg:flex items-center">
-            <div className="flex items-center bg-white/5 backdrop-blur-sm rounded-2xl px-2 py-2 border border-white/10 gap-1">
+            <div
+              className="flex items-center bg-white/[0.08] backdrop-blur-xl rounded-2xl px-2 py-2 border border-white/20 gap-1 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]"
+              style={{
+                backdropFilter: 'blur(20px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+              }}
+            >
               {/* Nav Items */}
               {mainNavItems.map((item) => (
                 <div
@@ -244,7 +250,11 @@ export function Navigation() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 w-[95vw] max-w-[700px] bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] backdrop-blur-xl rounded-2xl shadow-2xl shadow-white/10 border-2 border-white/20 p-6 mt-2"
+                          className="absolute top-full left-1/2 -translate-x-1/2 w-[95vw] max-w-[700px] bg-[#0a0a0a] backdrop-blur-[40px] rounded-2xl shadow-2xl shadow-white/10 border-2 border-white/30 p-6 mt-2"
+                          style={{
+                            backdropFilter: 'blur(40px) saturate(180%)',
+                            WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                          }}
                         >
                           <div className="grid grid-cols-2 gap-3">
                             {equipmentCategories.map((cat) => (
@@ -306,7 +316,11 @@ export function Navigation() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full right-0 mt-2 w-72 bg-[#0a0a0a]/95 backdrop-blur-xl rounded-xl shadow-2xl shadow-black/50 border border-white/10 p-4"
+                      className="absolute top-full right-0 mt-2 w-72 bg-[#0a0a0a] backdrop-blur-[40px] rounded-xl shadow-2xl shadow-white/10 border border-white/30 p-4"
+                      style={{
+                        backdropFilter: 'blur(40px) saturate(180%)',
+                        WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                      }}
                     >
                       <div className="space-y-3">
                         <h4 className="text-white font-semibold text-sm border-b border-white/10 pb-2">Contact Us</h4>
@@ -437,7 +451,11 @@ export function Navigation() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-t border-white/10 overflow-hidden"
+            className="lg:hidden bg-[#0a0a0a] backdrop-blur-[40px] border-t border-white/30 overflow-hidden"
+            style={{
+              backdropFilter: 'blur(40px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+            }}
           >
             <div className="px-4 py-6 space-y-2">
               {mainNavItems.map((item) => (

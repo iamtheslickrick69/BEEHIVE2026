@@ -43,7 +43,7 @@ const featuredSales = [
 const conditionColors = {
   Excellent: "bg-green-100 text-green-700",
   Good: "bg-blue-100 text-blue-700",
-  Fair: "bg-orange-100 text-orange-700",
+  Fair: "bg-white/10 text-white",
 }
 
 export function SalesPreview() {

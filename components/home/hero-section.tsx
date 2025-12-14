@@ -18,7 +18,7 @@ const featuredCategories = [
     popular: true,
   },
   {
-    name: "Heavy Equipment",
+    name: "Compact Equipment",
     description: "Mini excavators, compact loaders",
     icon: Shovel,
     href: "/inventory#heavy-equipment",
@@ -116,7 +116,7 @@ export function HeroSection() {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('/heavy-equipment-rental-yard-with-excavators-and-lo.jpg')`,
+            backgroundImage: `url('/aerial-yard-view.jpg')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50" />
@@ -257,11 +257,11 @@ export function HeroSection() {
               {/* Who We Serve */}
               <div className="mt-5 pt-4 border-t border-white/10">
                 <h4 className="text-white font-semibold text-sm mb-3">Who We Serve</h4>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {/* Contractors */}
-                  <div className="bg-white/5 rounded-xl p-4 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
-                    <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors">
-                      <Truck className="w-6 h-6 text-white" />
+                  <div className="bg-white/5 rounded-xl p-3 sm:p-4 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-white/10 flex items-center justify-center mb-2 sm:mb-3 group-hover:bg-white/20 transition-colors">
+                      <Truck className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <h5 className="text-white font-semibold text-sm mb-1">Contractors</h5>
                     <p className="text-white/60 text-xs leading-relaxed">
@@ -270,9 +270,9 @@ export function HeroSection() {
                   </div>
 
                   {/* Homeowners */}
-                  <div className="bg-white/5 rounded-xl p-4 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
-                    <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors">
-                      <Calendar className="w-6 h-6 text-white" />
+                  <div className="bg-white/5 rounded-xl p-3 sm:p-4 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-white/10 flex items-center justify-center mb-2 sm:mb-3 group-hover:bg-white/20 transition-colors">
+                      <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <h5 className="text-white font-semibold text-sm mb-1">Homeowners</h5>
                     <p className="text-white/60 text-xs leading-relaxed">

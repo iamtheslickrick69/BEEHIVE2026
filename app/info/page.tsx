@@ -49,7 +49,7 @@ const departmentColors: Record<string, string> = {
   Sales: "text-blue-500 bg-blue-500/10",
   "Customer Service": "text-green-500 bg-green-500/10",
   Service: "text-red-500 bg-red-500/10",
-  Operations: "text-yellow-500 bg-yellow-500/10",
+  Operations: "text-[#E8C24A] bg-[#E8C24A]/10",
 }
 
 const teamMembers = [
@@ -176,7 +176,7 @@ const values = [
     icon: Zap,
     title: "Efficiency",
     description: "We value your time. Fast service, quick turnarounds, and streamlined processes.",
-    color: "bg-yellow-500",
+    color: "bg-[#E8C24A]",
   },
   {
     icon: Shield,
@@ -188,7 +188,7 @@ const values = [
     icon: Award,
     title: "Integrity",
     description: "Honest pricing, transparent policies, and always doing the right thing.",
-    color: "bg-orange-500",
+    color: "bg-white",
   },
 ]
 
@@ -196,7 +196,7 @@ const policies = [
   {
     title: "Equipment Rental Policy",
     icon: FileText,
-    color: "bg-yellow-500",
+    color: "bg-[#E8C24A]",
     description:
       "Please review the following terms and conditions that apply when renting equipment from our facility. These policies ensure fair and consistent service for all customers.",
   },
@@ -238,7 +238,7 @@ const policies = [
   {
     title: "Cleaning & Fuel Policy",
     icon: Droplets,
-    color: "bg-orange-500",
+    color: "bg-white",
     description: "Proper equipment care ensures availability for all customers:",
     details: [
       "Equipment must be returned reasonably clean",
@@ -262,7 +262,7 @@ const policies = [
   {
     title: "Contract Closure",
     icon: CheckCircle2,
-    color: "bg-yellow-500",
+    color: "bg-[#E8C24A]",
     description:
       "Rental contracts must be properly closed upon equipment return. Charges continue to accrue until an authorized employee confirms return and closes the contract. Always ensure you receive a receipt.",
   },
@@ -290,7 +290,7 @@ function PolicyAccordion() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
-            className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-yellow-500/50 transition-all duration-300"
+            className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-[#E8C24A]/50 transition-all duration-300"
           >
             <button
               onClick={() => setExpandedIndex(isExpanded ? null : index)}
@@ -327,13 +327,13 @@ function PolicyAccordion() {
                     <div className="pl-13 space-y-2">
                       {policy.details.map((detail, i) => (
                         <div key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-yellow-500 shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-4 h-4 text-[#E8C24A] shrink-0 mt-0.5" />
                           <span className="text-white/80 text-sm">{detail}</span>
                         </div>
                       ))}
                       {policy.note && (
-                        <div className="mt-3 p-3 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
-                          <p className="text-sm text-yellow-400">
+                        <div className="mt-3 p-3 bg-[#E8C24A]/10 border border-[#E8C24A]/30 rounded-lg">
+                          <p className="text-sm text-[#E8C24A]">
                             <span className="font-bold">Note:</span> {policy.note}
                           </p>
                         </div>
@@ -388,7 +388,7 @@ function InfoPageContent() {
           <div className="text-center max-w-4xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
               <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6 border border-white/20">
-                <Award className="w-4 h-4 text-yellow-500" />
+                <Award className="w-4 h-4 text-[#E8C24A]" />
                 SERVING SINCE 1994
               </span>
             </motion.div>
@@ -423,7 +423,7 @@ function InfoPageContent() {
                     transition={{ delay: 0.2 + 0.1 * index }}
                     className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-3 hover:bg-white/10 transition-all duration-300"
                   >
-                    <Icon className="w-6 h-6 text-yellow-500 mx-auto mb-2" />
+                    <Icon className="w-6 h-6 text-[#E8C24A] mx-auto mb-2" />
                     <div className="text-white font-bold text-sm md:text-base mb-1">{stat.value}</div>
                     <div className="text-white/60 text-xs uppercase tracking-wider">{stat.label}</div>
                   </motion.div>
@@ -449,7 +449,7 @@ function InfoPageContent() {
                   key={item.label}
                   className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-lg px-3 py-2"
                 >
-                  <Icon className="w-5 h-5 text-yellow-500 shrink-0" />
+                  <Icon className="w-5 h-5 text-[#E8C24A] shrink-0" />
                   <div>
                     <div className="text-white/60 text-xs">{item.label}</div>
                     <div className="text-white font-semibold text-sm">{item.value}</div>
@@ -474,7 +474,7 @@ function InfoPageContent() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 px-6 py-3 rounded-t-xl font-semibold text-sm uppercase tracking-wide transition-all duration-300 whitespace-nowrap ${
                     isActive
-                      ? "bg-yellow-500 text-black shadow-lg shadow-yellow-500/20"
+                      ? "bg-[#E8C24A] text-black shadow-lg shadow-[#E8C24A]/20"
                       : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white border border-white/10 border-b-0"
                   }`}
                 >
@@ -542,8 +542,8 @@ function InfoPageContent() {
                     transition={{ delay: teamMembers.length * 0.03 }}
                     className="group bg-white/5 rounded-xl overflow-hidden hover:shadow-xl transition-all cursor-pointer flex flex-col items-center justify-center h-full min-h-[320px]"
                   >
-                    <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-yellow-500/20 to-yellow-600/10 flex items-center justify-center">
-                      <Users className="w-20 h-20 text-yellow-500/40" />
+                    <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-[#E8C24A]/20 to-[#E8C24A]/10 flex items-center justify-center">
+                      <Users className="w-20 h-20 text-[#E8C24A]/40" />
                     </div>
 
                     <div className="p-3 text-center flex-1 flex flex-col justify-center">
@@ -578,7 +578,7 @@ function InfoPageContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className="bg-white/5 rounded-xl p-6 border border-white/10 hover:border-yellow-500/50 hover:shadow-xl transition-all text-center group"
+                        className="bg-white/5 rounded-xl p-6 border border-white/10 hover:border-[#E8C24A]/50 hover:shadow-xl transition-all text-center group"
                       >
                         <div
                           className={`w-14 h-14 rounded-xl ${value.color} bg-opacity-20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}
@@ -641,13 +641,13 @@ function InfoPageContent() {
                     href="tel:+14356286663"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-yellow-500/50 hover:shadow-xl transition-all group text-center"
+                    className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-[#E8C24A]/50 hover:shadow-xl transition-all group text-center"
                   >
-                    <div className="w-16 h-16 rounded-full bg-yellow-500/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-500 transition-all">
-                      <Phone className="w-8 h-8 text-yellow-500 group-hover:text-black" />
+                    <div className="w-16 h-16 rounded-full bg-[#E8C24A]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E8C24A] transition-all">
+                      <Phone className="w-8 h-8 text-[#E8C24A] group-hover:text-black" />
                     </div>
                     <h3 className="font-semibold text-lg mb-2 text-white">Call Us</h3>
-                    <p className="text-2xl font-bold text-yellow-500">435-628-6663</p>
+                    <p className="text-2xl font-bold text-[#E8C24A]">435-628-6663</p>
                   </motion.a>
 
                   <motion.a
@@ -657,10 +657,10 @@ function InfoPageContent() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-yellow-500/50 hover:shadow-xl transition-all group text-center"
+                    className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-[#E8C24A]/50 hover:shadow-xl transition-all group text-center"
                   >
-                    <div className="w-16 h-16 rounded-full bg-yellow-500/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-500 transition-all">
-                      <MapPin className="w-8 h-8 text-yellow-500 group-hover:text-black" />
+                    <div className="w-16 h-16 rounded-full bg-[#E8C24A]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E8C24A] transition-all">
+                      <MapPin className="w-8 h-8 text-[#E8C24A] group-hover:text-black" />
                     </div>
                     <h3 className="font-semibold text-lg mb-2 text-white">Visit Us</h3>
                     <p className="text-base font-medium text-white/60">
@@ -675,10 +675,10 @@ function InfoPageContent() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-yellow-500/50 hover:shadow-xl transition-all group text-center"
+                    className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-[#E8C24A]/50 hover:shadow-xl transition-all group text-center"
                   >
-                    <div className="w-16 h-16 rounded-full bg-yellow-500/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-500 transition-all">
-                      <Mail className="w-8 h-8 text-yellow-500 group-hover:text-black" />
+                    <div className="w-16 h-16 rounded-full bg-[#E8C24A]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E8C24A] transition-all">
+                      <Mail className="w-8 h-8 text-[#E8C24A] group-hover:text-black" />
                     </div>
                     <h3 className="font-semibold text-lg mb-2 text-white">Email Us</h3>
                     <p className="text-sm font-medium text-white/60 break-all">beehiverental@infowest.com</p>
@@ -692,7 +692,7 @@ function InfoPageContent() {
                   transition={{ delay: 0.3 }}
                   className="max-w-2xl mx-auto bg-white/5 border border-white/10 rounded-xl p-8 text-center mb-12"
                 >
-                  <Clock className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+                  <Clock className="w-12 h-12 text-[#E8C24A] mx-auto mb-4" />
                   <h3 className="font-semibold text-xl mb-4 text-white">Business Hours</h3>
                   <div className="grid grid-cols-2 gap-6 text-left max-w-md mx-auto">
                     <div>
@@ -711,7 +711,7 @@ function InfoPageContent() {
                 </motion.div>
 
                 {/* CTA */}
-                <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-yellow-500/10 to-yellow-500/5 border border-yellow-500/20 rounded-xl p-8">
+                <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-[#E8C24A]/10 to-[#E8C24A]/5 border border-[#E8C24A]/20 rounded-xl p-8">
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Questions About Our Policies?</h3>
                   <p className="text-lg text-white/60 mb-6">
                     Our friendly team is here to help explain any terms or conditions. Don't hesitate to reach out!
@@ -721,7 +721,7 @@ function InfoPageContent() {
                     <Button
                       asChild
                       size="lg"
-                      className="bg-yellow-500 text-black hover:bg-yellow-400 shadow-lg shadow-yellow-500/20"
+                      className="bg-[#E8C24A] text-black hover:bg-[#E8C24A]/90 shadow-lg shadow-[#E8C24A]/20"
                     >
                       <a href="tel:+14356286663">
                         <Phone className="w-5 h-5 mr-2" />

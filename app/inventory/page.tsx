@@ -1,6 +1,7 @@
 import { Suspense } from "react"
 import { InventoryCategories } from "@/components/inventory/inventory-categories"
 import { InventoryLoadingSkeleton } from "@/components/inventory/inventory-loading"
+import { InventoryHero } from "@/components/inventory/inventory-hero"
 
 export const metadata = {
   title: "Equipment Inventory | BeeHive Rental & Sales LLC",
@@ -11,6 +12,7 @@ export const metadata = {
 export default function InventoryPage() {
   return (
     <div className="min-h-screen bg-background pt-20">
+      <InventoryHero />
       <Suspense fallback={<InventoryLoadingSkeleton />}>
         <InventoryCategories />
       </Suspense>

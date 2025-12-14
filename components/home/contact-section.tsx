@@ -35,7 +35,7 @@ export function ContactSection() {
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-3 md:mb-4 uppercase tracking-tight"
               style={{ fontFamily: "var(--font-inter-tight)" }}
             >
-              Ready to Rent?
+              Ready to Start Your Project?
             </h2>
             <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
               Browse our inventory, request a quote, or reach out - our team is ready to help.
@@ -152,7 +152,7 @@ export function ContactSection() {
           <ScrollAnimation direction="right">
             <div className="space-y-4 md:space-y-6">
               {/* Map */}
-              <div className="bg-background rounded-xl h-48 md:h-56 overflow-hidden border border-border">
+              <div className="bg-background rounded-xl h-64 md:h-72 lg:h-80 overflow-hidden border border-border">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3177.8!2d-113.564!3d37.108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80ca44e70c0b8d2f%3A0x7d3e2c5f6a8b9c0d!2s1175%20Highland%20Dr%2C%20St.%20George%2C%20UT%2084770!5e0!3m2!1sen!2sus!4v1234567890"
                   width="100%"
@@ -162,7 +162,6 @@ export function ContactSection() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="BeeHive Rental Location"
-                  className="grayscale"
                 />
               </div>
 
@@ -173,21 +172,21 @@ export function ContactSection() {
                   className="bg-background rounded-xl p-4 md:p-5 border border-border hover:border-primary/50 transition-all group"
                 >
                   <Phone className="w-6 h-6 text-primary mb-2 group-hover:scale-110 transition-transform" />
-                  <h4 className="font-semibold text-foreground text-sm mb-0.5">Phone</h4>
-                  <span className="text-muted-foreground text-xs md:text-sm">(435) 628-6663</span>
+                  <h4 className="font-semibold text-foreground text-sm md:text-base mb-0.5">Phone</h4>
+                  <span className="text-muted-foreground text-sm md:text-base">(435) 628-6663</span>
                 </a>
                 <a
                   href="mailto:beehiverental@infowest.com"
                   className="bg-background rounded-xl p-4 md:p-5 border border-border hover:border-primary/50 transition-all group"
                 >
                   <Mail className="w-6 h-6 text-primary mb-2 group-hover:scale-110 transition-transform" />
-                  <h4 className="font-semibold text-foreground text-sm mb-0.5">Email</h4>
+                  <h4 className="font-semibold text-foreground text-sm md:text-base mb-0.5">Email</h4>
                   <span className="text-muted-foreground text-xs md:text-sm break-all">beehiverental@infowest.com</span>
                 </a>
                 <div className="bg-background rounded-xl p-4 md:p-5 border border-border">
                   <MapPin className="w-6 h-6 text-primary mb-2" />
-                  <h4 className="font-semibold text-foreground text-sm mb-0.5">Address</h4>
-                  <p className="text-muted-foreground text-xs md:text-sm">
+                  <h4 className="font-semibold text-foreground text-sm md:text-base mb-0.5">Address</h4>
+                  <p className="text-muted-foreground text-sm md:text-base">
                     1175 Highland Dr
                     <br />
                     St. George, UT
@@ -195,8 +194,8 @@ export function ContactSection() {
                 </div>
                 <div className="bg-background rounded-xl p-4 md:p-5 border border-border">
                   <Clock className="w-6 h-6 text-primary mb-2" />
-                  <h4 className="font-semibold text-foreground text-sm mb-0.5">Hours</h4>
-                  <p className="text-muted-foreground text-xs md:text-sm">
+                  <h4 className="font-semibold text-foreground text-sm md:text-base mb-0.5">Hours</h4>
+                  <p className="text-muted-foreground text-sm md:text-base">
                     Mon-Fri: 7AM-5PM
                     <br />
                     Sat: 8AM-12PM

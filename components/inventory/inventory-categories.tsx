@@ -5,9 +5,6 @@ import { CategoryPreview } from "@/components/inventory/category-preview"
 import { InventoryFilterBar } from "@/components/inventory/inventory-filter-bar"
 import { equipmentData } from "@/lib/equipment-data"
 import { EquipmentCard } from "@/components/inventory/equipment-card"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Label } from "@/components/ui/label"
-import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { SlidersHorizontal, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -47,7 +44,6 @@ const categoryIdMap: Record<string, string> = {
   "concrete-compaction": "Concrete & Compaction",
   "power-tools": "Power Tools",
   "carpet-floor-tools": "Carpet & Floor Tools",
-  "water-equipment": "Water Equipment",
   "automotive": "Automotive",
   "general-tools": "General Tools",
   "generators-welders": "Generators & Welders",
@@ -62,9 +58,8 @@ const categories = [
   { id: "concrete-compaction", label: "Concrete & Compaction", count: 16 },
   { id: "power-tools", label: "Power Tools", count: 15 },
   { id: "carpet-floor-tools", label: "Carpet & Floor", count: 12 },
-  { id: "water-equipment", label: "Water Equipment", count: 3 },
   { id: "automotive", label: "Automotive", count: 4 },
-  { id: "general-tools", label: "General Tools", count: 6 },
+  { id: "general-tools", label: "General Tools", count: 9 },
   { id: "generators-welders", label: "Generators & Welders", count: 8 },
   { id: "scaffolding-ladders", label: "Scaffolding & Ladders", count: 9 },
   { id: "landscaping-garden", label: "Landscaping & Garden", count: 16 },
@@ -75,7 +70,6 @@ export function InventoryCategories() {
   const [searchQuery, setSearchQuery] = useState("")
   const [sortBy, setSortBy] = useState("featured")
   const [filters, setFilters] = useState({ inStock: true, delivery: false })
-  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
   const [featuredCount, setFeaturedCount] = useState(3)
 
   // Responsive featured items count
@@ -161,205 +155,11 @@ export function InventoryCategories() {
         onFiltersChange={setFilters}
       />
 
-      {/* Mobile Filter Button */}
-      <div className="lg:hidden max-w-7xl mx-auto px-4 py-4">
-        <Button
-          onClick={() => setIsMobileFilterOpen(true)}
-          className="w-full h-12 bg-white/5 border-2 border-white/20 hover:bg-white/10 hover:border-white/30 text-white font-semibold"
-        >
-          <SlidersHorizontal className="w-5 h-5 mr-2" />
-          Filters & Categories
-        </Button>
-      </div>
 
-      {/* Mobile Filter Drawer */}
-      <AnimatePresence>
-        {isMobileFilterOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsMobileFilterOpen(false)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 lg:hidden"
-            />
 
-            {/* Drawer */}
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed left-0 top-0 bottom-0 w-[85vw] max-w-sm bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] border-r-2 border-white/20 z-50 overflow-y-auto lg:hidden"
-            >
-              {/* Drawer Header */}
-              <div className="sticky top-0 bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/20 px-6 py-4 flex items-center justify-between">
-                <h2 className="text-xl font-bold text-white">Filters & Categories</h2>
-                <button
-                  onClick={() => setIsMobileFilterOpen(false)}
-                  className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Drawer Content */}
-              <div className="p-6">
-                {/* Filters Section */}
-                <div className="mb-6">
-                  <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Filters</h3>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <Checkbox
-                        id="in-stock-mobile"
-                        checked={filters.inStock}
-                        onCheckedChange={(checked) => {
-                          setFilters({ ...filters, inStock: checked as boolean })
-                          setIsMobileFilterOpen(false)
-                        }}
-                        className="border-white/40 data-[state=checked]:bg-white data-[state=checked]:border-white"
-                      />
-                      <Label htmlFor="in-stock-mobile" className="text-white/80 cursor-pointer font-normal text-sm">
-                        In Stock Only
-                      </Label>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Checkbox
-                        id="delivery-mobile"
-                        checked={filters.delivery}
-                        onCheckedChange={(checked) => {
-                          setFilters({ ...filters, delivery: checked as boolean })
-                          setIsMobileFilterOpen(false)
-                        }}
-                        className="border-white/40 data-[state=checked]:bg-white data-[state=checked]:border-white"
-                      />
-                      <Label htmlFor="delivery-mobile" className="text-white/80 cursor-pointer font-normal text-sm">
-                        Delivery Available
-                      </Label>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Divider */}
-                <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent my-6" />
-
-                {/* Categories Section */}
-                <div>
-                  <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Categories</h3>
-                  <div className="space-y-2">
-                    {categories.map((category) => (
-                      <motion.button
-                        key={category.id}
-                        onClick={() => {
-                          setSelectedCategory(category.id)
-                          setIsMobileFilterOpen(false)
-                        }}
-                        whileHover={{ scale: 1.02, x: 4 }}
-                        whileTap={{ scale: 0.98 }}
-                        className={cn(
-                          "w-full flex items-center justify-between gap-2 px-4 py-3 rounded-lg font-medium transition-all text-sm",
-                          selectedCategory === category.id
-                            ? "bg-white text-black shadow-lg shadow-white/20"
-                            : "bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/30",
-                        )}
-                      >
-                        <span className="truncate text-left">{category.label}</span>
-                        <span
-                          className={cn(
-                            "rounded-full shrink-0 font-semibold text-xs px-2 py-0.5",
-                            selectedCategory === category.id
-                              ? "bg-black/20 text-black"
-                              : "bg-white/10 text-white/60",
-                          )}
-                        >
-                          {category.count}
-                        </span>
-                      </motion.button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-
-      {/* Main Layout with Sidebar */}
+      {/* Main Layout - Full Width */}
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex gap-6">
-          {/* Left Sidebar - Filters & Categories (Desktop Only) */}
-          <aside className="w-64 shrink-0 hidden lg:block">
-            <div className="sticky top-36 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] border-2 border-white/20 rounded-2xl p-6 shadow-2xl shadow-white/10">
-              {/* Filters Section */}
-              <div className="mb-6">
-                <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Filters</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <Checkbox
-                      id="in-stock-sidebar"
-                      checked={filters.inStock}
-                      onCheckedChange={(checked) => setFilters({ ...filters, inStock: checked as boolean })}
-                      className="border-white/40 data-[state=checked]:bg-white data-[state=checked]:border-white"
-                    />
-                    <Label htmlFor="in-stock-sidebar" className="text-white/80 cursor-pointer font-normal text-sm">
-                      In Stock Only
-                    </Label>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Checkbox
-                      id="delivery-sidebar"
-                      checked={filters.delivery}
-                      onCheckedChange={(checked) => setFilters({ ...filters, delivery: checked as boolean })}
-                      className="border-white/40 data-[state=checked]:bg-white data-[state=checked]:border-white"
-                    />
-                    <Label htmlFor="delivery-sidebar" className="text-white/80 cursor-pointer font-normal text-sm">
-                      Delivery Available
-                    </Label>
-                  </div>
-                </div>
-              </div>
-
-              {/* Divider */}
-              <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent my-6" />
-
-              {/* Categories Section */}
-              <div>
-                <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Categories</h3>
-                <div className="space-y-2">
-                  {categories.map((category) => (
-                    <motion.button
-                      key={category.id}
-                      onClick={() => setSelectedCategory(category.id)}
-                      whileHover={{ scale: 1.02, x: 4 }}
-                      whileTap={{ scale: 0.98 }}
-                      className={cn(
-                        "w-full flex items-center justify-between gap-2 px-3 py-2.5 rounded-lg font-medium transition-all text-sm",
-                        selectedCategory === category.id
-                          ? "bg-white text-black shadow-lg shadow-white/20"
-                          : "bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/30",
-                      )}
-                    >
-                      <span className="truncate text-left">{category.label}</span>
-                      <span
-                        className={cn(
-                          "rounded-full shrink-0 font-semibold text-xs px-2 py-0.5",
-                          selectedCategory === category.id
-                            ? "bg-black/20 text-black"
-                            : "bg-white/10 text-white/60",
-                        )}
-                      >
-                        {category.count}
-                      </span>
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </aside>
-
-          {/* Main Content */}
-          <div className="flex-1 min-w-0">
+        <div className="w-full">
             {/* Active Filters Display */}
             {(searchQuery || selectedCategory !== "all" || !filters.inStock || filters.delivery) && (
               <div className="mb-4 flex flex-wrap items-center gap-2">
@@ -457,9 +257,7 @@ export function InventoryCategories() {
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {displayEquipment.map((item) => (
-                      <div key={item.id} className="border-2 border-white/30 rounded-xl p-1 bg-white/[0.02] hover:border-white/50 transition-all">
-                        <EquipmentCard equipment={item} />
-                      </div>
+                      <EquipmentCard key={item.id} equipment={item} />
                     ))}
                   </div>
                 )}
@@ -478,9 +276,7 @@ export function InventoryCategories() {
                     {filterEquipment(equipmentData.filter((item) => item.featured))
                       .slice(0, featuredCount)
                       .map((item) => (
-                        <div key={item.id} className="border-2 border-white/30 rounded-xl p-1 bg-white/[0.02] hover:border-white/50 transition-all">
-                          <EquipmentCard equipment={item} />
-                        </div>
+                        <EquipmentCard key={item.id} equipment={item} />
                       ))}
                   </div>
                 </section>
@@ -504,7 +300,6 @@ export function InventoryCategories() {
                 })}
               </>
             )}
-          </div>
         </div>
       </div>
     </>

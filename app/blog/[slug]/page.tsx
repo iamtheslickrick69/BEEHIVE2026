@@ -49,7 +49,7 @@ export default function BlogPostPage() {
               transition={{ duration: 0.5 }}
             >
               <Button asChild variant="ghost" className="mb-4 text-white hover:text-white hover:bg-white/10">
-                <Link href="/blog">
+                <Link href="/blog/guides">
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back to Articles
                 </Link>

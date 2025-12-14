@@ -78,7 +78,7 @@ export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEq
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", damping: 30, stiffness: 400 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[96vw] max-w-[1400px] max-h-[88vh] bg-[#111] rounded-2xl z-50 overflow-hidden border border-white/10 flex flex-col"
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[96vw] sm:w-[92vw] max-w-[1400px] max-h-[90vh] sm:max-h-[88vh] bg-[#111] rounded-xl sm:rounded-2xl z-50 overflow-hidden border border-white/10 flex flex-col"
           >
             {/* Header Bar */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 shrink-0">
@@ -92,8 +92,8 @@ export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEq
                     In Stock
                   </span>
                 ) : (
-                  <span className="flex items-center gap-1.5 px-3 py-1 bg-orange-500/20 text-orange-400 text-sm font-medium rounded-full">
-                    <span className="w-2 h-2 bg-orange-400 rounded-full" />
+                  <span className="flex items-center gap-1.5 px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full">
+                    <span className="w-2 h-2 bg-white rounded-full" />
                     Reserved
                   </span>
                 )}
@@ -111,9 +111,9 @@ export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEq
 
             {/* Main Content - scrollable */}
             <div className="flex-1 overflow-y-auto">
-              <div className="grid lg:grid-cols-2 gap-0 min-h-full">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-full">
                 {/* Left: Image Section */}
-                <div className="bg-[#0a0a0a] p-6 lg:p-10 flex flex-col items-center justify-center">
+                <div className="bg-[#0a0a0a] p-4 sm:p-6 lg:p-10 flex flex-col items-center justify-center">
                   {/* Main Image - adaptive sizing with better quality */}
                   <div className="relative max-w-[85%] max-h-[60vh] rounded-2xl overflow-hidden bg-[#1a1a1a] flex items-center justify-center">
                     <img
@@ -164,7 +164,7 @@ export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEq
                 </div>
 
                 {/* Right: Details Section */}
-                <div className="p-6 lg:p-8 flex flex-col">
+                <div className="p-4 sm:p-6 lg:p-8 flex flex-col">
                   {/* Title */}
                   <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">{equipment.name}</h2>
 
@@ -257,7 +257,7 @@ export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEq
                           {item.available ? (
                             <span className="text-xs text-green-400">In Stock</span>
                           ) : (
-                            <span className="text-xs text-orange-400">Reserved</span>
+                            <span className="text-xs text-white">Reserved</span>
                           )}
                         </div>
                       </button>

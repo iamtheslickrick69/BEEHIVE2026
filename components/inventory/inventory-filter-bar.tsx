@@ -23,9 +23,8 @@ const categories = [
   { id: "concrete-compaction", label: "Concrete & Compaction", count: 16 },
   { id: "power-tools", label: "Power Tools", count: 15 },
   { id: "carpet-floor-tools", label: "Carpet & Floor", count: 12 },
-  { id: "water-equipment", label: "Water Equipment", count: 3 },
   { id: "automotive", label: "Automotive", count: 4 },
-  { id: "general-tools", label: "General Tools", count: 6 },
+  { id: "general-tools", label: "General Tools", count: 9 },
   { id: "generators-welders", label: "Generators & Welders", count: 8 },
   { id: "scaffolding-ladders", label: "Scaffolding & Ladders", count: 9 },
   { id: "landscaping-garden", label: "Landscaping & Garden", count: 16 },
@@ -88,29 +87,47 @@ export function InventoryFilterBar({
 
   return (
     <div>
-      {/* Top Bar - Page Title & Search/Sort */}
-      <div className="bg-background/95 backdrop-blur-xl border-b border-white/10 sticky top-20 z-30">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex items-center justify-between gap-4 flex-wrap">
-            {/* Title */}
-            <div>
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">Equipment Inventory</h1>
-              <p className="text-white/60 text-xs md:text-sm">
-                Browse our complete selection of professional-grade rental equipment
-              </p>
+      {/* Ultra-Compact Single Row Navigation */}
+      <div className="bg-background backdrop-blur-xl border-b border-white/10 sticky top-20 z-30 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 py-2.5">
+          <div className="flex items-center justify-between gap-4">
+            {/* Left: Category Pills with Horizontal Scroll */}
+            <div className="flex-1 overflow-x-auto scrollbar-hide">
+              <div className="flex gap-2 pb-1">
+                {categories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => handleCategoryChange(category.id)}
+                    className={cn(
+                      "px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all flex-shrink-0",
+                      selectedCategory === category.id
+                        ? "bg-[#E8C24A] text-black shadow-md"
+                        : "bg-white/5 text-white hover:bg-white/10 border border-white/20 hover:border-white/40",
+                    )}
+                  >
+                    {category.label}
+                    <span className={cn(
+                      "ml-1.5 text-xs",
+                      selectedCategory === category.id ? "opacity-70" : "opacity-60"
+                    )}>
+                      ({category.count})
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
 
-            {/* Search & Sort */}
-            <div className="flex items-center gap-2">
-              {/* Search */}
+            {/* Right: Search & Sort */}
+            <div className="flex items-center gap-2 flex-shrink-0">
+              {/* Search - Compact */}
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+                <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/40" />
                 <Input
                   type="search"
-                  placeholder="Search equipment..."
+                  placeholder="Search..."
                   value={search}
                   onChange={(e) => handleSearch(e.target.value)}
-                  className="pl-10 pr-4 h-10 w-48 md:w-56 lg:w-64 bg-white/5 border-white/30 rounded-lg text-white placeholder:text-white/40 focus:border-white focus:ring-2 focus:ring-white/20 text-sm"
+                  className="pl-8 pr-3 h-8 w-40 lg:w-48 bg-white/5 border-white/30 rounded-md text-white placeholder:text-white/40 focus:border-white focus:ring-1 focus:ring-white/20 text-xs"
                 />
                 {search && (
                   <button
@@ -118,19 +135,19 @@ export function InventoryFilterBar({
                       setSearch("")
                       handleSearch("")
                     }}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
                   >
-                    <X className="w-4 h-4" />
+                    <X className="w-3 h-3" />
                   </button>
                 )}
               </div>
 
-              {/* Sort Dropdown */}
+              {/* Sort - Compact */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="h-10 px-4 bg-white/5 border-white/30 hover:bg-white/10 hover:border-white/50 text-sm">
-                    <ArrowUpDown className="w-4 h-4 mr-2" />
-                    Sort: {sortOptions.find((s) => s.id === sortBy)?.label}
+                  <Button variant="outline" className="h-8 px-3 bg-white/5 border-white/30 hover:bg-white/10 hover:border-white/50 text-xs whitespace-nowrap">
+                    <ArrowUpDown className="w-3.5 h-3.5 mr-1.5" />
+                    {sortOptions.find((s) => s.id === sortBy)?.label}
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="bg-[#0a0a0a] border-white/10">

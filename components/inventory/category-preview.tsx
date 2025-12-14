@@ -36,8 +36,11 @@ export function CategoryPreview({ name, count, equipment, defaultExpanded = fals
   const displayItems = isExpanded ? equipment : previewItems
   const hasMore = equipment.length > 6
 
+  // Create ID from category name
+  const categoryId = `category-${name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '')}`
+
   return (
-    <section className="mb-8 bg-white/[0.02] border border-white/10 rounded-2xl p-6">
+    <section id={categoryId} className="mb-8 bg-white/[0.02] border border-white/10 rounded-2xl p-6 scroll-mt-32">
       {/* Category Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
@@ -76,7 +79,6 @@ export function CategoryPreview({ name, count, equipment, defaultExpanded = fals
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="border-2 border-white/30 rounded-xl p-1 bg-white/[0.02] hover:border-white/50 transition-all"
             >
               <EquipmentCard equipment={item} />
             </motion.div>

@@ -22,9 +22,9 @@ const articles = [
 function Callout({ type, children }: { type: string; children: React.ReactNode }) {
   const styles = {
     tip: {
-      bg: "bg-yellow-500/10",
-      border: "border-yellow-500/30",
-      icon: <Lightbulb className="w-5 h-5 text-yellow-500" />,
+      bg: "bg-[#E8C24A]/10",
+      border: "border-[#E8C24A]/30",
+      icon: <Lightbulb className="w-5 h-5 text-[#E8C24A]" />,
       title: "Pro Tip"
     },
     warning: {
@@ -133,9 +133,9 @@ function GuidesPageContent() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-4 py-4">
             <Button asChild variant="ghost" size="sm">
-              <Link href="/blog">
+              <Link href="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back
+                Back to Home
               </Link>
             </Button>
             <div className="flex-1 flex items-center gap-1 overflow-x-auto">
