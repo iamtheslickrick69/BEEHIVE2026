@@ -1,14 +1,17 @@
+// SAVE THIS FILE TO YOUR HAESTUS.DEV PROJECT
+// Location: app/portal/page.tsx (in your haestus.dev Next.js project)
+
 'use client'
 
 import { useState, FormEvent } from 'react'
 
-export default function PortalPage() {
+export default function ClientPortalPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
 
   const CORRECT_PASSWORD = 'beehive2026'
-  const REDIRECT_URL = 'https://beehive-2026.vercel.app'
+  const REDIRECT_URL = 'https://beehive-2026.vercel.app' // BeeHive client site
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -17,7 +20,7 @@ export default function PortalPage() {
     if (password === CORRECT_PASSWORD) {
       setLoading(true)
       if (typeof window !== 'undefined') {
-        sessionStorage.setItem('haestus_auth', 'true')
+        sessionStorage.setItem('beehive_auth', 'true')
         setTimeout(() => {
           window.location.href = REDIRECT_URL
         }, 800)
