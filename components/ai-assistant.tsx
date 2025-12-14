@@ -968,6 +968,7 @@ function generateResponse(text: string): ResponseData {
 
 export function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isMinimized, setIsMinimized] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [hasScrolled, setHasScrolled] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
@@ -1227,9 +1228,17 @@ export function AIAssistant() {
               scale: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
               opacity: { duration: 0.2 }
             }}
-            whileHover={{ scale: hasScrolled ? 1.0 : 1.07 }}
-            whileTap={{ scale: hasScrolled ? 0.88 : 0.95 }}
-            onClick={() => setIsOpen(true)}
+            whileHover={{ scale: hasScrolled ? 1.0 : 1.08 }}
+            whileTap={{ scale: 0.92 }}
+            onClick={() => {
+              setIsOpen(true)
+              setIsMinimized(false)
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 20
+            }}
             className="group fixed bottom-6 right-4 sm:bottom-10 sm:right-6 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 flex items-center justify-center z-[100] bg-transparent"
             style={{
               filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.1))',
@@ -1322,20 +1331,25 @@ export function AIAssistant() {
         {isOpen && (
           <motion.div
             ref={containerRef}
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            transition={{
+              type: "spring",
+              damping: 25,
+              stiffness: 300,
+              mass: 0.8
+            }}
             style={{
               width: typeof window !== 'undefined' && window.innerWidth < 768 ? 'calc(100vw - 16px)' : size.width,
               height: typeof window !== 'undefined' && window.innerWidth < 768 ? 'calc(100vh - 80px)' : size.height
             }}
             className={cn(
-              "fixed z-[100] bg-[#0a0a0a] shadow-2xl border border-white/10 flex flex-col overflow-hidden",
-              // Mobile: bottom of screen with margin, rounded corners
-              "bottom-2 left-2 right-2 rounded-2xl",
+              "fixed z-[100] bg-[#0a0a0a] border border-white/10 flex flex-col overflow-hidden",
+              // Mobile: bottom of screen with margin, rounded corners, Apple-style shadow
+              "bottom-2 left-2 right-2 rounded-2xl shadow-[0_-10px_60px_rgba(0,0,0,0.8)]",
               // Desktop: bottom-right corner, not fullscreen
-              "md:inset-auto md:bottom-10 md:right-6 md:left-auto md:top-auto md:rounded-2xl",
+              "md:inset-auto md:bottom-10 md:right-6 md:left-auto md:top-auto md:rounded-2xl md:shadow-2xl",
               isResizing && "select-none",
             )}
           >
@@ -1374,9 +1388,14 @@ export function AIAssistant() {
               className="hidden md:block absolute right-0 top-4 bottom-4 w-2 cursor-e-resize z-10 hover:bg-[#E8C24A]/10"
             />
 
+            {/* iOS-style Drag Handle (Mobile Only) */}
+            <div className="md:hidden flex justify-center pt-2 pb-1">
+              <div className="w-10 h-1 bg-white/30 rounded-full" />
+            </div>
+
             {/* Header */}
             <div className="bg-[#111] text-white px-4 py-3 flex items-center justify-between shrink-0 border-b border-white/10 relative">
-              {/* Drag indicator - top left (hidden on mobile) */}
+              {/* Drag indicator - top left (desktop only) */}
               <div className="hidden md:block absolute top-2 left-2 opacity-30 pointer-events-none">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <line x1="3" y1="3" x2="8" y2="3" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
@@ -1430,13 +1449,27 @@ export function AIAssistant() {
                 </div>
               </div>
               <div className="flex items-center gap-1">
-                {/* Drag handle - hidden on mobile */}
+                {/* Drag handle - desktop only */}
                 <div className="hidden md:block p-2 opacity-50">
                   <GripVertical className="w-4 h-4" />
                 </div>
+                {/* Minimize button - mobile only */}
+                <button
+                  onClick={() => {
+                    setIsMinimized(true)
+                    setTimeout(() => setIsOpen(false), 200)
+                  }}
+                  className="md:hidden p-2 hover:bg-white/10 rounded-lg transition-all active:scale-90"
+                  aria-label="Minimize chat"
+                >
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor">
+                    <line x1="4" y1="8" x2="12" y2="8" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </button>
+                {/* Close button */}
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                  className="p-2 hover:bg-white/10 rounded-lg transition-all active:scale-90"
                   aria-label="Close chat"
                 >
                   <X className="w-4 h-4" />
