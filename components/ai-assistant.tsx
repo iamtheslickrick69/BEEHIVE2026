@@ -1052,8 +1052,12 @@ export function AIAssistant() {
   }, [messages, scrollToBottom])
 
   useEffect(() => {
-    if (isOpen && inputRef.current) {
-      inputRef.current.focus()
+    // CRITICAL: Don't auto-focus on mobile (prevents keyboard popup)
+    if (isOpen && inputRef.current && typeof window !== 'undefined') {
+      const isMobile = window.innerWidth < 768
+      if (!isMobile) {
+        inputRef.current.focus()
+      }
     }
   }, [isOpen])
 
@@ -1225,8 +1229,11 @@ export function AIAssistant() {
             }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{
-              scale: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
-              opacity: { duration: 0.2 }
+              type: "spring",
+              stiffness: 600,
+              damping: 25,
+              mass: 0.4,
+              duration: 0.15
             }}
             whileHover={{ scale: hasScrolled ? 1.0 : 1.08 }}
             whileTap={{ scale: 0.92 }}
@@ -1234,24 +1241,33 @@ export function AIAssistant() {
               setIsOpen(true)
               setIsMinimized(false)
             }}
-            transition={{
-              type: "spring",
-              stiffness: 400,
-              damping: 20
-            }}
-            className="group fixed bottom-6 right-4 sm:bottom-10 sm:right-6 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 flex items-center justify-center z-[100] bg-transparent"
+            className="group fixed bottom-6 right-4 sm:bottom-10 sm:right-6 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center z-[100] bg-transparent touch-manipulation"
             style={{
               filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.1))',
+              WebkitTapHighlightColor: 'transparent',
+              aspectRatio: '1/1',
+              willChange: 'transform',
+              transform: 'translateZ(0)',
+              backfaceVisibility: 'hidden'
             }}
             aria-label="Open chat assistant"
           >
 
             {/* SVG AI Icon */}
-            <div className="relative flex items-center justify-center w-full h-full">
+            <div className="relative flex items-center justify-center w-full h-full" style={{ minWidth: '64px', minHeight: '64px', aspectRatio: '1/1' }}>
               <svg
                 viewBox="0 0 200 200"
                 className="w-full h-full"
-                style={{ filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))' }}
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                  filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))',
+                  display: 'block',
+                  width: '100%',
+                  height: '100%',
+                  aspectRatio: '1/1',
+                  willChange: 'transform'
+                }}
               >
                 {/* Hexagon background with gradient */}
                 <defs>
@@ -1331,18 +1347,15 @@ export function AIAssistant() {
         {isOpen && (
           <motion.div
             ref={containerRef}
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{
               type: "spring",
-              damping: 25,
-              stiffness: 300,
-              mass: 0.8
-            }}
-            style={{
-              width: typeof window !== 'undefined' && window.innerWidth < 768 ? 'calc(100vw - 16px)' : size.width,
-              height: typeof window !== 'undefined' && window.innerWidth < 768 ? 'calc(100vh - 80px)' : size.height
+              damping: 20,
+              stiffness: 500,
+              mass: 0.5,
+              duration: 0.2
             }}
             className={cn(
               "fixed z-[100] bg-[#0a0a0a] border border-white/10 flex flex-col overflow-hidden",
@@ -1352,6 +1365,18 @@ export function AIAssistant() {
               "md:inset-auto md:bottom-10 md:right-6 md:left-auto md:top-auto md:rounded-2xl md:shadow-2xl",
               isResizing && "select-none",
             )}
+            style={{
+              ...typeof window !== 'undefined' && window.innerWidth < 768 ? {
+                width: 'calc(100vw - 16px)',
+                height: 'calc(100vh - 80px)'
+              } : {
+                width: size.width,
+                height: size.height
+              },
+              willChange: 'transform, opacity',
+              transform: 'translateZ(0)',
+              backfaceVisibility: 'hidden'
+            }}
           >
             {/* Corners - hidden on mobile */}
             <div
