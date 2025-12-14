@@ -995,6 +995,12 @@ export function AIAssistant() {
   const resizeStartRef = useRef<{ x: number; y: number; width: number; height: number } | null>(null)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
   const lastMessageCountRef = useRef(1)
+  const [keyboardVisible, setKeyboardVisible] = useState(false)
+  const [viewportHeight, setViewportHeight] = useState(
+    typeof window !== 'undefined'
+      ? (window.visualViewport?.height || window.innerHeight)
+      : 0
+  )
 
   // Graceful scroll - doesn't jolt the user, gently scrolls new messages into view
   const scrollToBottom = useCallback((immediate = false) => {
@@ -1101,6 +1107,40 @@ export function AIAssistant() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // CRITICAL: Detect keyboard open/close on mobile (iOS + Android)
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const handleResize = () => {
+      const newHeight = window.visualViewport?.height || window.innerHeight
+      setViewportHeight(newHeight)
+
+      // Detect keyboard (viewport shrinks significantly)
+      const heightDiff = window.innerHeight - newHeight
+      setKeyboardVisible(heightDiff > 150) // Keyboard typically >150px
+
+      // Scroll to bottom when keyboard opens
+      if (heightDiff > 150 && isOpen) {
+        setTimeout(() => scrollToBottom(true), 100)
+      }
+    }
+
+    // Use visualViewport API (best for iOS)
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', handleResize)
+    } else {
+      window.addEventListener('resize', handleResize)
+    }
+
+    return () => {
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', handleResize)
+      } else {
+        window.removeEventListener('resize', handleResize)
+      }
+    }
+  }, [isOpen, scrollToBottom])
+
   useEffect(() => {
     if (!isResizing) {
       localStorage.setItem("beebot-size", JSON.stringify(size))
@@ -1182,6 +1222,11 @@ export function AIAssistant() {
     setMessages((prev) => [...prev, userMessage])
     setInput("")
     setIsTyping(true)
+
+    // CRITICAL: Blur input to dismiss keyboard on mobile
+    if (inputRef.current && typeof window !== 'undefined' && window.innerWidth < 768) {
+      inputRef.current.blur()
+    }
 
     // Use conversational response generation with context memory
     // Realistic typing delay (2.5-4 seconds) for natural feel
@@ -1368,7 +1413,9 @@ export function AIAssistant() {
             style={{
               ...typeof window !== 'undefined' && window.innerWidth < 768 ? {
                 width: 'calc(100vw - 16px)',
-                height: 'calc(100vh - 80px)'
+                // CRITICAL: Use dynamic viewport height (accounts for keyboard)
+                height: `${viewportHeight - 16}px`,
+                maxHeight: 'calc(100vh - 16px)'
               } : {
                 width: size.width,
                 height: size.height
@@ -1414,9 +1461,22 @@ export function AIAssistant() {
             />
 
             {/* iOS-style Drag Handle (Mobile Only) */}
-            <div className="md:hidden flex justify-center pt-2 pb-1">
-              <div className="w-10 h-1 bg-white/30 rounded-full" />
-            </div>
+            <motion.div
+              className="md:hidden flex justify-center pt-3 pb-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <motion.div
+                className="w-12 h-1 bg-white/40 rounded-full"
+                animate={{ scaleX: [1, 1.2, 1] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: 2,
+                  ease: "easeInOut"
+                }}
+              />
+            </motion.div>
 
             {/* Header */}
             <div className="bg-[#111] text-white px-4 py-3 flex items-center justify-between shrink-0 border-b border-white/10 relative">
@@ -1674,7 +1734,7 @@ export function AIAssistant() {
             )}
 
             {/* Input */}
-            <div className="p-4 pb-6 md:pb-4 border-t border-white/10 shrink-0">
+            <div className="p-4 border-t border-white/10 shrink-0" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}>
               <form
                 onSubmit={(e) => {
                   e.preventDefault()
@@ -1688,16 +1748,24 @@ export function AIAssistant() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Type a message..."
-                  className="flex-1 px-4 py-2.5 bg-white/5 border-2 border-white/30 rounded-full text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 transition-all"
+                  enterKeyHint="send"
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="sentences"
+                  spellCheck="true"
+                  className="flex-1 px-4 py-3 bg-white/5 border-2 border-white/30 rounded-full text-white placeholder:text-white/40 focus:outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 transition-all"
+                  style={{ fontSize: '16px' }}
                 />
-                <Button
-                  type="submit"
-                  size="icon"
-                  className="rounded-full bg-[#E8C24A] text-black hover:bg-[#E8C24A] w-10 h-10"
-                  disabled={!input.trim()}
-                >
-                  <Send className="w-4 h-4" />
-                </Button>
+                <motion.div whileTap={{ scale: 0.85 }}>
+                  <Button
+                    type="submit"
+                    size="icon"
+                    className="rounded-full bg-[#E8C24A] text-black hover:bg-[#E8C24A] w-10 h-10 active:scale-90 transition-transform"
+                    disabled={!input.trim()}
+                  >
+                    <Send className="w-4 h-4" />
+                  </Button>
+                </motion.div>
               </form>
               <p className="text-[10px] text-white/40 text-center mt-2">
                 Or call us at{" "}
