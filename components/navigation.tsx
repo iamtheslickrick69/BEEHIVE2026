@@ -94,6 +94,7 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false)
+  const [isMobileEquipmentOpen, setIsMobileEquipmentOpen] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -460,40 +461,70 @@ export function Navigation() {
             <div className="px-4 py-6 space-y-2">
               {mainNavItems.map((item) => (
                 <div key={item.name}>
-                  <Link
-                    href={item.href}
-                    onClick={(e) => {
-                      if (handleNavClick(item.sectionId, item.href)) {
-                        e.preventDefault()
-                      }
-                      setIsMobileMenuOpen(false)
-                    }}
-                    className={cn(
-                      "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors",
-                      isActive(item) ? "bg-white text-black" : "text-white hover:bg-white/10",
-                    )}
-                  >
-                    {item.icon && <item.icon className="w-5 h-5" />}
-                    {!item.icon && item.name === "HOME" && <Home className="w-5 h-5" />}
-                    {!item.icon && item.name === "INVENTORY" && <Truck className="w-5 h-5" />}
-                    <span className="font-medium">{item.name}</span>
-                  </Link>
+                  {item.hasMegaMenu ? (
+                    <button
+                      onClick={() => setIsMobileEquipmentOpen(!isMobileEquipmentOpen)}
+                      className={cn(
+                        "flex items-center justify-between w-full px-4 py-3 rounded-lg transition-colors",
+                        isActive(item) ? "bg-white text-black" : "text-white hover:bg-white/10",
+                      )}
+                    >
+                      <div className="flex items-center gap-3">
+                        <Truck className="w-5 h-5" />
+                        <span className="font-medium">{item.name}</span>
+                      </div>
+                      <ChevronDown className={cn(
+                        "w-5 h-5 transition-transform duration-200",
+                        isMobileEquipmentOpen && "rotate-180"
+                      )} />
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      onClick={(e) => {
+                        if (handleNavClick(item.sectionId, item.href)) {
+                          e.preventDefault()
+                        }
+                        setIsMobileMenuOpen(false)
+                      }}
+                      className={cn(
+                        "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors",
+                        isActive(item) ? "bg-white text-black" : "text-white hover:bg-white/10",
+                      )}
+                    >
+                      {item.icon && <item.icon className="w-5 h-5" />}
+                      {!item.icon && item.name === "HOME" && <Home className="w-5 h-5" />}
+                      <span className="font-medium">{item.name}</span>
+                    </Link>
+                  )}
 
                   {/* Equipment Categories Sub-menu */}
                   {item.hasMegaMenu && (
-                    <div className="ml-4 mt-2 space-y-1">
-                      {equipmentCategories.map((cat) => (
-                        <Link
-                          key={cat.name}
-                          href={cat.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="flex items-center gap-2 px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                    <AnimatePresence>
+                      {isMobileEquipmentOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="overflow-hidden"
                         >
-                          <cat.icon className="w-4 h-4" />
-                          <span>{cat.name}</span>
-                        </Link>
-                      ))}
-                    </div>
+                          <div className="ml-4 mt-2 space-y-1 pb-2">
+                            {equipmentCategories.map((cat) => (
+                              <Link
+                                key={cat.name}
+                                href={cat.href}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="flex items-center gap-2 px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                              >
+                                <cat.icon className="w-4 h-4" />
+                                <span>{cat.name}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   )}
                 </div>
               ))}
@@ -552,13 +583,13 @@ export function Navigation() {
               <div className="pt-4 border-t border-white/10 mt-4 space-y-3">
                 <h4 className="text-white font-semibold text-sm px-4">Contact Us</h4>
 
-                <a href="tel:+14355551234" className="flex items-center gap-3 px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
+                <a href="tel:+14356286663" className="flex items-center gap-3 px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
                   <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
                     <span className="text-xs text-white/50 block">Call Us</span>
-                    <span className="text-sm font-medium">(435) 555-1234</span>
+                    <span className="text-sm font-medium">(435) 628-6663</span>
                   </div>
                 </a>
 

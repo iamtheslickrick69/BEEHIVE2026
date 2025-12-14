@@ -1230,7 +1230,7 @@ export function AIAssistant() {
             whileHover={{ scale: hasScrolled ? 1.0 : 1.07 }}
             whileTap={{ scale: hasScrolled ? 0.88 : 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="group fixed bottom-6 right-4 sm:bottom-10 sm:right-6 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 flex items-center justify-center z-50 bg-transparent"
+            className="group fixed bottom-6 right-4 sm:bottom-10 sm:right-6 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 flex items-center justify-center z-[100] bg-transparent"
             style={{
               filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.1))',
             }}
@@ -1327,15 +1327,15 @@ export function AIAssistant() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             style={{
-              width: typeof window !== 'undefined' && window.innerWidth < 768 ? '100vw' : size.width,
-              height: typeof window !== 'undefined' && window.innerWidth < 768 ? '100vh' : size.height
+              width: typeof window !== 'undefined' && window.innerWidth < 768 ? 'calc(100vw - 16px)' : size.width,
+              height: typeof window !== 'undefined' && window.innerWidth < 768 ? 'calc(100vh - 80px)' : size.height
             }}
             className={cn(
-              "fixed z-50 bg-[#0a0a0a] shadow-2xl border border-white/10 flex flex-col overflow-hidden",
-              // Mobile: fullscreen
-              "inset-0 rounded-none",
+              "fixed z-[100] bg-[#0a0a0a] shadow-2xl border border-white/10 flex flex-col overflow-hidden",
+              // Mobile: bottom of screen with margin, rounded corners
+              "bottom-2 left-2 right-2 rounded-2xl",
               // Desktop: bottom-right corner, not fullscreen
-              "md:inset-auto md:bottom-10 md:right-6 md:rounded-2xl",
+              "md:inset-auto md:bottom-10 md:right-6 md:left-auto md:top-auto md:rounded-2xl",
               isResizing && "select-none",
             )}
           >
