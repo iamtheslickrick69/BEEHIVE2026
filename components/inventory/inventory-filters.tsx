@@ -8,18 +8,20 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
-import { Slider } from "@/components/ui/slider"
 import { cn } from "@/lib/utils"
 
 const categories = [
-  { id: "excavation", label: "Excavation & Earthmoving", count: 24 },
-  { id: "landscaping", label: "Landscaping", count: 18 },
-  { id: "concrete", label: "Concrete & Masonry", count: 15 },
-  { id: "power", label: "Power & Welding", count: 22 },
-  { id: "tools", label: "Hand & Power Tools", count: 45 },
-  { id: "aerial", label: "Aerial & Lifting", count: 12 },
-  { id: "trailers", label: "Trailers & Transport", count: 16 },
-  { id: "event", label: "Event & Party", count: 30 },
+  { id: "heavy-equipment", label: "Heavy Equipment", count: 18 },
+  { id: "trailers-transport", label: "Trailers & Transport", count: 18 },
+  { id: "concrete-compaction", label: "Concrete & Compaction", count: 16 },
+  { id: "power-tools", label: "Power Tools", count: 15 },
+  { id: "carpet-floor-tools", label: "Carpet & Floor Tools", count: 12 },
+  { id: "water-equipment", label: "Water Equipment", count: 3 },
+  { id: "automotive", label: "Automotive", count: 4 },
+  { id: "general-tools", label: "General Tools", count: 6 },
+  { id: "generators-welders", label: "Generators & Welders", count: 8 },
+  { id: "scaffolding-ladders", label: "Scaffolding & Ladders", count: 9 },
+  { id: "landscaping-garden", label: "Landscaping & Garden", count: 16 },
 ]
 
 export function InventoryFilters() {
@@ -29,7 +31,6 @@ export function InventoryFilters() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
     searchParams.get("category")?.split(",").filter(Boolean) || [],
   )
-  const [priceRange, setPriceRange] = useState([0, 500])
   const [isFiltersOpen, setIsFiltersOpen] = useState(true)
 
   const handleCategoryChange = (categoryId: string, checked: boolean) => {
@@ -39,11 +40,10 @@ export function InventoryFilters() {
   const clearFilters = () => {
     setSearch("")
     setSelectedCategories([])
-    setPriceRange([0, 500])
     router.push("/inventory")
   }
 
-  const hasActiveFilters = search || selectedCategories.length > 0 || priceRange[0] > 0 || priceRange[1] < 500
+  const hasActiveFilters = search || selectedCategories.length > 0
 
   return (
     <div className="space-y-6">
@@ -119,17 +119,6 @@ export function InventoryFilters() {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Price Range */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <h4 className="text-sm font-medium text-foreground">Daily Rate</h4>
-              <span className="text-sm text-muted-foreground">
-                ${priceRange[0]} - ${priceRange[1]}+
-              </span>
-            </div>
-            <Slider value={priceRange} onValueChange={setPriceRange} min={0} max={500} step={25} className="w-full" />
           </div>
 
           {/* Availability */}

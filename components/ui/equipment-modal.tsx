@@ -73,13 +73,13 @@ export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEq
             className="fixed inset-0 bg-black/95 backdrop-blur-md z-50"
           />
 
-          {/* Modal - 3/4 screen overlay */}
+          {/* Modal - Extra wide centered modal for better image display */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", damping: 30, stiffness: 400 }}
-            className="fixed inset-4 md:inset-8 lg:inset-12 bg-[#111] rounded-2xl z-50 overflow-hidden border border-white/10 flex flex-col max-h-[90vh]"
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[96vw] max-w-[1400px] max-h-[88vh] bg-[#111] rounded-2xl z-50 overflow-hidden border border-white/10 flex flex-col"
           >
             {/* Header Bar */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 shrink-0">
@@ -126,13 +126,14 @@ export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEq
             <div className="flex-1 overflow-y-auto">
               <div className="grid lg:grid-cols-2 gap-0 min-h-full">
                 {/* Left: Image Section */}
-                <div className="bg-[#0a0a0a] p-6 lg:p-8 flex flex-col">
-                  {/* Main Image */}
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#1a1a1a] flex-1">
+                <div className="bg-[#0a0a0a] p-6 lg:p-10 flex flex-col items-center justify-center">
+                  {/* Main Image - adaptive sizing with better quality */}
+                  <div className="relative max-w-[85%] max-h-[60vh] rounded-2xl overflow-hidden bg-[#1a1a1a] flex items-center justify-center">
                     <img
                       src={images[currentImageIndex] || "/placeholder.svg"}
                       alt={equipment.name}
-                      className="w-full h-full object-cover"
+                      className="max-w-full max-h-[60vh] object-contain"
+                      style={{ imageRendering: 'high-quality' }}
                     />
 
                     {/* Image Navigation - only if multiple images */}
@@ -162,7 +163,7 @@ export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEq
                           key={idx}
                           onClick={() => setCurrentImageIndex(idx)}
                           className={cn(
-                            "w-16 h-16 rounded-lg overflow-hidden border-2 transition-all",
+                            "w-16 h-16 rounded-xl overflow-hidden border-2 transition-all",
                             idx === currentImageIndex
                               ? "border-primary"
                               : "border-transparent opacity-60 hover:opacity-100",
@@ -187,24 +188,6 @@ export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEq
                       <span>Delivery & Pickup Available</span>
                     </div>
                   )}
-
-                  {/* Pricing Card */}
-                  <div className="bg-[#1a1a1a] rounded-xl p-5 border border-white/10 mb-6">
-                    <div className="grid grid-cols-3 gap-4 text-center">
-                      <div>
-                        <div className="text-3xl font-bold text-primary">${equipment.dailyRate}</div>
-                        <div className="text-sm text-white/50">Per Day</div>
-                      </div>
-                      <div className="border-l border-white/10">
-                        <div className="text-2xl font-bold text-white">${equipment.weeklyRate}</div>
-                        <div className="text-sm text-white/50">Per Week</div>
-                      </div>
-                      <div className="border-l border-white/10">
-                        <div className="text-2xl font-bold text-white">${equipment.monthlyRate}</div>
-                        <div className="text-sm text-white/50">Per Month</div>
-                      </div>
-                    </div>
-                  </div>
 
                   {/* Description */}
                   <div className="mb-6">
@@ -283,8 +266,7 @@ export function EquipmentModal({ equipment, isOpen, onClose, onAskAI, onSelectEq
                           />
                         </div>
                         <h4 className="font-medium text-white text-sm mb-1 line-clamp-1">{item.name}</h4>
-                        <div className="flex items-center justify-between">
-                          <span className="text-primary font-bold">${item.dailyRate}/day</span>
+                        <div className="flex items-center justify-end">
                           {item.available ? (
                             <span className="text-xs text-green-400">In Stock</span>
                           ) : (

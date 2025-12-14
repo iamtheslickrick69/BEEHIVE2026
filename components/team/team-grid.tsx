@@ -17,98 +17,98 @@ const teamMembers: TeamMember[] = [
     name: "Jenny Baker",
     role: "Customer Service & Sales",
     department: "Sales",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-jennybaker.jpg",
   },
   {
     id: "rickelle-limb",
     name: "Rickelle Limb",
     role: "Equipment Repair Coordinator",
     department: "Service",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-rickellelimb.jpg",
   },
   {
     id: "nicole-souders",
     name: "Nicole Souders",
     role: "Counter",
     department: "Customer Service",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-nicolesouders.jpg",
   },
   {
     id: "taunya-somerville",
     name: "Taunya Somerville",
     role: "Counter",
     department: "Customer Service",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-taunyasomerville.jpg",
   },
   {
     id: "ben-campbell",
     name: "Ben Campbell",
     role: "Mechanic",
     department: "Service",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-bencampbell.jpg",
   },
   {
     id: "terry-lee",
     name: "Terry Lee",
     role: "Mechanic",
     department: "Service",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-terrylee.jpg",
   },
   {
     id: "jody-brinkerhoff",
     name: "Jody Brinkerhoff",
     role: "Mechanic",
     department: "Service",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-jodybrinkerhoff.jpg",
   },
   {
     id: "jeremy-stratman",
     name: "Jeremy Stratman",
     role: "Delivery Driver",
     department: "Operations",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-jeremystratman.jpg",
   },
   {
     id: "delano-gonzales",
     name: "Delano Gonzales",
     role: "Yard Tech",
     department: "Operations",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-delanogonzales.jpg",
   },
   {
     id: "hunter-jones",
     name: "Hunter Jones",
     role: "Yard Tech",
     department: "Operations",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-hunterjones.jpg",
   },
   {
     id: "jake-ryan",
     name: "Jake Ryan",
     role: "Yard Tech",
     department: "Operations",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-jakeryan.jpg",
   },
   {
     id: "terron-meadows",
     name: "Terron Meadows",
     role: "Yard Tech",
     department: "Operations",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-terronmeadows.jpg",
   },
   {
     id: "brayden-jensen",
     name: "Brayden Jensen",
     role: "Yard Tech",
     department: "Operations",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-braydenjensen.jpg",
   },
   {
     id: "julie-campbell",
     name: "Julie Campbell",
     role: "Member",
     department: "Leadership",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/team-juliecampbell.jpg",
   },
 ]
 
@@ -129,7 +129,7 @@ export function TeamGrid() {
               {/* Photo */}
               <div className="relative h-64 overflow-hidden">
                 <img
-                  src={member.image || "/placeholder.svg"}
+                  src={`${member.image}?v=${Date.now()}`}
                   alt={member.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

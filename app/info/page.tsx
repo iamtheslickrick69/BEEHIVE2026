@@ -44,97 +44,112 @@ const quickReference = [
   { label: "Cash Deposit", value: "2.5x Rental", icon: DollarSign },
 ]
 
+const departmentColors: Record<string, string> = {
+  Leadership: "text-purple-500 bg-purple-500/10",
+  Sales: "text-blue-500 bg-blue-500/10",
+  "Customer Service": "text-green-500 bg-green-500/10",
+  Service: "text-red-500 bg-red-500/10",
+  Operations: "text-yellow-500 bg-yellow-500/10",
+}
+
 const teamMembers = [
+  {
+    id: "julie-campbell",
+    name: "Julie Campbell",
+    role: "Member",
+    department: "Leadership",
+    image: "/team-juliecampbell.jpg",
+  },
   {
     id: "jenny-baker",
     name: "Jenny Baker",
     role: "Customer Service & Sales",
     department: "Sales",
-    image: "/professional-woman-customer-service.png",
-  },
-  {
-    id: "rickelle-limb",
-    name: "Rickelle Limb",
-    role: "Equipment Repair Coordinator",
-    department: "Service",
-    image: "/professional-woman-event-planner-portrait.jpg",
+    image: "/team-jennybaker.jpg",
   },
   {
     id: "nicole-souders",
     name: "Nicole Souders",
     role: "Counter",
     department: "Customer Service",
-    image: "/professional-woman-landscape-architect-portrait.jpg",
+    image: "/team-nicolesouders.jpg",
   },
   {
     id: "taunya-somerville",
     name: "Taunya Somerville",
     role: "Counter",
     department: "Customer Service",
-    image: "/professional-woman-manager-business-portrait.jpg",
+    image: "/team-taunyasomerville.jpg",
+  },
+  {
+    id: "rickelle-limb",
+    name: "Rickelle Limb",
+    role: "Equipment Repair Coordinator",
+    department: "Service",
+    image: "/team-rickellelimb.jpg",
   },
   {
     id: "ben-campbell",
     name: "Ben Campbell",
     role: "Mechanic",
     department: "Service",
-    image: "/professional-man-mechanic-technician-portrait.jpg",
+    image: "/team-bencampbell.jpg",
   },
   {
     id: "terry-lee",
     name: "Terry Lee",
     role: "Mechanic",
     department: "Service",
-    image: "/professional-man-technician-mechanic-portrait.jpg",
+    image: "/team-terrylee.jpg",
   },
   {
     id: "jody-brinkerhoff",
     name: "Jody Brinkerhoff",
     role: "Mechanic",
     department: "Service",
-    image: "/professional-headshot-contractor.jpg",
+    image: "/team-jodybrinkerhoff.jpg",
   },
   {
     id: "jeremy-stratman",
     name: "Jeremy Stratman",
     role: "Delivery Driver",
     department: "Operations",
-    image: "/professional-contractor-man-portrait.jpg",
+    image: "/team-jeremystratman.jpg",
   },
   {
     id: "delano-gonzales",
     name: "Delano Gonzales",
     role: "Yard Tech",
     department: "Operations",
-    image: "/professional-headshot-construction-worker.jpg",
+    image: "/team-delanogonzales.jpg",
   },
   {
     id: "hunter-jones",
     name: "Hunter Jones",
     role: "Yard Tech",
     department: "Operations",
-    image: "/professional-headshot-man-landscaping.jpg",
+    image: "/team-hunterjones.jpg",
   },
   {
     id: "jake-ryan",
     name: "Jake Ryan",
     role: "Yard Tech",
     department: "Operations",
-    image: "/friendly-homeowner-man-portrait-casual.jpg",
+    image: "/team-jakeryan.jpg",
   },
   {
     id: "terron-meadows",
     name: "Terron Meadows",
     role: "Yard Tech",
     department: "Operations",
-    image: "/professional-man-owner-construction-business-portr.jpg",
+    image: "/team-terronmeadows.jpg",
   },
   {
-    id: "julie-campbell",
-    name: "Julie Campbell",
-    role: "Member",
-    department: "Leadership",
-    image: "/professional-woman-sales-representative-portrait.jpg",
+    id: "brayden-jensen",
+    name: "Brayden Jensen",
+    role: "Yard Tech",
+    department: "Operations",
+    image: "/team-braydenjensen.jpg",
   },
 ]
 
@@ -497,38 +512,20 @@ function InfoPageContent() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.03 }}
-                      className="group bg-white/5 rounded-xl border border-white/10 overflow-hidden hover:shadow-xl hover:border-yellow-500/50 transition-all"
+                      className="group bg-white/5 rounded-xl overflow-hidden hover:shadow-xl transition-all"
                     >
-                      <div className="relative h-48 overflow-hidden">
+                      <div className="relative h-56 overflow-hidden">
                         <Image
                           src={member.image}
                           alt={member.name}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-                        {/* Contact on Hover */}
-                        <div className="absolute bottom-2 left-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <a
-                            href="mailto:beehiverental@infowest.com"
-                            className="flex-1 h-7 rounded-lg bg-white/90 flex items-center justify-center hover:bg-yellow-500 transition-colors"
-                            aria-label={`Email ${member.name}`}
-                          >
-                            <Mail className="w-3 h-3" />
-                          </a>
-                          <a
-                            href="tel:+14356286663"
-                            className="flex-1 h-7 rounded-lg bg-white/90 flex items-center justify-center hover:bg-yellow-500 transition-colors"
-                            aria-label={`Call ${member.name}`}
-                          >
-                            <Phone className="w-3 h-3" />
-                          </a>
-                        </div>
                       </div>
 
                       <div className="p-3">
-                        <span className="text-xs font-medium text-yellow-500 bg-yellow-500/10 px-2 py-0.5 rounded">
+                        <span className={`text-xs font-medium px-2 py-0.5 rounded ${departmentColors[member.department] || "text-gray-500 bg-gray-500/10"}`}>
                           {member.department}
                         </span>
                         <h3 className="font-semibold text-white mt-2 text-sm">{member.name}</h3>
@@ -536,6 +533,24 @@ function InfoPageContent() {
                       </div>
                     </motion.div>
                   ))}
+
+                  {/* Join the Team Card */}
+                  <motion.a
+                    href="tel:+14356286663"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: teamMembers.length * 0.03 }}
+                    className="group bg-white/5 rounded-xl overflow-hidden hover:shadow-xl transition-all cursor-pointer flex flex-col items-center justify-center h-full min-h-[320px]"
+                  >
+                    <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-yellow-500/20 to-yellow-600/10 flex items-center justify-center">
+                      <Users className="w-20 h-20 text-yellow-500/40" />
+                    </div>
+
+                    <div className="p-3 text-center flex-1 flex flex-col justify-center">
+                      <h3 className="font-semibold text-white text-sm mb-2">Join the BeeHive Family</h3>
+                      <p className="text-xs text-white/60">We're always looking for great people</p>
+                    </div>
+                  </motion.a>
                 </div>
               </motion.div>
             )}

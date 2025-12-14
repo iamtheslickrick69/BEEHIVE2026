@@ -32,7 +32,7 @@ export function EquipmentCard({ equipment, viewMode, onClick }: EquipmentCardPro
         className="bg-card rounded-xl border border-white/10 overflow-hidden hover:border-white/20 hover:shadow-lg hover:shadow-black/20 transition-all cursor-pointer"
       >
         <div className="flex flex-col md:flex-row">
-          <div className="relative w-full md:w-72 h-48 md:h-auto shrink-0">
+          <div className="relative w-full md:w-72 h-48 md:h-auto shrink-0 overflow-hidden md:rounded-l-2xl rounded-t-2xl md:rounded-t-xl">
             <img
               src={equipment.image || "/placeholder.svg"}
               alt={equipment.name}
@@ -78,10 +78,6 @@ export function EquipmentCard({ equipment, viewMode, onClick }: EquipmentCardPro
               </div>
 
               <div className="flex flex-col items-start md:items-end gap-3">
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-foreground">${equipment.dailyRate}</div>
-                  <div className="text-sm text-muted-foreground">per day</div>
-                </div>
                 <div className="flex items-center gap-2 text-sm">
                   {equipment.available ? (
                     <span className="flex items-center gap-1 text-green-500">
@@ -117,7 +113,7 @@ export function EquipmentCard({ equipment, viewMode, onClick }: EquipmentCardPro
       className="bg-card rounded-xl border border-white/10 overflow-hidden hover:border-white/20 hover:shadow-xl hover:shadow-black/20 transition-all duration-300 cursor-pointer group"
     >
       {/* Image - clean with subtle zoom on hover */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 overflow-hidden rounded-t-2xl">
         <img
           src={equipment.image || "/placeholder.svg"}
           alt={equipment.name}
@@ -150,36 +146,25 @@ export function EquipmentCard({ equipment, viewMode, onClick }: EquipmentCardPro
         <h3 className="font-semibold text-foreground mt-1 mb-2 line-clamp-1">{equipment.name}</h3>
         <p className="text-muted-foreground text-sm line-clamp-2 mb-4">{equipment.description}</p>
 
-        {/* Status & Price */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2 text-xs">
-            {equipment.available ? (
-              <span className="flex items-center gap-1 text-green-500">
-                <span className="w-2 h-2 bg-green-500 rounded-full" />
-                In Stock
-              </span>
-            ) : (
-              <span className="flex items-center gap-1 text-orange-500">
-                <Clock className="w-3 h-3" />
-                Reserved
-              </span>
-            )}
-            {equipment.delivery && (
-              <span className="flex items-center gap-1 text-muted-foreground">
-                <Truck className="w-3 h-3" />
-              </span>
-            )}
-          </div>
-          <div className="text-right">
-            <span className="text-xl font-bold text-foreground">${equipment.dailyRate}</span>
-            <span className="text-muted-foreground text-xs">/day</span>
-          </div>
-        </div>
-
-        {/* Weekly/Monthly Rates */}
-        <div className="flex gap-2 text-xs text-muted-foreground border-t border-white/10 pt-3">
-          <span className="bg-white/5 px-2 py-1 rounded-md">${equipment.weeklyRate}/week</span>
-          <span className="bg-white/5 px-2 py-1 rounded-md">${equipment.monthlyRate}/month</span>
+        {/* Status */}
+        <div className="flex items-center gap-2 text-xs">
+          {equipment.available ? (
+            <span className="flex items-center gap-1 text-green-500">
+              <span className="w-2 h-2 bg-green-500 rounded-full" />
+              In Stock
+            </span>
+          ) : (
+            <span className="flex items-center gap-1 text-orange-500">
+              <Clock className="w-3 h-3" />
+              Reserved
+            </span>
+          )}
+          {equipment.delivery && (
+            <span className="flex items-center gap-1 text-muted-foreground">
+              <Truck className="w-3 h-3" />
+              Delivery Available
+            </span>
+          )}
         </div>
       </div>
     </motion.div>
