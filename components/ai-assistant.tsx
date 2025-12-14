@@ -969,7 +969,6 @@ function generateResponse(text: string): ResponseData {
 export function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false)
   const [isMinimized, setIsMinimized] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
   const [hasScrolled, setHasScrolled] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -1087,13 +1086,6 @@ export function AIAssistant() {
         // Ignore parse errors
       }
     }
-
-    // Set loading to false after 2 seconds
-    const loadingTimer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2000)
-
-    return () => clearTimeout(loadingTimer)
   }, [])
 
   // Scroll detection for orb shrink effect
@@ -1119,25 +1111,24 @@ export function AIAssistant() {
       const heightDiff = window.innerHeight - newHeight
       setKeyboardVisible(heightDiff > 150) // Keyboard typically >150px
 
-      // Scroll to bottom when keyboard opens
-      if (heightDiff > 150 && isOpen) {
-        setTimeout(() => scrollToBottom(true), 100)
+      // BETTER: Only scroll if user is already at bottom (not disruptive)
+      if (heightDiff > 150 && isOpen && messagesContainerRef.current) {
+        const container = messagesContainerRef.current
+        const isNearBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 100
+
+        if (isNearBottom) {
+          setTimeout(() => scrollToBottom(true), 100)
+        }
       }
     }
 
     // Use visualViewport API (best for iOS)
     if (window.visualViewport) {
       window.visualViewport.addEventListener('resize', handleResize)
+      return () => window.visualViewport.removeEventListener('resize', handleResize)
     } else {
       window.addEventListener('resize', handleResize)
-    }
-
-    return () => {
-      if (window.visualViewport) {
-        window.visualViewport.removeEventListener('resize', handleResize)
-      } else {
-        window.removeEventListener('resize', handleResize)
-      }
+      return () => window.removeEventListener('resize', handleResize)
     }
   }, [isOpen, scrollToBottom])
 
@@ -1223,11 +1214,6 @@ export function AIAssistant() {
     setInput("")
     setIsTyping(true)
 
-    // CRITICAL: Blur input to dismiss keyboard on mobile
-    if (inputRef.current && typeof window !== 'undefined' && window.innerWidth < 768) {
-      inputRef.current.blur()
-    }
-
     // Use conversational response generation with context memory
     // Realistic typing delay (2.5-4 seconds) for natural feel
     setTimeout(
@@ -1252,13 +1238,23 @@ export function AIAssistant() {
 
         setMessages((prev) => [...prev, assistantMessage])
         setIsTyping(false)
+
+        // BETTER: Blur keyboard AFTER AI responds (so user can type follow-up while waiting)
+        if (inputRef.current && typeof window !== 'undefined' && window.innerWidth < 768) {
+          setTimeout(() => {
+            inputRef.current?.blur()
+          }, 100)
+        }
       },
       2500 + Math.random() * 1500, // 2.5-4 seconds for realistic typing feel
     )
   }
 
   const isWide = size.width > 500
-  const isShort = size.height < 500
+  // Use viewport height for mobile, size.height for desktop
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+  const effectiveHeight = isMobile ? viewportHeight : size.height
+  const isShort = effectiveHeight < 500
   const showQuickReplies = !isShort && messages.length <= 2
 
   return (
@@ -1465,15 +1461,15 @@ export function AIAssistant() {
               className="md:hidden flex justify-center pt-3 pb-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.15 }}
             >
               <motion.div
                 className="w-12 h-1 bg-white/40 rounded-full"
-                animate={{ scaleX: [1, 1.2, 1] }}
+                initial={{ scaleX: 0.8 }}
+                animate={{ scaleX: 1 }}
                 transition={{
-                  duration: 1.5,
-                  repeat: 2,
-                  ease: "easeInOut"
+                  duration: 0.3,
+                  ease: "easeOut"
                 }}
               />
             </motion.div>
